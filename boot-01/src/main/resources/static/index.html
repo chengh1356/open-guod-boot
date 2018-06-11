@@ -8,14 +8,15 @@
 <body>
 <form id="hello">
     <input id="tijiao" type="button" value="提交">
+    <br>
 </form>
 <script type="text/javascript">
     var ct = 0;
     for (var i = 0; i < 10; i++) {
-        var str = '<input name="users[' + ct + '].username" value="name' + ct + '">';
-        var str1 = '<input name="users[' + ct + '].password" value="password' + ct + '">';
+        var name = '<input name="users[' + ct + '].username" value="name' + ct + '">';
+        var password = '<input name="users[' + ct + '].password" value="password' + ct + '">';
         ct++;
-        $('#hello').append(str).append(str1).append('<br>');
+        $('#hello').append(name).append(password).append('<br>');
     }
     $('#tijiao').click(function () {
         $.post('/index', $('#hello').serialize(), function (data) {
