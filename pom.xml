@@ -13,10 +13,15 @@
 
     <!-- 项目模块 -->
     <modules>
-        <!-- 01boot入门的hello world -->
+        <!-- 点睛spring -->
+        <module>base-01</module>
+        <!-- 点睛spring MVC -->
+        <module>base-02</module>
+        <!-- hello world -->
         <module>boot-01</module>
-        <!-- 02boot入门之配置文件 -->
+        <!-- 配置文件 -->
         <module>boot-02</module>
+        <!-- 配置文件 -->
         <module>boot-03</module>
     </modules>
 
