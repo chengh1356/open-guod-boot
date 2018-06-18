@@ -19,7 +19,7 @@
         <module>base-02</module>
         <!-- hello world -->
         <module>boot-01</module>
-        <!-- 配置文 -->
+        <!-- 配置文件 -->
         <module>boot-02</module>
         <!-- 配置文件 -->
         <module>boot-03</module>
