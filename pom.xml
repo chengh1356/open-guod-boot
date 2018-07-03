@@ -17,12 +17,26 @@
         <module>base-01</module>
         <!-- 点睛spring MVC -->
         <module>base-02</module>
-        <!-- hello world -->
+        <!-- 实战spring boot入门基础 -->
         <module>boot-01</module>
-        <!-- 配置文件 -->
+        <!-- 实战spring boot的WEB应用视图开发 -->
         <module>boot-02</module>
-        <!-- 配置文件 -->
+        <!-- 实战spring boot中log日志配置 -->
         <module>boot-03</module>
+        <!-- 实战spring boot中WEB应用开发中常用基础操作-->
+        <module>boot-04</module>
+        <!-- 实战spring boot中简洁的JSON和XML数据交互-->
+        <module>boot-05</module>
+        <!-- 实战spring boot中Rest full接口-->
+        <module>boot-06</module>
+        <!-- 实战spring boot中让传输数据更安全 -->
+        <module>boot-07</module>
+        <!-- 实战spring boot中SQL关系型数据库 -->
+        <module>boot-08</module>
+        <!-- 实战spring boot中NoSQL非关系型数据库-->
+        <module>boot-09</module>
+        <!-- 实战spring boot中定时任务 -->
+        <module>boot-10</module>
     </modules>
 
     <parent>

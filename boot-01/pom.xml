@@ -14,5 +14,24 @@
     <packaging>pom</packaging>
     <description>spring boot入门hello world！</description>
 
+    <modules>
+        <!-- Spring boot简单项目的快速搭建 -->
+        <module>boot-01-01</module>
+        <!-- Spring boot配置文件详解：properties -->
+        <module>boot-01-02</module>
+        <!-- Spring boot配置文件详解：yml、yaml -->
+        <module>boot-01-03</module>
+        <!-- Spring boot配置文件详解：多配置文件 -->
+        <module>boot-01-04</module>
+        <!-- Spring boot配置文件：多环境配置（dev、test、prod）-->
+        <module>boot-01-05</module>
+        <!-- Spring boot配置文件：优雅的属性配置 -->
+        <module>boot-01-06</module>
+        <!-- Spring boot域对象：VO、DTO、DO、PO -->
+        <module>boot-01-07</module>
+        <!-- Spring boot工具类Java8中的LocalDateTime -->
+        <module>boot-01-08</module>
+    </modules>
+
 
 </project>
