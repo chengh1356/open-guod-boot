@@ -10,11 +10,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>cn.hacz.edu</groupId>
     <artifactId>boot-01</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <description>spring boot入门hello world！</description>
-    <version>0.0.1-SNAPSHOT</version>
 
 
 </project>
