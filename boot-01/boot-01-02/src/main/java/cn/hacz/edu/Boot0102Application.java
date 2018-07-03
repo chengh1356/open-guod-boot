@@ -1,7 +1,7 @@
 package cn.hacz.edu;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * project - ETC发票系统
@@ -15,6 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Boot0102Application {
     public static void main(String[] args) {
-        SpringApplication.run(Boot0102Application.class, args);
+        new SpringApplicationBuilder(Boot0102Application.class).run(args);
     }
 }
