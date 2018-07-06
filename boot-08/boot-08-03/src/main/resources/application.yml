@@ -7,12 +7,13 @@ spring:
   datasource:
     username: root
     password: 123654
+#    url: jdbc:mysql:///test   数据库简写方式
     url: jdbc:mysql://127.0.0.1:3306/test
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
-    show-sql: true
+    show-sql: true  # 显示执行的SQL语句
     hibernate:
-      ddl-auto: create
+      ddl-auto: create  #property: none, validate, update, create, and create-drop
     properties:
       hibernate:
-        format_sql: true
+        format_sql: true   # 格式化SQL语句
