@@ -25,8 +25,9 @@
 | boot-01-04        |  Spring boot配置文件详解：多配置文件   |  简书文档资料  |[官网]()|
 | boot-01-05        |  Spring boot配置文件：多环境配置（dev、test、prod）   |  简书文档资料  |[官网]()|
 | boot-01-06        |  Spring boot配置文件：优雅的属性配置   |  简书文档资料  |[官网]()|
-| boot-01-07        |  Spring boot域对象：VO、DTO、DO、PO   |  简书文档资料  |[官网]()|
-| boot-01-08        |  Spring boot工具类Java8中的LocalDateTime   |  简书文档资料  |[官网]()|
+| boot-01-07        |  Spring boot单元测试：优雅的单元测试   |  简书文档资料  |[官网]()|
+| boot-01-08        |  Spring boot域对象：VO、DTO、DO、PO   |  简书文档资料  |[官网]()|
+| boot-01-09        |  Spring boot工具类Java8中的LocalDateTime   |  简书文档资料  |[官网]()|
 
 
 ##### boot-02 实战spring boot的WEB应用视图开发
