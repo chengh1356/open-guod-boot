@@ -13,5 +13,22 @@
     <artifactId>boot-08</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <modules>
+        <!-- SQL关系型数据库-JDBC -->
+        <module>boot-08-01</module>
+        <!-- SQL关系型数据库-JDBCTemplate -->
+        <module>boot-08-02</module>
+        <!-- SQL关系型数据库-Spring-data-JPA -->
+        <module>boot-08-03</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.46</version>
+        </dependency>
+    </dependencies>
+
     
 </project>
