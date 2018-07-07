@@ -10,13 +10,13 @@ spring:
     username: root
     password: 123456
 #    url: jdbc:mysql:///test   数据库简写方式
-    url: jdbc:mysql://127.0.0.1:3306/test
+    url: jdbc:mysql://127.0.0.1:3306/boot
     driver-class-name: com.mysql.jdbc.Driver
 # 03ORM产品配置
   jpa:
     show-sql: true  # 显示执行的SQL语句
     hibernate:
-      ddl-auto: create     # 数据库创建方式（property: none, validate, update, create, and create-drop）
+      ddl-auto: update     # 数据库创建方式（property: none, validate, update, create, and create-drop）
       naming:   # 命名配置（默认是遇到大写字母 加"_"的命名SpringPhysicalNamingStrategy；无修改命名PhysicalNamingStrategyStandardImpl）
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
 #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

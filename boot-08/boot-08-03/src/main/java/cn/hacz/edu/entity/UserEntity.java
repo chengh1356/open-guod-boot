@@ -17,7 +17,7 @@ import java.util.Date;
  * @Description 功能模块：
  */
 @Entity
-@Table(name = "tb_jpa_user")
+@Table(name = "user")
 @Where(clause = "del_flag=0")
 @Data
 public class UserEntity {
