@@ -1,0 +1,14 @@
+server:
+  port: 10802
+  tomcat:
+    uri-encoding: utf-8
+    max-connections: 30
+    min-spare-threads: 20
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///boot
+
+#    https://blog.csdn.net/saytime/article/details/74783294

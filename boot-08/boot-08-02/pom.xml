@@ -12,5 +12,12 @@
 
     <artifactId>boot-08-02</artifactId>
 
+    <dependencies>
+        <!-- 轻量级的jdbctemplate -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
