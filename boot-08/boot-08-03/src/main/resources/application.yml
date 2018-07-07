@@ -1,19 +1,26 @@
+# 01web服务启动配置
 server:
   port: 10803
   tomcat:
     uri-encoding: UTF-8
     max-connections: 20
 spring:
+# 02数据库连接基础配置
   datasource:
     username: root
-    password: 123654
+    password: 123456
 #    url: jdbc:mysql:///test   数据库简写方式
     url: jdbc:mysql://127.0.0.1:3306/test
     driver-class-name: com.mysql.jdbc.Driver
+# 03ORM产品配置
   jpa:
     show-sql: true  # 显示执行的SQL语句
     hibernate:
-      ddl-auto: create  #property: none, validate, update, create, and create-drop
+      ddl-auto: create     # 数据库创建方式（property: none, validate, update, create, and create-drop）
+      naming:   # 命名配置（默认是遇到大写字母 加"_"的命名SpringPhysicalNamingStrategy；无修改命名PhysicalNamingStrategyStandardImpl）
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
         format_sql: true   # 格式化SQL语句
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect   # 设置数据库引擎

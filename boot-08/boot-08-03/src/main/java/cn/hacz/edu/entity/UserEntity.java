@@ -1,8 +1,11 @@
 package cn.hacz.edu.entity;
 
+import lombok.Data;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * project -
@@ -16,34 +19,21 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tb_jpa_user")
 @Where(clause = "del_flag=0")
+@Data
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "userName")
     private String name;
     private boolean delFlag;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isDelFlag() {
-        return delFlag;
-    }
-
-    public void setDelFlag(boolean delFlag) {
-        this.delFlag = delFlag;
-    }
+    @Lob
+    @Column(columnDefinition = "text")
+    private String text;
+    /**
+     * birthday和birthdayStart映射到数据库的类型是：datetime；birthdayEnd映射到数据库的类型是：date
+     */
+    private java.sql.Date birthdayEnd;
+    private Date birthdayStart;
+    private LocalDateTime birthday;
 }

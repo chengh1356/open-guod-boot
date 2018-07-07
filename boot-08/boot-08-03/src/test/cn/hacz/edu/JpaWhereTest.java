@@ -1,11 +1,15 @@
 package cn.hacz.edu;
 
 import cn.hacz.edu.dao.UserDaoI;
+import cn.hacz.edu.entity.UserEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * project -
@@ -24,6 +28,12 @@ public class JpaWhereTest {
 
     @Test
     public void test() {
-        userDaoI.findById(1);
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("guod");
+        userEntity.setBirthday(LocalDateTime.now());
+        userEntity.setBirthdayStart(new Date());
+        userEntity.setBirthdayEnd(java.sql.Date.valueOf(LocalDateTime.now().toLocalDate()));
+        UserEntity save = userDaoI.save(userEntity);
+        System.out.println(save.getBirthday());
     }
 }
