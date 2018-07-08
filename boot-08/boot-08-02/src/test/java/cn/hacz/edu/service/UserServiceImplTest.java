@@ -21,21 +21,28 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class UserServiceImplTest {
     @Autowired
-    private UserServiceI userServiceI;
-    @Autowired
     private UserDaoI userDaoI;
 
     @Test
-    public void insert() throws Exception {
-        userServiceI.insert("guod", 22);
-    }
-
-    @Test
-    public void deleteByName() {
+    public void addStudent() {
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setAge(12);
         studentEntity.setName("java");
         userDaoI.add(studentEntity);
+    }
+
+    @Test
+    public void deleteStudent() {
+        int delete = userDaoI.delete(4);
+        System.out.println(delete);
+    }
+
+    @Test
+    public void updateStudent() {
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setName("张三");
+        studentEntity.setAge(36);
+        userDaoI.update(1, studentEntity);
     }
 
 }

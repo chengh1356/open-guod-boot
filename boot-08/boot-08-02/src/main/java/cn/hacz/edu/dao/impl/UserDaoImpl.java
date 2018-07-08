@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,18 +29,20 @@ public class UserDaoImpl implements UserDaoI {
     @Override
     @Transactional
     public int add(StudentEntity studentEntity) {
-        return jdbcTemplate.update("insert into student(name, age) values(?, ?)",
-                studentEntity.getName(), studentEntity.getAge());
+        return jdbcTemplate.update("insert into student(name, age,create_date_time) values(?, ?, ?)",
+                studentEntity.getName(), studentEntity.getAge(), new Date());
     }
 
     @Override
+    @Transactional
     public int delete(Integer id) {
-        return 0;
+        return jdbcTemplate.update("delete from student where id = ?", id);
     }
 
     @Override
+    @Transactional
     public int update(Integer id, StudentEntity studentEntity) {
-        return 0;
+        return jdbcTemplate.update("update student set name = ? ,age = ? where id = ? ", studentEntity.getName(), studentEntity.getAge(), id);
     }
 
     @Override

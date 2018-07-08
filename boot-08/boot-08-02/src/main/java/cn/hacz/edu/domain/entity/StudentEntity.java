@@ -2,6 +2,8 @@ package cn.hacz.edu.domain.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * project - ETC发票系统
  *
@@ -16,4 +18,5 @@ public class StudentEntity {
     private String id;
     private String name;
     private int age;
+    private Date createDateTime;
 }
