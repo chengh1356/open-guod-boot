@@ -6,25 +6,12 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>open-guod-boot</artifactId>
+        <artifactId>boot-05</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot-05</artifactId>
+    <artifactId>boot-05-04</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
-    <modules>
-        <module>boot-05-01</module>
-        <module>boot-05-02</module>
-        <module>boot-05-03</module>
-        <module>boot-05-04</module>
-    </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-    </dependencies>
+    
 </project>
