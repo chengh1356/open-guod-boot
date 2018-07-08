@@ -11,8 +11,7 @@
     </parent>
 
     <artifactId>boot-08</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-
+    <packaging>pom</packaging>
     <modules>
         <!-- SQL关系型数据库-JDBC -->
         <module>boot-08-01</module>
@@ -30,5 +29,5 @@
         </dependency>
     </dependencies>
 
-    
+
 </project>
