@@ -6,22 +6,21 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>open-guod-boot</artifactId>
+        <artifactId>boot-05</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot-05</artifactId>
+    <artifactId>boot-05-01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>boot-05-01</module>
-    </modules>
-
+    <packaging>jar</packaging>
     <dependencies>
+        <!-- fastjson依赖添加-->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.45</version>
         </dependency>
     </dependencies>
+
+
 </project>
