@@ -19,6 +19,12 @@
         <module>boot-04-03</module>
         <!-- 文件上传下载 -->
         <module>boot-04-04</module>
+        <!-- Druid数据源实现项目的监控 -->
+        <module>boot-04-06</module>
+        <!-- Swagger插件优雅的生成API文档 -->
+        <module>boot-04-07</module>
+        <!-- 邮件发送 -->
+        <module>boot-04-08</module>
     </modules>
 
 
