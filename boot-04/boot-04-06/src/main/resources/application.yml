@@ -1,0 +1,11 @@
+server:
+  port: 10406
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    name: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///boot
+    type: com.alibaba.druid.pool.DruidDataSource
