@@ -6,16 +6,11 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>open-guod-boot</artifactId>
+        <artifactId>boot-06</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot-06</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>boot-06-01</module>
-    </modules>
+    <artifactId>boot-06-01</artifactId>
+    <packaging>jar</packaging>
 
 </project>
