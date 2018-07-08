@@ -6,20 +6,13 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>open-guod-boot</artifactId>
+        <artifactId>boot-04</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot-04</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <artifactId>boot-04-04</artifactId>
 
-    <modules>
-        <!-- CORS跨域请求处理 -->
-        <module>boot-04-03</module>
-        <!-- 文件上传下载 -->
-        <module>boot-04-04</module>
-    </modules>
+    <packaging>jar</packaging>
 
 
 </project>
