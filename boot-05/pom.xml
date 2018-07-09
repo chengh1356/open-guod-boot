@@ -15,8 +15,11 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- FastJson -->
         <module>boot-05-01</module>
+        <!-- JackSon -->
         <module>boot-05-02</module>
+        <!-- Gson -->
         <module>boot-05-03</module>
         <module>boot-05-04</module>
     </modules>
