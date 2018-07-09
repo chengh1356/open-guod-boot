@@ -11,7 +11,16 @@
     </parent>
 
     <artifactId>boot-07</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- Hibernate Validator数据校验更安全 -->
+        <module>boot-07-01</module>
+    </modules>
+
+    <dependencies>
+
+    </dependencies>
 
 
 </project>
