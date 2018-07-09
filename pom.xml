@@ -37,6 +37,8 @@
         <module>boot-09</module>
         <!-- 实战spring boot中定时任务 -->
         <module>boot-10</module>
+        <!-- 框架整合 -->
+        <module>boot-16</module>
     </modules>
 
     <parent>
