@@ -16,6 +16,8 @@
     <modules>
         <!-- Hibernate Validator数据校验更安全 -->
         <module>boot-07-01</module>
+        <!-- 让返回的数据更有用 -->
+        <module>boot-07-02</module>
     </modules>
 
     <dependencies>

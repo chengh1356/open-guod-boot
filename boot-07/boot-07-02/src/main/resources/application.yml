@@ -1,0 +1,14 @@
+server:
+  port: 10702
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    username: root
+    password: 123654
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///boot
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
