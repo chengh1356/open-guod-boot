@@ -26,8 +26,6 @@
 | boot-01-05        |  Spring boot配置文件：多环境配置（dev、test、prod）   |  简书文档资料  |[官网]()|
 | boot-01-06        |  Spring boot配置文件：优雅的属性配置   |  简书文档资料  |[官网]()|
 | boot-01-07        |  Spring boot单元测试：优雅的单元测试   |  简书文档资料  |[官网]()|
-| boot-01-08        |  Spring boot域对象：VO、DTO、DO、PO   |  简书文档资料  |[官网]()|
-| boot-01-09        |  Spring boot工具类Java8中的LocalDateTime   |  简书文档资料  |[官网]()|
 
 
 ##### boot-02 实战spring boot的WEB应用视图开发
@@ -57,8 +55,10 @@
 | boot-04-05        |  SpringMvc静态文件地址   |  简书文档资料  |[官网]()|
 | boot-04-06        |  Druid数据源实现项目的监控   |  简书文档资料  |[官网]()|
 | boot-04-07        |  Swagger插件优雅的生成API文档   |  简书文档资料  |[官网]()|
-| boot-04-08        |  邮件发送   |  简书文档资料  |[官网]()|
-| boot-04-09        |  发送邮件-使用模板邮件并实现多账号轮询发送   |  简书文档资料  |[官网]()|
+| boot-04-08        |  Spring boot域对象：VO、DTO、DO、PO   |  简书文档资料  |[官网]()|
+| boot-04-09        |  Spring boot工具类Java8中的LocalDateTime   |  简书文档资料  |[官网]()|
+| boot-04-10        |  邮件发送   |  简书文档资料  |[官网]()|
+| boot-04-11        |  发送邮件-使用模板邮件并实现多账号轮询发送   |  简书文档资料  |[官网]()|
 
 
 ##### boot-05 简洁的JSON和XML数据交互
