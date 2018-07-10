@@ -171,6 +171,6 @@
 | 项目        | 备注   |  描述  | 官网地址  |
 | :----:   | :-----  | :----:  |:----:  |
 | boot-16-01        |  Spring+Spring MVC+JPA      |  简书文档资料  |[官网]()|
-| boot-16-02        |  待定   |  简书文档资料  |[官网]()|
-| boot-16-03        |  待定   |  简书文档资料  |[官网]()|
-| boot-16-04        |  待定   |  简书文档资料  |[官网]()|
+| boot-16-02        |  Spring+Spring MVC+Hibernate   |  简书文档资料  |[官网]()|
+| boot-16-03        |  Spring+Spring MVC+Mybatis   |  简书文档资料  |[官网]()|
+| boot-16-04        |  Spring+Spring MVC+Mybatis-Plus   |  简书文档资料  |[官网]()|
