@@ -10,13 +10,17 @@ package cn.hacz.edu.enums;
  * @Description 功能模块：
  */
 public enum ResultEnum {
-    SUCCESS_VALUE(200, "成功！");
+
+    /**
+     *
+     */
+    ERROR_VALUE("-301", "数据校验失败！");
 
 
-    private Integer code;
+    private String code;
     private String msg;
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -24,7 +28,7 @@ public enum ResultEnum {
         return msg;
     }
 
-    ResultEnum(Integer code, String msg) {
+    ResultEnum(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }

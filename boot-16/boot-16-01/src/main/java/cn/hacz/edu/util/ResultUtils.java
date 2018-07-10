@@ -1,6 +1,7 @@
 package cn.hacz.edu.util;
 
 import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.vo.JsonList;
 
 /**
  * project - ETC发票系统
@@ -12,22 +13,58 @@ import cn.hacz.edu.vo.Json;
  * @Description 功能模块：
  */
 public class ResultUtils {
-    public static Json success(Object object) {
+    /**
+     * 功能描述：单数据返回
+     *
+     * @param object
+     * @return
+     */
+    public static Json successJson(Object object) {
         Json result = new Json();
-        result.setCode(200);
-        result.setMsg("成功");
+        result.setCode("200");
+        result.setMessage("成功");
         result.setData(object);
+        result.setSuccess(true);
         return result;
     }
 
-    public static Json success() {
-        return success(null);
+    public static Json successJson() {
+        return successJson(null);
     }
 
-    public static Json error(Integer code, String msg) {
+    public static Json errorJson(String code, String msg) {
         Json result = new Json();
         result.setCode(code);
-        result.setMsg(msg);
+        result.setMessage(msg);
+        result.setSuccess(false);
+        return result;
+    }
+
+
+    /**
+     * 功能描述：多数据返回
+     *
+     * @param object
+     * @return
+     */
+    public static JsonList successJsonList(Object object) {
+        JsonList result = new JsonList();
+        result.setSuccess(true);
+        result.setCode("200");
+        result.setMessage("成功");
+        result.setDataRows(object);
+        return result;
+    }
+
+    public static JsonList successJsonList() {
+        return successJsonList(null);
+    }
+
+    public static JsonList errorJsonList(String code, String msg) {
+        JsonList result = new JsonList();
+        result.setCode(code);
+        result.setMessage(msg);
+        result.setSuccess(false);
         return result;
     }
 }

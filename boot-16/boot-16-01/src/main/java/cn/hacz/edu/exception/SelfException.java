@@ -12,18 +12,18 @@ import cn.hacz.edu.enums.ResultEnum;
  * @Description 功能模块：
  */
 public class SelfException extends RuntimeException {
-    private Integer code;
+    private String code;
 
     public SelfException(ResultEnum resultEnum) {
         super(resultEnum.getMsg());
         this.code = resultEnum.getCode();
     }
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 }

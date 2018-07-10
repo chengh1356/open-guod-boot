@@ -1,6 +1,7 @@
-package cn.hacz.edu.aspeck;
+package cn.hacz.edu.aspect;
 
-import cn.hacz.edu.vo.Result;
+import cn.hacz.edu.util.SnowFlakeIdGenerator;
+import cn.hacz.edu.vo.Json;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -28,41 +30,64 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 public class HttpAspect {
-    /**
-     * 统一日志管理：spring boot自带的日志slf4j实现是：logback
-     */
-    private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private ObjectMapper mapper;
 
+    /**
+     * 所有Controller
+     */
     @Pointcut("execution(public * cn.hacz.edu.controller..*Controller.*(..))")
     public void pointcut() {
     }
 
+    /**
+     * Spring 环绕通知 切点
+     *
+     * @param pjp
+     * @return
+     * @throws Throwable
+     */
     @Around("pointcut()")
-    public <T> Object around(ProceedingJoinPoint pjp) throws Throwable {
+    public Object around(ProceedingJoinPoint pjp) throws Throwable {
+
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
+
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
+        long logId = SnowFlakeIdGenerator.getInstance().generateLongId();
+        logger.debug("============================================");
+        logger.debug("请求开始, 各个参数, logid:{}, url: {}", logId, url);
+
+        StopWatch watch = new StopWatch(String.valueOf(logId));
+        watch.start();
+
         Object result = null;
-        Result<T> j = null;
+        Json j = null;
         try {
             result = pjp.proceed();
-            j = (Result<T>) result;
+            j = (Json) result;
+            // 去掉统一放到自定义的里面操作：j.setSuccess(true)
         } catch (Throwable e) {
             logger.error("******************************");
-            logger.error("出错详细日志logid:{}, url: {}, method: {}, uri: {}, params: {}", url, method, uri, queryString);
+            logger.error("出错详细日志logid:{}, url: {}, method: {}, uri: {}, params: {}", logId, url, method, uri, queryString);
+            // 此处应该直接落地
+            logger.error("出错 logId: " + logId, e);
             logger.error("******************************");
             throw e;
         }
-        logger.debug("请求结束controller的返回值是 {}", mapper.writeValueAsString(result));
+
+        watch.stop();
+        logger.debug("请求结束，logId: {}, 执行时间 {} controller的返回值是 {}", logId, watch.getTotalTimeMillis(), mapper.writeValueAsString(result));
         logger.debug("============================================");
         return result;
+
     }
+
 
 }
