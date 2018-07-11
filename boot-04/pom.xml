@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>boot-04-01</module>
         <!-- CORS跨域请求处理 -->
         <module>boot-04-03</module>
         <!-- 文件上传下载 -->
