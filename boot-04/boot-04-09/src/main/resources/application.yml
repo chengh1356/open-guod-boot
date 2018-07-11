@@ -5,13 +5,14 @@ server:
 spring:
   datasource:
     username: root
-    password: 123456
+    password: 123654
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///boot
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

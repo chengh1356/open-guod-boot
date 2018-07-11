@@ -3,7 +3,6 @@ package cn.hacz.edu.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -27,11 +26,10 @@ import java.util.Date;
 @Table(name = "0409Date")
 public class DateEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private Date utilDate;
     private java.sql.Date sqlDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime localDateTime;
     private LocalDate localDate;
     private LocalTime localTime;
