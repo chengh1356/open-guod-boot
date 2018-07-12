@@ -32,6 +32,8 @@
         <module>boot-04-10</module>
         <!-- 使用多线程提高rest服务的性能 -->
         <module>boot-04-12</module>
+        <!-- 优雅的单元测试和wireMock伪造rest服务 -->
+        <module>boot-04-13</module>
     </modules>
 
 
