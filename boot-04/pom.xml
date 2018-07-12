@@ -30,6 +30,8 @@
         <module>boot-04-09</module>
         <!-- 邮件发送 -->
         <module>boot-04-10</module>
+        <!-- 使用多线程提高rest服务的性能 -->
+        <module>boot-04-12</module>
     </modules>
 
 
