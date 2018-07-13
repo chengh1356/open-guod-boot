@@ -34,6 +34,8 @@
         <module>boot-04-12</module>
         <!-- 优雅的单元测试和wireMock伪造rest服务 -->
         <module>boot-04-13</module>
+        <!-- 干货：排名前16的Java工具类 -->
+        <module>boot-04-14</module>
     </modules>
 
 
