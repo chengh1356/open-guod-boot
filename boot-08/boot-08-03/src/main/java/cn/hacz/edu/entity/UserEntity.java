@@ -1,6 +1,8 @@
 package cn.hacz.edu.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -20,13 +22,27 @@ import java.util.Date;
 @Table(name = "user")
 @Where(clause = "del_flag=0")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserEntity {
+    /**
+     * 自增ID，不支持MySQL
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    /**
+     * 用户名
+     */
     @Column(name = "userName")
     private String name;
+    /**
+     * 是否上传
+     */
     private boolean delFlag;
+    /**
+     * 大文本数据
+     */
     @Lob
     @Column(columnDefinition = "text")
     private String text;
