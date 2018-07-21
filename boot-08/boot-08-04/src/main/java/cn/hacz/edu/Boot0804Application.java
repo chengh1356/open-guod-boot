@@ -1,5 +1,6 @@
 package cn.hacz.edu;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
  * @JDK 1.8
  * @Description 功能模块：
  */
+@SpringBootApplication
 public class Boot0804Application {
     public static void main(String[] args) {
         new SpringApplicationBuilder(Boot0804Application.class).run(args);
