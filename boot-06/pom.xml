@@ -15,7 +15,12 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- Rest Full的常用方式 -->
         <module>boot-06-01</module>
+        <!-- Rest Full的监控机制admin的server实例 -->
+        <module>boot-06-02</module>
+        <!-- Rest Full的监控机制admin的client实例 -->
+        <module>boot-06-03</module>
     </modules>
 
 </project>
