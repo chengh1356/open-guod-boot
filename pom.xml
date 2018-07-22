@@ -11,6 +11,13 @@
     <name>open-guod-boot</name>
     <description>Spring Boot-基础+提升</description>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <!-- 项目模块 -->
     <modules>
         <!-- 点睛spring -->
@@ -40,13 +47,6 @@
         <!-- 实战框架整合 -->
         <module>boot-16</module>
     </modules>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
