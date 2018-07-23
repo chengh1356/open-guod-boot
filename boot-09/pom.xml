@@ -15,7 +15,12 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- Redis非关系型数据库 -->
         <module>boot-09-01</module>
+        <!-- mongodb非关系型数据库 -->
+        <module>boot-09-02</module>
+        <!-- neo4j非关系型数据库 -->
+        <module>boot-09-03</module>
     </modules>
 
 </project>
