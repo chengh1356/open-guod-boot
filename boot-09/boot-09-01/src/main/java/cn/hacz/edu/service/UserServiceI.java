@@ -1,5 +1,9 @@
 package cn.hacz.edu.service;
 
+import cn.hacz.edu.entity.UserEntity;
+
+import java.util.List;
+
 /**
  * @author dong
  * @version 1.0.0
@@ -8,4 +12,5 @@ package cn.hacz.edu.service;
  * @createTime 2018年07月23日 22:00:00
  */
 public interface UserServiceI {
+    List<UserEntity> getListUser();
 }
