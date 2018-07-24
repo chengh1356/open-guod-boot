@@ -18,4 +18,5 @@ spring:
       ddl-auto: update
   data:  # MongoDB数据库配置
     mongodb:
-      uri: mongodb://127.0.0.1:27017/guod
+      uri: mongodb://localhost:27017
+      database: guod
