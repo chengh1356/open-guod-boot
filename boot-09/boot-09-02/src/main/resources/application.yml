@@ -19,4 +19,4 @@ spring:
   data:  # MongoDB数据库配置
     mongodb:
       uri: mongodb://localhost:27017
-      database: guod
+      database: guo
