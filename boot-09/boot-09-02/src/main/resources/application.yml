@@ -1,0 +1,21 @@
+server:
+  port: 10902
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  datasource:
+    username: root
+    password: 123654
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///boot
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  data:  # MongoDB数据库配置
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/guod
