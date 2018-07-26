@@ -6,19 +6,8 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>open-guod-boot</artifactId>
+        <artifactId>boot-07</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <artifactId>boot-07</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <!-- Hibernate Validator数据校验更安全 -->
-        <module>boot-07-01</module>
-        <!-- 让返回的数据更有用 -->
-        <module>boot-07-02</module>
-        <!-- 配置文件安全策略 -->
-        <module>boot-07-03</module>
-    </modules>
+    <artifactId>boot-07-03</artifactId>
 </project>
