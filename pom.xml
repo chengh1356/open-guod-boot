@@ -67,10 +67,18 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 代码简化工具 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.14</version>
+        </dependency>
+
+        <!-- 加密工具 -->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>1.8</version>
         </dependency>
     </dependencies>
 
