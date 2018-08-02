@@ -1,5 +1,7 @@
 ### spring boot 企业开发
 
+#### [码云详细源码地址](https://gitee.com/sunguo/open-guod-boot.git)
+
 ##### base-01 点睛spring
 | 项目        | 备注   |  描述  | 官网地址  |
 | :----:   | :-----  | :----:  |:----:  |
