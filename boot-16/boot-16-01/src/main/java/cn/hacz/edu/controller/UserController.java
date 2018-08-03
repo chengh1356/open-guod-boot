@@ -1,18 +1,23 @@
 package cn.hacz.edu.controller;
 
+import cn.hacz.edu.dao.UserDaoI;
+import cn.hacz.edu.entity.UserEntity;
 import cn.hacz.edu.service.UserServiceI;
 import cn.hacz.edu.util.ResultUtils;
 import cn.hacz.edu.vo.Json;
 import cn.hacz.edu.vo.JsonList;
 import cn.hacz.edu.vo.UserVo;
 import com.fasterxml.jackson.annotation.JsonView;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.MultiValueMap;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 /**
  * project -
@@ -27,16 +32,102 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserServiceI userServiceI;
+    @Autowired
+    private UserDaoI userDaoI;
 
     /**
-     * 功能描述：单数据返回
+     * 功能描述：添加用户
      *
      * @param userVo
      * @return
      */
-    @GetMapping(value = "/getUser")
+    @PostMapping(value = "doSaveUserJsonObj")
+    public Json doSaveUserJsonObj(UserVo userVo) {
+        UserEntity userEntity = new UserEntity();
+        BeanUtils.copyProperties(userVo, userEntity);
+        userEntity.setBirthday(LocalDateTime.now());
+        UserEntity save = userDaoI.save(userEntity);
+        return ResultUtils.successJson(save);
+    }
+
+    /**
+     * 功能描述：添加用户
+     *
+     * @param params
+     * @return
+     */
+    @PostMapping(value = "doSaveUserJsonMapObj")
+    public Json doSaveUserJsonMapObj(@RequestParam Map<String, Object> params) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setBirthday(LocalDateTime.now());
+        userEntity.setName((String) params.get("name"));
+        UserEntity save = userDaoI.save(userEntity);
+        return ResultUtils.successJson(save);
+    }
+
+    /**
+     * 功能描述：添加用户
+     *
+     * @param userVo
+     * @return
+     */
+    @PostMapping(value = "doSaveUserJsonStr")
+    public Json doSaveUserJsonStr(@RequestBody UserVo userVo) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setBirthday(LocalDateTime.now());
+        UserEntity save = userDaoI.save(userEntity);
+        return ResultUtils.successJson(save);
+    }
+
+    /**
+     * 功能描述：添加用户
+     *
+     * @param params
+     * @return
+     */
+    @PostMapping(value = "doSaveUserJsonMapStr")
+    public Json doSaveUserJsonMapStr(@RequestBody Map<String, Object> params) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setBirthday(LocalDateTime.now());
+        UserEntity save = userDaoI.save(userEntity);
+        return ResultUtils.successJson(save);
+    }
+
+    /**
+     * 功能描述：添加用户
+     *
+     * @param params
+     * @return
+     */
+    @PostMapping(value = "doSaveUserJsonValueMapStr")
+    public Json doSaveUserJsonValueMapStr(@RequestParam MultiValueMap<String, Object> params) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setBirthday(LocalDateTime.now());
+        UserEntity save = userDaoI.save(userEntity);
+        return ResultUtils.successJson(save);
+    }
+
+    /**
+     * 功能描述：单数据返回忽略年龄
+     *
+     * @param userVo
+     * @return
+     */
+    @GetMapping(value = "/getUserBase")
+    @JsonView(UserVo.BaseInfo.class)
+    public Json getUserBase(@Validated(UserVo.BaseInfo.class) UserVo userVo) {
+        return userServiceI.getAgeCount(userVo);
+    }
+
+    /**
+     * 功能描述：单数据返回详细信息
+     *
+     * @param userVo
+     * @return
+     */
+    @GetMapping(value = "/getUserDetail")
     @JsonView(UserVo.DetailInfo.class)
-    public Json getUser(@Valid UserVo userVo) {
+    public Json getUserDetail(@Valid UserVo userVo) {
         return ResultUtils.successJson(userServiceI.getAgeCount(userVo));
     }
 
@@ -47,9 +138,7 @@ public class UserController {
      */
     @GetMapping(value = "/getUserList")
     public JsonList getUserList(@Valid UserVo userVo) {
-        List<UserVo> userVos = new ArrayList<>();
-        UserVo userData = new UserVo();
-        userVos.add(userData);
-        return ResultUtils.successJsonList(userVos);
+        List<UserEntity> all = userDaoI.findAll();
+        return ResultUtils.successJsonList(all);
     }
 }

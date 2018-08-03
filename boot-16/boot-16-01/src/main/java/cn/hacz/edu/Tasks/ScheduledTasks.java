@@ -16,6 +16,6 @@ import org.springframework.stereotype.Component;
 public class ScheduledTasks {
     @Scheduled(fixedRate = 500000000)
     public void testTasks() {
-        System.out.println("java");
+        System.out.println("定时任务");
     }
 }

@@ -10,11 +10,11 @@ spring:
     username: ENC(/xpC1lAH/ojTkmIdk68W9g==)
     password: ENC(QF65IuLfPLKLnTG0LsR8sw==)
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.106.9.56:3306/boot
+    url: jdbc:mysql://39.106.9.56:3306/boot?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

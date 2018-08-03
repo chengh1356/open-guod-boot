@@ -5,6 +5,8 @@ import cn.hacz.edu.entity.UserEntity;
 import cn.hacz.edu.enums.ResultEnum;
 import cn.hacz.edu.exception.SelfException;
 import cn.hacz.edu.service.UserServiceI;
+import cn.hacz.edu.util.ResultUtils;
+import cn.hacz.edu.vo.Json;
 import cn.hacz.edu.vo.UserVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +31,13 @@ public class UserServiceImpl implements UserServiceI {
     private UserDaoI userDaoI;
 
     @Override
-    public UserVo getAgeCount(@Valid UserVo userVo) {
+    public Json getAgeCount(@Valid UserVo userVo) {
         UserEntity userEntity = userDaoI.getOne(userVo.getId());
         if (userEntity.getAge() <= 12) {
             throw new SelfException(ResultEnum.ERROR_VALUE);
         }
         // entity中的数据copy到vo中
         BeanUtils.copyProperties(userEntity, userVo);
-        return userVo;
+        return ResultUtils.successJson(userVo);
     }
 }

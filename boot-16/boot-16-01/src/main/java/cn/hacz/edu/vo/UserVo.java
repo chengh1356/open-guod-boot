@@ -24,18 +24,18 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserVo {
     /**
-     * 基本信息
+     * 返回基本信息
      */
     public interface BaseInfo {
     }
 
     /**
-     * 详细信息
+     * 返回详细信息
      */
     public interface DetailInfo extends BaseInfo {
     }
 
-    @NotNull(message = "ID不能为空")
+    @NotNull(message = "ID不能为空", groups = {BaseInfo.class})
     @JsonView(BaseInfo.class)
     private String id;
     @JsonView(BaseInfo.class)

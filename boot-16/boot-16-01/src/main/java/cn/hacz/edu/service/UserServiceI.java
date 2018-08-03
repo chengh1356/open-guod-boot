@@ -1,5 +1,6 @@
 package cn.hacz.edu.service;
 
+import cn.hacz.edu.vo.Json;
 import cn.hacz.edu.vo.UserVo;
 
 import javax.validation.Valid; /**
@@ -12,5 +13,5 @@ import javax.validation.Valid; /**
  * @Description 功能模块：
  */
 public interface UserServiceI {
-    UserVo getAgeCount(@Valid UserVo userVo);
+    Json getAgeCount(@Valid UserVo userVo);
 }
