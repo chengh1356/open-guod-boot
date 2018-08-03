@@ -18,7 +18,7 @@ spring:
       hibernate:
         format_sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
   data:  # MongoDB数据库配置
     mongodb:
       host: 'ENC(y3jjpYbJcYNd0nq2OT7jT87m7A7H+cAt)'

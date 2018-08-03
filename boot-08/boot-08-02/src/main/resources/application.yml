@@ -6,9 +6,9 @@ server:
     min-spare-threads: 20
 spring:
   datasource:
-    username: root
-    password: 123456
+    username: '/xpC1lAH/ojTkmIdk68W9g=='
+    password: 'QF65IuLfPLKLnTG0LsR8sw=='
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql:///boot
+    url: jdbc:mysql:/'+D/q4p4C+gf2aMP3hLIlB/mvlY+G6kpO':3306/boot
 
 #    https://blog.csdn.net/saytime/article/details/74783294

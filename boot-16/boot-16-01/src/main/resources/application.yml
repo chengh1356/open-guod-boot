@@ -2,16 +2,19 @@ server:
   port: 11601
   tomcat:
     uri-encoding: UTF-8
+jasypt:
+  encryptor:
+    password: foo
 spring:
   datasource:
-    username: root
-    password: 123654
+    username: ENC(/xpC1lAH/ojTkmIdk68W9g==)
+    password: ENC(QF65IuLfPLKLnTG0LsR8sw==)
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql:///boot
+    url: jdbc:mysql://39.106.9.56:3306/boot
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
