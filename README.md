@@ -54,7 +54,7 @@
 | boot-04-03        |  CORS支持跨域请求处理   |  简书文档资料  |[官网]()|
 | boot-04-04        |  文件上传、下载   |  简书文档资料  |[官网]()|
 | boot-04-05        |  SpringMvc静态文件地址   |  简书文档资料  |[官网]()|
-| boot-04-06        |  Druid数据源实现项目的监控   |  简书文档资料  |[官网]()|
+| boot-04-06        |  Druid数据源实现项目的监控PK连接池HikariCP   |  简书文档资料  |[官网]()|
 | boot-04-07        |  Swagger插件优雅的生成API文档   |  简书文档资料  |[官网]()|
 | boot-04-08        |  Spring boot域对象：VO、DTO、DO、PO   |  简书文档资料  |[官网]()|
 | boot-04-09        |  Spring boot工具类Java8中的LocalDateTime   |  简书文档资料  |[官网]()|
