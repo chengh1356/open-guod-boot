@@ -14,7 +14,9 @@ public enum ResultEnum {
     /**
      *
      */
-    ERROR_VALUE("-301", "数据校验失败！");
+    ERROR_VALUE("-301", "数据校验失败！"),
+    FILE_NULL("301", "文件不能为空！")
+    ;
 
 
     private String code;

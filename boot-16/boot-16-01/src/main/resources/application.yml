@@ -1,16 +1,20 @@
+# ==================================Tomcat基础配置======================================
 server:
   port: 11601
   tomcat:
     uri-encoding: UTF-8
+# ==================================数据加密配置======================================
 jasypt:
   encryptor:
     password: foo
+# ==================================数据库配置======================================
 spring:
   datasource:
     username: ENC(/xpC1lAH/ojTkmIdk68W9g==)
     password: ENC(QF65IuLfPLKLnTG0LsR8sw==)
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://39.106.9.56:3306/boot?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+# ==================================ORM产品配置======================================
   jpa:
     show-sql: true
     hibernate:
@@ -18,3 +22,16 @@ spring:
     properties:
       hibernate:
         format_sql: true
+# ==================================图片上传配置======================================
+  servlet:
+    multipart:
+      max-request-size: 50Mb
+      max-file-size: 50Mb
+  resources:
+    static-locations: file:${image.imgPath}
+  mvc:
+    static-path-pattern: /**
+# ==================================图片上传位置配置======================================
+image:
+  imgUrl: http://10.9.4.164/
+  imgPath: D:/data/
