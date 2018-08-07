@@ -42,7 +42,7 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "doSaveUserJsonObj")
-    public Json doSaveUserJsonObj(UserVo userVo) {
+    public Json doSaveUserJsonObj(@Validated(UserVo.AddUser.class) UserVo userVo) {
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(userVo, userEntity);
         userEntity.setBirthday(LocalDateTime.now());
@@ -72,7 +72,7 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "doSaveUserJsonStr")
-    public Json doSaveUserJsonStr(@RequestBody UserVo userVo) {
+    public Json doSaveUserJsonStr(@RequestBody @Validated(UserVo.AddUser.class) UserVo userVo) {
         UserEntity userEntity = new UserEntity();
         userEntity.setBirthday(LocalDateTime.now());
         UserEntity save = userDaoI.save(userEntity);

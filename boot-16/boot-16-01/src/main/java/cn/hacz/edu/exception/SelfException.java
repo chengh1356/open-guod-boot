@@ -3,7 +3,7 @@ package cn.hacz.edu.exception;
 import cn.hacz.edu.enums.ResultEnum;
 
 /**
- * project - ETC发票系统
+ * project - Gitee开源系统
  *
  * @author guod
  * @version 3.0

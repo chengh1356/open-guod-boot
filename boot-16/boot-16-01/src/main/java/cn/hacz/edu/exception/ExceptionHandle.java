@@ -5,6 +5,7 @@ import cn.hacz.edu.vo.Json;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * project - ETC发票系统
+ * project - Gitee开源系统
  *
  * @author dong
  * @version 3.0
@@ -48,7 +49,6 @@ public class ExceptionHandle {
         }
     }
 
-
     /**
      * 功能描述：数据校验异常直接抛出终止程序
      *
@@ -75,6 +75,48 @@ public class ExceptionHandle {
 
 
     /**
+     * 功能描述：JSON数据校验异常
+     *
+     * @param e
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    public Json valid(MethodArgumentNotValidException e, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        printlnException(request, e);
+        Json j = new Json();
+        j.setSuccess(false);
+
+        if (!e.getBindingResult().hasErrors()) {
+            j.setMessage("没有找到校验异常!");
+            return j;
+        }
+        j.setMessage(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+        return j;
+    }
+
+    /**
+     * 功能描述：Throwable异常处理
+     *
+     * @param req
+     * @param e
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @ExceptionHandler(value = Throwable.class)
+    public Json jsonErrorHandler(HttpServletRequest req, Throwable e) throws Exception {
+        Json j = new Json();
+        j.setSuccess(false);
+        j.setMessage(e.getMessage());
+        j.setCode("500");
+        return j;
+    }
+
+    /**
      * 功能描述：异常数据的打印
      *
      * @param request
@@ -91,5 +133,4 @@ public class ExceptionHandle {
         logger.error("出错 logId", e);
         logger.error("******************************");
     }
-
 }

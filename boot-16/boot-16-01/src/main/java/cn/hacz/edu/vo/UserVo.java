@@ -35,12 +35,20 @@ public class UserVo {
     public interface DetailInfo extends BaseInfo {
     }
 
-    @NotNull(message = "ID不能为空", groups = {BaseInfo.class})
+    /**
+     * 添加用户时数据校验
+     */
+    public interface AddUser {
+    }
+
+    @NotNull(message = "[id]不能为空", groups = {BaseInfo.class})
     @JsonView(BaseInfo.class)
-    private String id;
+    private Integer id;
     @JsonView(BaseInfo.class)
+    @NotNull(message = "[name]用户名不能为空", groups = {AddUser.class})
     private String name;
     @JsonView(DetailInfo.class)
+    @NotNull(message = "[age]用户名不能为空", groups = {AddUser.class})
     private Integer age;
     @JsonView(DetailInfo.class)
     private LocalDateTime birthday;

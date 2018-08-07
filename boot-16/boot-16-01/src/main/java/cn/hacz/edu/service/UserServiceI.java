@@ -4,7 +4,7 @@ import cn.hacz.edu.vo.Json;
 import cn.hacz.edu.vo.UserVo;
 
 import javax.validation.Valid; /**
- * project -
+ * project - Gitee开源系统
  *
  * @author guod
  * @version 1.0
