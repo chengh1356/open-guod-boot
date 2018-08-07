@@ -4,13 +4,13 @@ import cn.hacz.edu.vo.Json;
 import cn.hacz.edu.vo.JsonList;
 
 /**
- * project - ETC发票系统
+ * project - Gitee开源系统
  *
  * @author dong
  * @version 3.0
  * @date 日期:2018/7/9 时间:20:44
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：统一数据返回的数据格式
  */
 public class ResultUtils {
     /**
