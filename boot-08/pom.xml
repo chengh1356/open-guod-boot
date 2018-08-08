@@ -23,8 +23,10 @@
         <module>boot-08-04</module>
         <!-- JPA转Hibernate使用-->
         <module>boot-08-05</module>
-        <!-- SQL关系型数据库-mybatis -->
+        <!-- JPA扩展 -->
         <module>boot-08-06</module>
+        <!-- SQL关系型数据库-mybatis -->
+        <module>boot-08-07</module>
     </modules>
 
     <dependencies>
