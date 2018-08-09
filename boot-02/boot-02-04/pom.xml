@@ -9,9 +9,5 @@
         <artifactId>boot-02</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <artifactId>boot-02-02</artifactId>
-    <packaging>jar</packaging>
-
-    
+    <artifactId>boot-02-04</artifactId>
 </project>

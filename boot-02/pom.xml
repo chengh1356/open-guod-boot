@@ -3,24 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>cn.hacz.edu</groupId>
         <artifactId>open-guod-boot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <groupId>cn.hacz.edu</groupId>
     <artifactId>boot-02</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-
     <modules>
-        <!-- 01Spring Boot基础之配置文件 -->
+        <!-- 模板引擎：FreeMarker -->
         <module>boot-02-01</module>
-        <!-- 02Spring Boot基础之多环境配置 -->
+        <!-- 模板引擎：Thymeleaf -->
         <module>boot-02-02</module>
+        <!-- 模板引擎：JSP -->
+        <module>boot-02-03</module>
+        <!-- 打包：jar -->
+        <module>boot-02-04</module>
+        <!-- 打包：war -->
+        <module>boot-02-05</module>
     </modules>
-
-
 </project>

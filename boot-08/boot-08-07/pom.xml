@@ -6,12 +6,11 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>boot-02</artifactId>
+        <artifactId>boot-08</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot-02-02</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>boot-08-07</artifactId>
 
     
 </project>

@@ -93,7 +93,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisCacheConfiguration configuration = RedisCacheConfiguration.defaultCacheConfig();
         configuration = configuration
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(fastJsonRedisSerializer))
-                .entryTtl(Duration.ofDays(30));
+                .entryTtl(Duration.ofMillis(1000));
         return configuration;
     }
 }
