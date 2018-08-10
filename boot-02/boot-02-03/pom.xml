@@ -11,21 +11,16 @@
     <artifactId>boot-02-03</artifactId>
     <packaging>war</packaging>
     <dependencies>
-        <!-- springboot支持web组件 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- springboot支持tomcat组件 -->
+        <!-- tomcat 的支持. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <!--<scope>provided</scope>-->
         </dependency>
-        <!-- spring boot tomcat jsp 支持开启 -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
+            <!--<scope>provided</scope>-->
         </dependency>
         <!--servlet支持开启-->
         <dependency>
@@ -39,8 +34,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
     </dependencies>
     <build>

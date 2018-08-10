@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>JSP第一个页面</title>
 </head>
 <body>
-
+<h4>欢迎使用IDEA开发第一个JSP页面</h4>
 </body>
 </html>

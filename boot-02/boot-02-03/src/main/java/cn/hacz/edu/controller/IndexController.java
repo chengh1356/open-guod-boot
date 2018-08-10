@@ -1,5 +1,7 @@
 package cn.hacz.edu.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class IndexController {
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     /**
      * 功能描述：访问webapp/jsp/index.jsp文件
      *
@@ -22,6 +26,7 @@ public class IndexController {
      */
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
+        logger.info("访问webapp/jsp/index.jsp文件");
         return "index";
     }
 }
