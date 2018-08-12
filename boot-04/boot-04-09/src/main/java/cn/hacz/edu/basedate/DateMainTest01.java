@@ -1,5 +1,6 @@
 package cn.hacz.edu.basedate;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -42,5 +43,9 @@ public class DateMainTest01 {
         LocalDate parsedDate = LocalDate.parse(text, formatter);
         System.out.println(format);
         System.out.println(parsedDate);
+        // 05字符串转时间
+        String s = "2018-12-12 18:14:36.0";
+        Timestamp timestamp = Timestamp.valueOf(s);
+        System.out.println(timestamp);
     }
 }

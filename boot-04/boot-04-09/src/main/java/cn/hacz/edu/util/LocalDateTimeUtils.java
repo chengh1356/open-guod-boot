@@ -1,9 +1,6 @@
 package cn.hacz.edu.util;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
@@ -135,6 +132,23 @@ public class LocalDateTimeUtils {
     }
 
     /**
+     * 功能描述：获取两个日期的差
+     *
+     * @param inDate
+     * @param nowDate
+     * @return
+     */
+    public static long getMinute(LocalDateTime inDate, LocalDateTime nowDate) {
+        Duration duration = Duration.between(inDate, nowDate);
+        System.out.println("时间差:" + duration);
+        long hour = duration.getSeconds() / ChronoUnit.HOURS.getDuration().getSeconds();
+        long minute = (duration.getSeconds() - ChronoUnit.HOURS.getDuration().getSeconds() * hour) / ChronoUnit.MINUTES.getDuration().getSeconds();
+        long second = (duration.getSeconds() - ChronoUnit.HOURS.getDuration().getSeconds() * hour) - minute * ChronoUnit.MINUTES.getDuration().getSeconds();
+        System.out.println("时间:" + hour + ":" + minute + ":" + second);
+        return second;
+    }
+
+    /**
      * 获取一天的开始时间，2017,7,22 00:00
      *
      * @param time
@@ -159,5 +173,4 @@ public class LocalDateTimeUtils {
                 .withSecond(59)
                 .withNano(999999999);
     }
-
 }

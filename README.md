@@ -1,4 +1,4 @@
-### spring boot 企业开发
+### spring boot-2.0.4.RELEASE企业开发
 
 #### [码云详细源码地址](https://gitee.com/sunguo/open-guod-boot.git)
 
