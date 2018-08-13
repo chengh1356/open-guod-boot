@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
- * project - 综合客户服务系统
+ * project -
  *
  * @author guod
  * @version 1.0
