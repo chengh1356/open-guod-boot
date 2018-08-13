@@ -142,6 +142,17 @@ public class UserController {
         return ResultUtils.successJsonList(all);
     }
 
+    /**
+     * 功能描述：删除用户信息
+     *
+     * @return
+     */
+    @DeleteMapping(value = "/deleteUser")
+    public Json deleteUser(@RequestParam("var1") Long var1) {
+        System.out.println(var1);
+        return ResultUtils.successJson();
+    }
+
 
     @PostMapping(value = "test")
     public Json test() {
