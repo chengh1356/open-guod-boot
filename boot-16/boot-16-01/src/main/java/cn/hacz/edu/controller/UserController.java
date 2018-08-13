@@ -141,4 +141,11 @@ public class UserController {
         List<UserEntity> all = userDaoI.findAll();
         return ResultUtils.successJsonList(all);
     }
+
+
+    @PostMapping(value = "test")
+    public Json test() {
+        Integer followerNumberById = userDaoI.findFollowerNumberById(1);
+        return ResultUtils.successJson(followerNumberById);
+    }
 }
