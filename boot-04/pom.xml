@@ -40,6 +40,7 @@
         <module>boot-04-15</module>
         <!-- JPush 是日常开发中比较常用的推送方式。实现简单，功能全面 -->
         <module>boot-04-16</module>
+        <!-- FTP文件服务器 -->
         <module>boot-04-17</module>
     </modules>
 </project>
