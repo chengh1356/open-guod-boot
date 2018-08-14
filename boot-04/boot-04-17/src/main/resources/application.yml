@@ -1,0 +1,13 @@
+server:
+  port: 10417
+
+pathconfig:
+  ftpHost: 172.16.11.66
+  ftpPort: 21
+  ftpUserName: sys
+  ftpPassWord: SYS!!@@
+  ftpOperativePath: YY
+  ftpCloudPath: QYY
+  ftpPortalPath: MH
+  ftpMobilePath: MOBILE
+  ftpPropertyPath: WY

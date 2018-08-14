@@ -1,9 +1,8 @@
 package cn.hacz.edu.controller;
 
+import com.sun.xml.internal.ws.api.message.Attachment;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -105,8 +104,29 @@ public class FileUpdateController {
         return "上传成功";
     }
 
+
     /**
-     * 功能：下载文件
+     * 功能描述：显示图片接口
+     *
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping(value = "/image", method = RequestMethod.GET)
+    public void imageDisplay(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        File file = new File("F:\\aaa.jpg");
+        OutputStream outputStream = response.getOutputStream();
+        // 进行文件下载的指定，设置强制下载不打开
+        response.setContentType("image/jpeg");  //设置显示图片
+        response.setHeader("Cache-Control", "max-age=604800"); //设置缓存
+        // outputStream写入到输出流
+        outputStream.write(FileCopyUtils.copyToByteArray(file));
+        outputStream.flush();
+        outputStream.close();
+    }
+
+    /**
+     * 功能：下载图片接口（文件）
      *
      * @param request
      * @param response
@@ -116,10 +136,10 @@ public class FileUpdateController {
     public void downloadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
         File file = new File("F:\\aaa.jpg");
         OutputStream outputStream = response.getOutputStream();
-        // 进行文件下载的指定
+        // 进行文件下载的指定，设置强制下载不打开
         response.setContentType("application/x-download");
         response.setCharacterEncoding("utf-8");
-        response.setHeader("Content-Disposition", "attachment;filename=" + new String(("下载名称").getBytes("gbk"), "iso8859-1") + ".xls");
+        response.setHeader("Content-Disposition", "attachment;filename=" + new String(("下载名称").getBytes("gbk"), "iso8859-1") + ".jpg");
         // outputStream写入到输出流
         outputStream.write(FileCopyUtils.copyToByteArray(file));
         outputStream.flush();
