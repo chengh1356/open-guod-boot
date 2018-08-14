@@ -22,6 +22,7 @@
         <!-- Gson -->
         <module>boot-05-03</module>
         <module>boot-05-04</module>
+        <module>boot-05-05</module>
     </modules>
 
     <dependencies>
