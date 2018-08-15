@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * project -
@@ -29,4 +30,32 @@ public class RoleEntity extends BaseEntity {
      * 角色名称
      */
     private String roleName;
+    /**
+     * 排序
+     */
+    private String orderNum;
+    /**
+     * 上级角色
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pid")
+    private RoleEntity role;
+    /**
+     * 子角色
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+    private Set<RoleEntity> roleEntities = new HashSet<>();
+    /**
+     * 角色和用户
+     */
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roleEntities")
+    private Set<UserEntity> userEntities = new HashSet<>();
+    /**
+     * 角色和资源
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "role_resource",
+            joinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "resource_id", nullable = false, updatable = false)})
+    private Set<ResourceEntity> resourceEntities = new HashSet<>();
 }

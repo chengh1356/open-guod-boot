@@ -43,6 +43,7 @@ public class UserEntity extends BaseEntity {
      * 出生日期
      */
     private LocalDateTime birthday;
+    private Integer age;
     /**
      * 手机号码
      */
@@ -64,7 +65,7 @@ public class UserEntity extends BaseEntity {
      */
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_role",
-            joinColumns = {@JoinColumn(name = "user_id", nullable = false, unique = false)},
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
     private Set<RoleEntity> roleEntities = new HashSet<>();
 }

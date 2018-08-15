@@ -8,6 +8,8 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * project -
@@ -24,12 +26,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "1601_resource")
 public class ResourceEntity extends BaseEntity {
-    /**
-     * 所属资源，父菜单ID，一级菜单为0
-     */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "pid")
-    private ResourceEntity resource;
     /**
      * 资源名称
      */
@@ -50,4 +46,20 @@ public class ResourceEntity extends BaseEntity {
      * 排序
      */
     private String orderNum;
+    /**
+     * 所属资源，父菜单ID，一级菜单为0
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pid")
+    private ResourceEntity resource;
+    /**
+     * 下级资源
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "resource")
+    private Set<ResourceEntity> resourceEntities = new HashSet<>();
+    /**
+     * 资源与角色
+     */
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "resourceEntities")
+    private Set<RoleEntity> roleEntities = new HashSet<>();
 }

@@ -23,4 +23,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "1601_dept")
 public class DeptEntity extends BaseEntity {
+    /**
+     * 资源名称
+     */
+    private String deptName;
 }
