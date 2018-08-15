@@ -1,5 +1,6 @@
 package cn.hacz.edu.entity;
 
+import cn.hacz.edu.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +22,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "1601User")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private String name;
+public class UserEntity extends BaseEntity {
+    /**
+     * 用户名称
+     */
+    private String userName;
+    /**
+     * 年龄
+     */
     private Integer age;
     private LocalDateTime birthday;
+    private String phone;
 }

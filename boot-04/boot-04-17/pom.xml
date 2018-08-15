@@ -13,12 +13,17 @@
     <artifactId>boot-04-17</artifactId>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+        <!-- FTP服务器 -->
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
             <version>3.6</version>
         </dependency>
+        <dependency>
+            <groupId>com.luhuiguo</groupId>
+            <artifactId>fastdfs-client</artifactId>
+            <version>0.4.0</version>
+        </dependency>
     </dependencies>
-    
+
 </project>

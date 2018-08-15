@@ -60,7 +60,7 @@ public class UserController {
     public Json doSaveUserJsonMapObj(@RequestParam Map<String, Object> params) {
         UserEntity userEntity = new UserEntity();
         userEntity.setBirthday(LocalDateTime.now());
-        userEntity.setName((String) params.get("name"));
+        userEntity.setUserName((String) params.get("name"));
         UserEntity save = userDaoI.save(userEntity);
         return ResultUtils.successJson(save);
     }

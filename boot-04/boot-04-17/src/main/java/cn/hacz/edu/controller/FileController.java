@@ -2,7 +2,6 @@ package cn.hacz.edu.controller;
 
 import cn.hacz.edu.properties.FtpConfig;
 import cn.hacz.edu.util.FtpUtils;
-import com.sun.xml.internal.ws.api.message.Attachment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,8 +41,10 @@ public class FileController {
         String remotePath = "";
         String fileName = "";
         try {
-            response.setContentType("image/jpeg");  //设置显示图片
-            response.setHeader("Cache-Control", "max-age=604800"); //设置缓存
+            //设置显示图片
+            response.setContentType("image/jpeg");
+            //设置缓存
+            response.setHeader("Cache-Control", "max-age=604800");
             FtpUtils.downloadFile(host, port, userName, password, remotePath, fileName, response.getOutputStream());
         } catch (Exception e) {
             e.printStackTrace();

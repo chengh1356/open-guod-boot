@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -123,6 +124,28 @@ public class FileUploadUtils {
             return ResultUtils.errorJsonList("-200", "上传失败！");
         }
         return ResultUtils.successJsonList(returnImages);
+    }
+
+    /**
+     * 功能描述：显示图片接口
+     *
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping(value = "/image", method = RequestMethod.GET)
+    public void imageDisplay(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        File file = new File("F:\\aaa.jpg");
+        OutputStream outputStream = response.getOutputStream();
+        // 进行文件下载的指定，设置强制下载不打开
+        //设置显示图片
+        response.setContentType("image/jpeg");
+        //设置缓存
+        response.setHeader("Cache-Control", "max-age=604800");
+        // outputStream写入到输出流
+        outputStream.write(FileCopyUtils.copyToByteArray(file));
+        outputStream.flush();
+        outputStream.close();
     }
 
     /**

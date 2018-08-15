@@ -33,5 +33,6 @@ spring:
     static-path-pattern: /**
 # ==================================图片上传位置配置======================================
 image:
-  imgUrl: http://10.9.4.164/
-  imgPath: D:/data/
+  imgUrl: http://39.106.9.56/
+  imgPath: //home//kaifa//resources
+  # imgPath: D:/data/
