@@ -34,5 +34,5 @@ spring:
 # ==================================图片上传位置配置======================================
 image:
   imgUrl: http://39.106.9.56/
-  imgPath: //home//kaifa//resources
+  imgPath: //home//kaifa//resources//
   # imgPath: D:/data/

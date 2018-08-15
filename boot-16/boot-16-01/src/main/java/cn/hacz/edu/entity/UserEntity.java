@@ -4,9 +4,13 @@ import cn.hacz.edu.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * project - ETC发票系统
@@ -21,16 +25,44 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "1601User")
+@Table(name = "1601_user")
+@DynamicInsert(true)
+@DynamicUpdate(true)
 public class UserEntity extends BaseEntity {
     /**
      * 用户名称
      */
     private String userName;
     /**
-     * 年龄
+     * 登录密码
      */
-    private Integer age;
+    private String password;
+    /**
+     * 身份证号
+     */
+    private String idNumber;
+    /**
+     * 出生日期
+     */
     private LocalDateTime birthday;
-    private String phone;
+    /**
+     * 手机号码
+     */
+    private String mobilePhone;
+    /**
+     * 个人邮箱
+     */
+    private String email;
+    /**
+     * 头像
+     */
+    private String userIcon;
+    /**
+     * 一个用户可以有多个角色
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_role",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, unique = false)},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
+    private Set<RoleEntity> roleEntities = new HashSet<>();
 }
