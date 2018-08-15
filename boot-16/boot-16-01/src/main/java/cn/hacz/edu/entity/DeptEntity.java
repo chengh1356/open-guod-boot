@@ -4,8 +4,6 @@ import cn.hacz.edu.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -15,7 +13,7 @@ import javax.persistence.Table;
  *
  * @author dong
  * @version 1.0
- * @date 日期:2018/8/15 时间:21:25
+ * @date 日期:2018/8/15 时间:21:57
  * @JDK 1.8
  * @Description 功能模块：
  */
@@ -23,10 +21,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "1601_role")
-public class RoleEntity extends BaseEntity {
-    /**
-     * 角色名称
-     */
-    private String roleName;
+@Table(name = "1601_dept")
+public class DeptEntity extends BaseEntity {
 }

@@ -26,8 +26,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "1601_user")
-@DynamicInsert(true)
-@DynamicUpdate(true)
 public class UserEntity extends BaseEntity {
     /**
      * 用户名称
@@ -57,6 +55,10 @@ public class UserEntity extends BaseEntity {
      * 头像
      */
     private String userIcon;
+    /**
+     * 状态 0：禁用;1：正常
+     */
+    private String status;
     /**
      * 一个用户可以有多个角色
      */
