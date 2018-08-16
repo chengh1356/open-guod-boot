@@ -36,11 +36,13 @@
         <module>boot-04-13</module>
         <!-- 干货：排名前16的Java工具类 -->
         <module>boot-04-14</module>
-        <!--短信发送 -->
+        <!-- 短信发送 -->
         <module>boot-04-15</module>
         <!-- JPush 是日常开发中比较常用的推送方式。实现简单，功能全面 -->
         <module>boot-04-16</module>
         <!-- FTP文件服务器 -->
         <module>boot-04-17</module>
+        <!-- 审批流程处理 -->
+        <module>boot-04-18</module>
     </modules>
 </project>
