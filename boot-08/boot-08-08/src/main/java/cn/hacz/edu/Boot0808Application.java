@@ -1,5 +1,6 @@
 package cn.hacz.edu;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description 功能模块：
  */
 @SpringBootApplication
+@MapperScan(value = "cn.hacz.edu.dao")
 public class Boot0808Application {
     public static void main(String[] args) {
         SpringApplication.run(Boot0808Application.class, args);
