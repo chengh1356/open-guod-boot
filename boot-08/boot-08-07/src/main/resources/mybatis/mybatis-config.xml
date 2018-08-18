@@ -34,6 +34,4 @@
         <package name="cn.e3mall.manager.po"/>
     </typeAliases>
 
-    <!-- 配置mybatis的分页插件PageHelper -->
-
 </configuration>

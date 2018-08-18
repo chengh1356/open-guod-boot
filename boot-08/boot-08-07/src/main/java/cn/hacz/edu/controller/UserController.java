@@ -4,7 +4,10 @@ import cn.hacz.edu.entity.User;
 import cn.hacz.edu.service.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * project -
@@ -24,5 +27,14 @@ public class UserController {
     public void getUser() {
         User user = userServiceI.getUser("1");
         System.out.println(user);
+    }
+
+    @GetMapping("/all")
+    public List<User> findAllUser(
+            @RequestParam(name = "pageNum", required = false, defaultValue = "1")
+                    int pageNum,
+            @RequestParam(name = "pageSize", required = false, defaultValue = "10")
+                    int pageSize){
+        return userServiceI.findAllUser(pageNum,pageSize);
     }
 }

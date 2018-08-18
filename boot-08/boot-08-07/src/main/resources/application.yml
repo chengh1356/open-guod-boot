@@ -11,14 +11,16 @@ spring:
         driver-class-name: com.mysql.jdbc.Driver
 
 mybatis:
-  configLocation: classpath:mybatis/mybatis-config.xml
+  # configLocation: classpath:mybatis/mybatis-config.xml
+  config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
   # 实体扫描，多个package用逗号或者分号分隔
   type-aliases-package: cn.hacz.edu.*.entity
 
 #pagehelper
 pagehelper:
-    helperDialect: mariadb
+    helperDialect: mysql
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+    returnPageInfo: check

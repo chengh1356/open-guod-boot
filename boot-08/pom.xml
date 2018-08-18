@@ -27,6 +27,7 @@
         <module>boot-08-06</module>
         <!-- SQL关系型数据库-Mybatis-xml -->
         <module>boot-08-07</module>
+        <module>boot-08-08</module>
     </modules>
 
     <dependencies>

@@ -15,4 +15,6 @@ import java.util.List;
  */
 public interface UserServiceI {
     User getUser(String id);
+
+    List<User> findAllUser(int pageNum, int pageSize);
 }
