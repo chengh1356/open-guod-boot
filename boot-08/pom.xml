@@ -25,9 +25,12 @@
         <module>boot-08-05</module>
         <!-- JPA扩展 -->
         <module>boot-08-06</module>
-        <!-- SQL关系型数据库-Mybatis-xml -->
+        <!-- Mybatis-XML -->
         <module>boot-08-07</module>
+        <!-- Mybatis-Annotation -->
         <module>boot-08-08</module>
+        <!-- Mybatis-Plus -->
+        <module>boot-08-09</module>
     </modules>
 
     <dependencies>
@@ -44,6 +47,5 @@
             <version>1.1.9</version>
         </dependency>
     </dependencies>
-
 
 </project>
