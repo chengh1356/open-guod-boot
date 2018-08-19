@@ -1,6 +1,5 @@
 package cn.hacz.edu.controller;
 
-import com.sun.xml.internal.ws.api.message.Attachment;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
