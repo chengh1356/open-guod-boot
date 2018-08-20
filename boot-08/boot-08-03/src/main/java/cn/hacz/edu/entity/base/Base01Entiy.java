@@ -10,11 +10,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * project -
+ * project - 综合客户服务系统
  *
  * @author guod
  * @version 1.0
- * @date 日期:2018/7/26 时间:18:33
+ * @date 日期:2018/8/16 时间:10:09
  * @JDK 1.8
  * @Description 功能模块：
  */
@@ -22,11 +22,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+public class Base01Entiy implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Integer id;
+    private Integer id;
     /**
      * 备注
      */
