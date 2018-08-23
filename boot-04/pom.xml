@@ -44,5 +44,7 @@
         <module>boot-04-17</module>
         <!-- 审批流程处理 -->
         <module>boot-04-18</module>
+        <!-- 串口通信 -->
+        <module>boot-04-19</module>
     </modules>
 </project>
