@@ -25,8 +25,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class DateVo {
     /**
-     * @DatetimeFormat 是将String转换成Date,一般前台给后台传值时用
-     * @JsonFormat(pattern="yyyy-MM-dd") 将Date转换成String,一般后台传值给前台时
+     * @DatetimeFormat 是将String转换成Date, 一般前台给后台传值时用
+     * @JsonFormat(pattern="yyyy-MM-dd") 将Date转换成String, 一般后台传值给前台时
      */
     private Integer id;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
