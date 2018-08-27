@@ -17,16 +17,16 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * project - ETC发票系统
  *
- * @author guod 
- * @date 日期:2018年4月21日 时间:下午12:16:49
- * @JDK 1.8 
+ * @author guod
  * @version 3.0
- * @Description 功能模块： 
+ * @date 日期:2018年4月21日 时间:下午12:16:49
+ * @JDK 1.8
+ * @Description 功能模块：
  */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
-	@Bean
+    @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
@@ -37,7 +37,7 @@ public class SwaggerConfiguration {
     }
 
     @SuppressWarnings("deprecation")
-	private ApiInfo apiInfo() {
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("使用Swagger2构建RESTful APIs")
                 .description("关注博主博客：https://www.jianshu.com/u/88339594d03e")
