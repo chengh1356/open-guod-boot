@@ -4,8 +4,6 @@ import cn.hacz.edu.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -29,7 +27,7 @@ public class RoleEntity extends BaseEntity {
     /**
      * 角色名称
      */
-    private String roleName;
+        private String roleName;
     /**
      * 排序
      */

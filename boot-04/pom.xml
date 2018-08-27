@@ -16,10 +16,12 @@
 
     <modules>
         <module>boot-04-01</module>
+        <module>boot-04-02</module>
         <!-- CORS跨域请求处理 -->
         <module>boot-04-03</module>
         <!-- 文件上传下载 -->
         <module>boot-04-04</module>
+        <module>boot-04-05</module>
         <!-- Druid数据源实现项目的监控 -->
         <module>boot-04-06</module>
         <!-- Swagger插件优雅的生成API文档 -->
