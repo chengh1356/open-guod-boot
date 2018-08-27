@@ -25,8 +25,7 @@ public class TomcatConfig {
         factory.setDocumentRoot(new File("D:\\2018dev\\code\\MyGitee\\open-guod-boot\\boot-02\\boot-02-03\\src\\main\\webapp\\"));
         factory.addConnectorCustomizers(
                 connector -> {
-                    Http11NioProtocol protocol =
-                            (Http11NioProtocol) connector.getProtocolHandler();
+                    Http11NioProtocol protocol = (Http11NioProtocol) connector.getProtocolHandler();
                     System.out.println("---------------------*************************____________________");
                     protocol.setDisableUploadTimeout(false);
                 }

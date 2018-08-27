@@ -40,7 +40,6 @@ public class ResultUtils {
         return result;
     }
 
-
     /**
      * 功能描述：多数据返回
      *
