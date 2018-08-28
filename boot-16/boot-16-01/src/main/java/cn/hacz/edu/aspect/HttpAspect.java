@@ -38,7 +38,7 @@ public class HttpAspect {
     /**
      * 所有Controller
      */
-    @Pointcut("execution(public * cn.hacz.edu.controller..*Controller.*(..))")
+    @Pointcut("execution(public * cn.hacz.edu.modules..*Controller.*(..))")
     public void pointcut() {
     }
 

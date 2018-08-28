@@ -1,9 +1,8 @@
-package cn.hacz.edu.dao;
+package cn.hacz.edu.modules.sys.dao;
 
-import cn.hacz.edu.entity.UserEntity;
+import cn.hacz.edu.modules.sys.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,5 +53,5 @@ public interface UserDaoI extends JpaRepository<UserEntity, Serializable> {
      * @return
      */
     @Query(" select count(t) from UserEntity t where t.id = ?1")
-    Integer findFollowerNumberById(Integer id);
+    Integer findFollowerNumberById(String id);
 }

@@ -1,4 +1,4 @@
-package cn.hacz.edu.Tasks;
+package cn.hacz.edu.tasks;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

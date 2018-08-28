@@ -1,13 +1,13 @@
-package cn.hacz.edu.service.impl;
+package cn.hacz.edu.modules.sys.service.impl;
 
-import cn.hacz.edu.dao.UserDaoI;
-import cn.hacz.edu.entity.UserEntity;
+import cn.hacz.edu.modules.sys.dao.UserDaoI;
+import cn.hacz.edu.modules.sys.entity.UserEntity;
 import cn.hacz.edu.enums.ResultEnum;
 import cn.hacz.edu.exception.SelfException;
-import cn.hacz.edu.service.UserServiceI;
+import cn.hacz.edu.modules.sys.service.UserServiceI;
 import cn.hacz.edu.util.ResultUtils;
 import cn.hacz.edu.vo.Json;
-import cn.hacz.edu.vo.UserVo;
+import cn.hacz.edu.modules.sys.dto.UserVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

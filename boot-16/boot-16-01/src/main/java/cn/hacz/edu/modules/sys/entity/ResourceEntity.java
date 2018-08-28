@@ -1,11 +1,9 @@
-package cn.hacz.edu.entity;
+package cn.hacz.edu.modules.sys.entity;
 
-import cn.hacz.edu.entity.base.BaseEntity;
+import cn.hacz.edu.modules.sys.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.HashSet;

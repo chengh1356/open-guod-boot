@@ -1,6 +1,6 @@
-package cn.hacz.edu.entity;
+package cn.hacz.edu.modules.sys.entity;
 
-import cn.hacz.edu.entity.base.BaseEntity;
+import cn.hacz.edu.modules.sys.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +26,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "1601_user")
+@DynamicInsert
+@DynamicUpdate
 public class UserEntity extends BaseEntity {
     /**
      * 用户名称

@@ -1,9 +1,15 @@
-package cn.hacz.edu.entity.base;
+package cn.hacz.edu.modules.sys.entity.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,11 +28,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public class BaseEntity implements Serializable {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Integer id;
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id", nullable = false, length = 32)
+    private String id;
     /**
      * 备注
      */
@@ -36,21 +44,25 @@ public class BaseEntity implements Serializable {
      * 创建时间
      */
     @Column(name = "create_time")
+    @CreatedDate
     private LocalDateTime createTime;
     /**
      * 更新时间
      */
     @Column(name = "update_time")
+    @LastModifiedDate
     private LocalDateTime updateTime;
     /**
      * 创建人
      */
     @Column(name = "create_by")
+    @CreatedBy
     private String createBy;
     /**
      * 更新人
      */
     @Column(name = "update_by")
+    @LastModifiedBy
     private String updateBy;
     /**
      * 删除标识0-正常；1-删除

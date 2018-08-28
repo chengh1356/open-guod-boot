@@ -1,6 +1,6 @@
-package cn.hacz.edu.entity;
+package cn.hacz.edu.modules.sys.entity;
 
-import cn.hacz.edu.entity.base.BaseEntity;
+import cn.hacz.edu.modules.sys.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

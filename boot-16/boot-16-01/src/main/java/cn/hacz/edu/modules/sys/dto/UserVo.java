@@ -1,4 +1,4 @@
-package cn.hacz.edu.vo;
+package cn.hacz.edu.modules.sys.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -43,10 +43,10 @@ public class UserVo {
 
     @NotNull(message = "[id]不能为空", groups = {BaseInfo.class})
     @JsonView(BaseInfo.class)
-    private Integer id;
+    private String id;
     @JsonView(BaseInfo.class)
-    @NotNull(message = "[name]用户名不能为空", groups = {AddUser.class})
-    private String name;
+    @NotNull(message = "[userName]用户名不能为空", groups = {AddUser.class})
+    private String userName;
     @JsonView(DetailInfo.class)
     @NotNull(message = "[age]用户名不能为空", groups = {AddUser.class})
     private Integer age;

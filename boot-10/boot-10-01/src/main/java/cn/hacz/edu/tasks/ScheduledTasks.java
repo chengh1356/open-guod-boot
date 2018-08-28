@@ -1,4 +1,4 @@
-package cn.hacz.edu.Tasks;
+package cn.hacz.edu.tasks;
 
 import cn.hacz.edu.controller.TasksController;
 import org.slf4j.Logger;

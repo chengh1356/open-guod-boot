@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.time.LocalDate;
@@ -28,6 +29,7 @@ import java.time.format.DateTimeFormatter;
 @SpringBootApplication
 @EnableScheduling
 @Configuration
+@EnableJpaAuditing
 public class Boot1601Application {
     public static void main(String[] args) {
         new SpringApplicationBuilder(Boot1601Application.class).run(args);
