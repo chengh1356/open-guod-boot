@@ -36,7 +36,7 @@ import java.util.Optional;
  */
 @RestController
 @Api(tags = "UserController-用户管理的增删改查")
-public class UserController {
+public class SysUserController extends AbstractController {
     @Autowired
     private UserServiceI userServiceI;
     @Autowired
@@ -51,6 +51,7 @@ public class UserController {
     @PostMapping(value = "doSaveUserJsonObj")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonObj(@Validated(UserVo.AddUser.class) UserVo userVo) {
+        logger.info("");
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(userVo, userEntity);
         userEntity.setBirthday(LocalDateTime.now());
