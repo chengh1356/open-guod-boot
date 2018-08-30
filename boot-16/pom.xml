@@ -13,7 +13,7 @@
     <artifactId>boot-16</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <!-- 项目实战01：spring boot + JPA，统一异常和返回值 -->
+        <!-- 项目实战01：Spring Boot+Shiro+JPA+Redis -->
         <module>boot-16-01</module>
     </modules>
 

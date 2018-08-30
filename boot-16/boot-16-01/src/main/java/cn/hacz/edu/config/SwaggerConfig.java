@@ -19,7 +19,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-
+    /**
+     * 功能描述：后台系统
+     *
+     * @return
+     */
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -31,13 +35,40 @@ public class SwaggerConfig {
                 .build();
     }
 
+    /**
+     * 功能描述：
+     *
+     * @return
+     */
     @Bean
-    public Docket createRestApiu() {
+    public Docket createRestApiOss() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .groupName("文件上传")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cn.hacz.edu.modules.oss"))
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
+    public Docket createRestApiApp() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("手机APP")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.hacz.edu.modules.app"))
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
+    public Docket createRestApiJob() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("定时任务")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.hacz.edu.modules.job"))
                 .paths(PathSelectors.any())
                 .build();
     }
