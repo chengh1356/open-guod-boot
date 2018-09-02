@@ -26,7 +26,7 @@
         <module>boot-04-06</module>
         <!-- Swagger插件优雅的生成API文档 -->
         <module>boot-04-07</module>
-        <!-- Java8中的LocalDateTime -->
+        <!--  -->
         <module>boot-04-08</module>
         <!-- Java8中的LocalDateTime -->
         <module>boot-04-09</module>
