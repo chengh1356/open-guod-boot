@@ -44,6 +44,8 @@
         <module>boot-09</module>
         <!-- 实战spring boot中定时任务 -->
         <module>boot-10</module>
+        <!-- RBAC权限管理 -->
+        <module>boot-14</module>
         <!-- 实战框架整合 -->
         <module>boot-16</module>
     </modules>

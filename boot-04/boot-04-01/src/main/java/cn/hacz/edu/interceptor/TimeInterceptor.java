@@ -21,6 +21,15 @@ import java.util.Date;
  */
 @Component
 public class TimeInterceptor implements HandlerInterceptor {
+    /**
+     * 功能描述：在调用controller具体方法前拦截
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("preHandle");

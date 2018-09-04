@@ -15,18 +15,21 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- 使用Filter、Interceptor拦截restful API -->
         <module>boot-04-01</module>
+        <!-- AOP统一异常处理 -->
         <module>boot-04-02</module>
         <!-- CORS跨域请求处理 -->
         <module>boot-04-03</module>
         <!-- 文件上传下载 -->
         <module>boot-04-04</module>
+        <!-- SpringMvc静态文件地址 -->
         <module>boot-04-05</module>
-        <!-- Druid数据源实现项目的监控 -->
+        <!-- Druid数据源实现项目的监控PK连接池HikariCP -->
         <module>boot-04-06</module>
         <!-- Swagger插件优雅的生成API文档 -->
         <module>boot-04-07</module>
-        <!--  -->
+        <!-- Spring boot域对象：VO、DTO、DO、PO -->
         <module>boot-04-08</module>
         <!-- Java8中的LocalDateTime -->
         <module>boot-04-09</module>
