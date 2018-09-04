@@ -11,4 +11,10 @@
     </parent>
     <artifactId>boot-14</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>boot-14-01</module>
+        <module>boot-14-02</module>
+        <module>boot-14-03</module>
+        <module>boot-14-04</module>
+    </modules>
 </project>
