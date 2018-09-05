@@ -80,7 +80,7 @@ public class FileUploadUtils {
             //如果目录不存在，自动创建文件夹
             File dir = new File(uploadDir);
             if (!dir.exists()) {
-                dir.mkdir();
+                boolean mkdirs = dir.mkdirs();
             }
             //调用上传方法
             returnImage = executeUpload(uploadDir, file);
@@ -109,7 +109,7 @@ public class FileUploadUtils {
             //如果目录不存在，自动创建文件夹
             File dir = new File(uploadDir);
             if (!dir.exists()) {
-                dir.mkdir();
+                boolean mkdirs = dir.mkdirs();
             }
             //遍历文件数组执行上传
             for (int i = 0; i < file.length; i++) {
@@ -135,7 +135,7 @@ public class FileUploadUtils {
      */
     @RequestMapping(value = "/image", method = RequestMethod.GET)
     public void imageDisplay(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        File file = new File("F:\\aaa.jpg");
+        File file = new File("F:\\aa.jpg");
         OutputStream outputStream = response.getOutputStream();
         // 进行文件下载的指定，设置强制下载不打开
         //设置显示图片
