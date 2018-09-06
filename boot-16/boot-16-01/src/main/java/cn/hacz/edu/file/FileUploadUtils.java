@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -58,8 +60,10 @@ public class FileUploadUtils {
         File serverFile = new File(uploadDir + filename);
         //将上传的文件写入到服务器端文件内
         file.transferTo(serverFile);
+        // 返回用户回显路径
+        String returnFile = uploadDir + filename;
         logger.info("服务器图片地址：[{}]", serverFile);
-        return filename;
+        return returnFile;
     }
 
 
@@ -75,7 +79,8 @@ public class FileUploadUtils {
         try {
             // 上传目录服务器地址
             // String uploadDir = request.getSession().getServletContext().getRealPath("/") + "upload/";
-            String uploadDir = imgPath + "upload/";
+            String format = new SimpleDateFormat("yyyy/MM/dd/").format(new Date());
+            String uploadDir = imgPath + format + "upload/";
             logger.info("传的路径[{}]", uploadDir);
             //如果目录不存在，自动创建文件夹
             File dir = new File(uploadDir);
@@ -136,11 +141,11 @@ public class FileUploadUtils {
     @RequestMapping(value = "/image", method = RequestMethod.GET)
     public void imageDisplay(HttpServletRequest request, HttpServletResponse response) throws Exception {
         File file = new File("F:\\aa.jpg");
-        OutputStream outputStream = response.getOutputStream();
         // 进行文件下载的指定，设置强制下载不打开
-        //设置显示图片
+        OutputStream outputStream = response.getOutputStream();
+        // 设置显示图片
         response.setContentType("image/jpeg");
-        //设置缓存
+        // 设置缓存
         response.setHeader("Cache-Control", "max-age=604800");
         // outputStream写入到输出流
         outputStream.write(FileCopyUtils.copyToByteArray(file));
