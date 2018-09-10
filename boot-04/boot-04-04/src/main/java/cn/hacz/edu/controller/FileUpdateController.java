@@ -1,5 +1,6 @@
 package cn.hacz.edu.controller;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,8 +42,8 @@ public class FileUpdateController {
         //服务器端保存的文件对象
         File serverFile = new File(uploadDir + filename);
         InputStream inputStream = file.getInputStream();
-        //将上传的文件写入到服务器端文件内
-        file.transferTo(serverFile);
+        //将上传的文件写入到服务器端文件内，file.transferTo(serverFile)
+        FileUtils.copyInputStreamToFile(file.getInputStream(), serverFile);
     }
 
     /**
@@ -59,7 +60,7 @@ public class FileUpdateController {
             //如果目录不存在，自动创建文件夹
             File dir = new File(uploadDir);
             if (!dir.exists()) {
-                dir.mkdir();
+                dir.mkdirs();
             }
             //调用上传方法
             executeUpload(uploadDir, file);
@@ -86,7 +87,7 @@ public class FileUpdateController {
             //如果目录不存在，自动创建文件夹
             File dir = new File(uploadDir);
             if (!dir.exists()) {
-                dir.mkdir();
+                dir.mkdirs();
             }
             //遍历文件数组执行上传
             for (int i = 0; i < file.length; i++) {
@@ -116,8 +117,10 @@ public class FileUpdateController {
         File file = new File("F:\\aaa.jpg");
         OutputStream outputStream = response.getOutputStream();
         // 进行文件下载的指定，设置强制下载不打开
-        response.setContentType("image/jpeg");  //设置显示图片
-        response.setHeader("Cache-Control", "max-age=604800"); //设置缓存
+        //设置显示图片
+        response.setContentType("image/jpeg");
+        //设置缓存
+        response.setHeader("Cache-Control", "max-age=604800");
         // outputStream写入到输出流
         outputStream.write(FileCopyUtils.copyToByteArray(file));
         outputStream.flush();
