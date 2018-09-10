@@ -18,7 +18,7 @@ spring:
     hibernate:
       ddl-auto: create     # 数据库创建方式（property: none, validate, update, create, and create-drop）
       naming:   # 命名配置（默认是遇到大写字母 加"_"的命名SpringPhysicalNamingStrategy；无修改命名PhysicalNamingStrategyStandardImpl）
-        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
