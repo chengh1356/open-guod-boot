@@ -1,7 +1,9 @@
 package cn.hacz.edu;
 
+import cn.hacz.edu.repository.base.BaseRepositoryFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * project - 中原金控后台管理服务
@@ -13,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description 功能模块：JPA的扩展
  */
 @SpringBootApplication
+@EnableJpaRepositories(repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
 public class Boot0806Application {
     public static void main(String[] args) {
         SpringApplication.run(Boot0806Application.class, args);
