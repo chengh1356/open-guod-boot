@@ -26,7 +26,9 @@ public class UserController {
     @RequestMapping(value = "/test")
     public Object test(@Validated Object object) {
         List<UserEntity> userEntities = userServerI.find();
-        System.out.println(userEntities);
+        userEntities.forEach(userEntity -> {
+            System.out.println(userEntity);
+        });
         return null;
     }
 }
