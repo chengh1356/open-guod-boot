@@ -2,6 +2,8 @@ package cn.hacz.edu.server;
 
 import cn.hacz.edu.entity.UserEntity;
 
+import java.util.List;
+
 /**
  * project - 综合客户服务系统
  *
@@ -12,4 +14,5 @@ import cn.hacz.edu.entity.UserEntity;
  * @Description 功能模块：
  */
 public interface UserServerI {
+    List<UserEntity> find();
 }

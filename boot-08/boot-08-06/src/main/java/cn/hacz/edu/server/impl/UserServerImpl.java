@@ -1,9 +1,13 @@
 package cn.hacz.edu.server.impl;
 
+import cn.hacz.edu.entity.UserEntity;
 import cn.hacz.edu.repository.UserDaoI;
 import cn.hacz.edu.server.UserServerI;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * project - 综合客户服务系统
@@ -18,4 +22,11 @@ import org.springframework.stereotype.Service;
 public class UserServerImpl implements UserServerI {
     @Autowired
     private UserDaoI userDaoI;
+
+    @Override
+    public List<UserEntity> find() {
+        QPageRequest qPageRequest = new QPageRequest(1, 4);
+        List<UserEntity> userEntities = userDaoI.find("", UserEntity.class, qPageRequest);
+        return userEntities;
+    }
 }
