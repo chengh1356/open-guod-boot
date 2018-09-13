@@ -10,6 +10,7 @@ import cn.hacz.edu.vo.JsonList;
 import com.fasterxml.jackson.annotation.JsonView;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -51,7 +52,8 @@ public class SysUserController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonObj")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonObj(@Validated(UserVo.AddUser.class) UserVo userVo) {
-        logger.info("");
+        // lang3中的方法，直接输出对象的全部属性值
+        logger.info("添加用户接口参数：===>[{}]", ReflectionToStringBuilder.toString(userVo));
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(userVo, userEntity);
         userEntity.setBirthday(LocalDateTime.now());
