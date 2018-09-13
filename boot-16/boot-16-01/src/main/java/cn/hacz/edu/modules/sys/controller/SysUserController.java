@@ -53,11 +53,12 @@ public class SysUserController extends AbstractController {
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonObj(@Validated(UserVo.AddUser.class) UserVo userVo) {
         // lang3中的方法，直接输出对象的全部属性值
-        logger.info("添加用户接口参数：===>[{}]", ReflectionToStringBuilder.toString(userVo));
+        logger.info("添加用户接口===>请求参数：[{}]", ReflectionToStringBuilder.toString(userVo));
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(userVo, userEntity);
         userEntity.setBirthday(LocalDateTime.now());
         UserEntity save = userDaoI.save(userEntity);
+        logger.info("添加用户接口===>响应参数：[{}]", save);
         return ResultUtils.successJson(save);
     }
 
