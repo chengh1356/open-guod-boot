@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 public class HttpAspect {
-    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private ObjectMapper mapper;
@@ -51,43 +51,37 @@ public class HttpAspect {
      */
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
-
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
+        assert sra != null;
         HttpServletRequest request = sra.getRequest();
-
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
+        String remoteAddr = request.getRemoteAddr();
         long logId = SnowFlakeIdGenerator.getInstance().generateLongId();
         logger.debug("============================================");
-        logger.debug("请求开始, 各个参数, logid:{}, url: {}", logId, url);
-
+        logger.debug("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, queryString, remoteAddr, logId);
         StopWatch watch = new StopWatch(String.valueOf(logId));
         watch.start();
-
-        Object result = null;
-        Json j = null;
+        Object result;
+        Json j;
         try {
             result = pjp.proceed();
             j = (Json) result;
             // 去掉统一放到自定义的里面操作：j.setSuccess(true)
         } catch (Throwable e) {
             logger.error("******************************");
-            logger.error("出错详细日志logid:{}, url: {}, method: {}, uri: {}, params: {}", logId, url, method, uri, queryString);
+            logger.error("出错详细日志logid:[{}],url:[{}],method:[{}],uri:[{}],params:[{}]", logId, url, method, uri, queryString);
             // 此处应该直接落地
             logger.error("出错 logId: " + logId, e);
             logger.error("******************************");
             throw e;
         }
-
         watch.stop();
-        logger.debug("请求结束，logId: {}, 执行时间 {} controller的返回值是 {}", logId, watch.getTotalTimeMillis(), mapper.writeValueAsString(result));
+        logger.debug("请求开始===>logId:[{}],执行时间:[{}],Controller返回值:[{}]", logId, watch.getTotalTimeMillis(), mapper.writeValueAsString(j));
         logger.debug("============================================");
-        return result;
-
+        return j;
     }
-
-
 }

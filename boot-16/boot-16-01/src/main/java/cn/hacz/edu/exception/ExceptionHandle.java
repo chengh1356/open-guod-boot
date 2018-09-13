@@ -30,7 +30,6 @@ public class ExceptionHandle {
      */
     private final static Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);
 
-
     /**
      * 功能描述：自定义异常和系统异常
      *
@@ -50,7 +49,7 @@ public class ExceptionHandle {
     }
 
     /**
-     * 功能描述：数据校验异常直接抛出终止程序
+     * 功能描述：from数据校验异常
      *
      * @param e
      * @param request
@@ -75,21 +74,19 @@ public class ExceptionHandle {
 
 
     /**
-     * 功能描述：JSON数据校验异常
+     * 功能描述：Json数据校验异常
      *
      * @param e
      * @param request
-     * @param response
      * @return
      * @throws Exception
      */
     @ResponseBody
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public Json valid(MethodArgumentNotValidException e, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public Json valid(MethodArgumentNotValidException e, HttpServletRequest request) throws Exception {
         printlnException(request, e);
         Json j = new Json();
         j.setSuccess(false);
-
         if (!e.getBindingResult().hasErrors()) {
             j.setMessage("没有找到校验异常!");
             return j;
@@ -123,14 +120,14 @@ public class ExceptionHandle {
      * @param e
      * @throws IOException
      */
-    private void printlnException(HttpServletRequest request, Throwable e) throws IOException {
+    private void printlnException(HttpServletRequest request, Throwable e) {
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
         logger.error("******************************");
-        logger.error("出错详细日志logid:, url: {}, method: {}, uri: {}, params: {}", url, method, uri, queryString);
-        logger.error("出错 logId", e);
+        logger.error("出错详细日志,url:[{}],method:[{}],uri:[{}],params:[{}]", url, method, uri, queryString);
+        logger.error("出错异常:", e);
         logger.error("******************************");
     }
 }
