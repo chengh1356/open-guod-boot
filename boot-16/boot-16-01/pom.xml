@@ -13,7 +13,6 @@
     <artifactId>boot-16-01</artifactId>
     <packaging>jar</packaging>
 
-
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
@@ -41,11 +40,11 @@
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>1.8.1</version>
         </dependency>
+        <!-- Apache工具包 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -64,5 +63,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

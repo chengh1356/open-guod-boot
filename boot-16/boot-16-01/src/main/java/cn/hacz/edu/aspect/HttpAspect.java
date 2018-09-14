@@ -17,6 +17,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 
 /**
  * project - ETC发票系统
@@ -58,11 +59,15 @@ public class HttpAspect {
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
-        String queryString = request.getQueryString();
+        // 获取get的请求地址
+        String getParams = request.getQueryString();
+        // 获取post的请求参数
+        String postParams = mapper.writeValueAsString(pjp.getArgs());
+        // 获取IP地址
         String remoteAddr = request.getRemoteAddr();
         long logId = SnowFlakeIdGenerator.getInstance().generateLongId();
-        logger.debug("============================================");
-        logger.debug("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, queryString, remoteAddr, logId);
+        logger.info("============================================");
+        logger.info("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, postParams, remoteAddr, logId);
         StopWatch watch = new StopWatch(String.valueOf(logId));
         watch.start();
         Object result;
@@ -73,15 +78,15 @@ public class HttpAspect {
             // 去掉统一放到自定义的里面操作：j.setSuccess(true)
         } catch (Throwable e) {
             logger.error("******************************");
-            logger.error("出错详细日志logid:[{}],url:[{}],method:[{}],uri:[{}],params:[{}]", logId, url, method, uri, queryString);
+            logger.error("出错详细日志logid:[{}],url:[{}],method:[{}],uri:[{}],params:[{}]", logId, url, method, uri, getParams);
             // 此处应该直接落地
             logger.error("出错 logId: " + logId, e);
             logger.error("******************************");
             throw e;
         }
         watch.stop();
-        logger.debug("请求开始===>logId:[{}],执行时间:[{}],Controller返回值:[{}]", logId, watch.getTotalTimeMillis(), mapper.writeValueAsString(j));
-        logger.debug("============================================");
+        logger.info("请求结束===>logId:[{}],执行时间:[{}],Controller返回值:[{}]", logId, watch.getTotalTimeMillis(), mapper.writeValueAsString(j));
+        logger.info("============================================");
         return j;
     }
 }
