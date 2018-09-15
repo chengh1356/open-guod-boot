@@ -51,5 +51,7 @@
         <module>boot-04-18</module>
         <!-- 串口通信 -->
         <module>boot-04-19</module>
+        <!-- SpringMVC+ZTree实现树形菜单权限配 -->
+        <module>boot-04-20</module>
     </modules>
 </project>

@@ -2,7 +2,7 @@ package cn.hacz.edu.modules.sys.controller;
 
 import cn.hacz.edu.modules.sys.dao.UserDaoI;
 import cn.hacz.edu.modules.sys.dto.UserVo;
-import cn.hacz.edu.modules.sys.entity.UserEntity;
+import cn.hacz.edu.modules.sys.entity.SysUserEntity;
 import cn.hacz.edu.modules.sys.service.UserServiceI;
 import cn.hacz.edu.util.ResultUtils;
 import cn.hacz.edu.vo.Json;
@@ -10,7 +10,6 @@ import cn.hacz.edu.vo.JsonList;
 import com.fasterxml.jackson.annotation.JsonView;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,6 +24,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * project -
@@ -36,6 +36,7 @@ import java.util.Optional;
  * @Description 功能模块：
  */
 @RestController
+@RequestMapping(value = "/lean")
 @Api(tags = "UserController-用户管理的增删改查")
 public class SysLeanController extends AbstractController {
     @Autowired
@@ -52,10 +53,10 @@ public class SysLeanController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonObj")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonObj(@Validated(UserVo.AddUser.class) UserVo userVo) {
-        UserEntity userEntity = new UserEntity();
+        SysUserEntity userEntity = new SysUserEntity();
         BeanUtils.copyProperties(userVo, userEntity);
         userEntity.setBirthday(LocalDateTime.now());
-        UserEntity save = userDaoI.save(userEntity);
+        SysUserEntity save = userDaoI.save(userEntity);
         return ResultUtils.successJson(save);
     }
 
@@ -68,10 +69,10 @@ public class SysLeanController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonMapObj")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonMapObj(@RequestParam Map<String, Object> params) {
-        UserEntity userEntity = new UserEntity();
+        SysUserEntity userEntity = new SysUserEntity();
         userEntity.setBirthday(LocalDateTime.now());
         userEntity.setUserName((String) params.get("name"));
-        UserEntity save = userDaoI.save(userEntity);
+        SysUserEntity save = userDaoI.save(userEntity);
         return ResultUtils.successJson(save);
     }
 
@@ -84,9 +85,9 @@ public class SysLeanController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonStr")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonStr(@RequestBody @Validated(UserVo.AddUser.class) UserVo userVo) {
-        UserEntity userEntity = new UserEntity();
+        SysUserEntity userEntity = new SysUserEntity();
         userEntity.setBirthday(LocalDateTime.now());
-        UserEntity save = userDaoI.save(userEntity);
+        SysUserEntity save = userDaoI.save(userEntity);
         return ResultUtils.successJson(save);
     }
 
@@ -99,9 +100,9 @@ public class SysLeanController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonMapStr")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonMapStr(@RequestBody Map<String, Object> params) {
-        UserEntity userEntity = new UserEntity();
+        SysUserEntity userEntity = new SysUserEntity();
         userEntity.setBirthday(LocalDateTime.now());
-        UserEntity save = userDaoI.save(userEntity);
+        SysUserEntity save = userDaoI.save(userEntity);
         return ResultUtils.successJson(save);
     }
 
@@ -114,9 +115,9 @@ public class SysLeanController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonValueMapStr")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonValueMapStr(@RequestParam MultiValueMap<String, Object> params) {
-        UserEntity userEntity = new UserEntity();
+        SysUserEntity userEntity = new SysUserEntity();
         userEntity.setBirthday(LocalDateTime.now());
-        UserEntity save = userDaoI.save(userEntity);
+        SysUserEntity save = userDaoI.save(userEntity);
         return ResultUtils.successJson(save);
     }
 
@@ -143,11 +144,11 @@ public class SysLeanController extends AbstractController {
     public Json doUpdateUser(@PathVariable("id") String id,
                              @RequestBody UserVo userVo) {
         // 先查询出持久化对象
-        Optional<UserEntity> byId = userDaoI.findById(id);
-        byId.get().setId(id);
+        Optional<SysUserEntity> byId = userDaoI.findById(id);
+        byId.get().setId(UUID.fromString(id));
         byId.get().setAge(userVo.getAge());
         // 就行保存更新
-        UserEntity save = userDaoI.save(byId.get());
+        SysUserEntity save = userDaoI.save(byId.get());
         return ResultUtils.successJson(save);
     }
 
@@ -185,7 +186,7 @@ public class SysLeanController extends AbstractController {
     @GetMapping(value = "/getUserList")
     @ApiOperation(value = "多数据返回", notes = "多数据返回")
     public JsonList getUserList() {
-        List<UserEntity> all = userDaoI.findAll();
+        List<SysUserEntity> all = userDaoI.findAll();
         return ResultUtils.successJsonList(all);
     }
 
@@ -200,7 +201,7 @@ public class SysLeanController extends AbstractController {
         // 排序条件
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
         // 分页查询从0开始
-        Page<UserEntity> all = userDaoI.findAll(PageRequest.of(0, 100, sort));
+        Page<SysUserEntity> all = userDaoI.findAll(PageRequest.of(0, 100, sort));
         return ResultUtils.successJsonList(all);
     }
 

@@ -22,38 +22,42 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "1601_role")
-public class RoleEntity extends BaseEntity {
+@Table(name = "tb_sys_role")
+public class SysRoleEntity extends BaseEntity {
     /**
      * 角色名称
      */
-        private String roleName;
+    private String roleName;
     /**
      * 排序
      */
     private String orderNum;
     /**
+     * 角色描述
+     */
+    private String roleDesc;
+    /**
      * 上级角色
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pid")
-    private RoleEntity role;
+    private SysRoleEntity role;
     /**
      * 子角色
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
-    private Set<RoleEntity> roleEntities = new HashSet<>();
+    private Set<SysRoleEntity> roleEntities = new HashSet<>();
     /**
      * 角色和用户
      */
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roleEntities")
-    private Set<UserEntity> userEntities = new HashSet<>();
+    private Set<SysUserEntity> userEntities = new HashSet<>();
     /**
      * 角色和资源
      */
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "role_resource",
+    @JoinTable(name = "t_base_role_resource",
             joinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "resource_id", nullable = false, updatable = false)})
-    private Set<ResourceEntity> resourceEntities = new HashSet<>();
+    private Set<SysResourceEntity> resourceEntities = new HashSet<>();
 }

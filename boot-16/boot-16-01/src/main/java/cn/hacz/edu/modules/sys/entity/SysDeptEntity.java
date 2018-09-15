@@ -21,8 +21,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "1601_dept")
-public class DeptEntity extends BaseEntity {
+@Table(name = "tb_sys_dept")
+public class SysDeptEntity extends BaseEntity {
     /**
      * 资源名称
      */

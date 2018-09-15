@@ -1,9 +1,9 @@
 package cn.hacz.edu.modules.sys.entity.base;
 
+import cn.hacz.edu.modules.sys.repository.comment.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -14,6 +14,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  * project -
@@ -31,10 +32,11 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity implements Serializable {
     @Id
-    @GeneratedValue(generator = "paymentableGenerator")
-    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
-    @Column(name = "id", nullable = false, length = 32)
-    private String id;
+    @GeneratedValue
+    @Type(type = "uuid-char")
+    @Column(length = 36)
+    @Comment("ID")
+    private UUID id;
     /**
      * 备注
      */

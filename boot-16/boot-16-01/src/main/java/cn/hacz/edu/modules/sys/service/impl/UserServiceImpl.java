@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.sys.service.impl;
 
 import cn.hacz.edu.modules.sys.dao.UserDaoI;
-import cn.hacz.edu.modules.sys.entity.UserEntity;
+import cn.hacz.edu.modules.sys.entity.SysUserEntity;
 import cn.hacz.edu.enums.ResultEnum;
 import cn.hacz.edu.exception.SelfException;
 import cn.hacz.edu.modules.sys.service.UserServiceI;
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserServiceI {
 
     @Override
     public Json getAgeCount(@Valid UserVo userVo) {
-        UserEntity userEntity = userDaoI.getOne(userVo.getId());
+        SysUserEntity userEntity = userDaoI.getOne(userVo.getId());
         if (userEntity.getAge() <= 12) {
             throw new SelfException(ResultEnum.ERROR_VALUE);
         }

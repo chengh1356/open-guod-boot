@@ -21,8 +21,12 @@
         <module>boot-05-02</module>
         <!-- Gson -->
         <module>boot-05-03</module>
+        <!-- Json、JavaBean、Xml互转的几种工具介绍+Json-lib -->
         <module>boot-05-04</module>
+        <!-- Excel报表的POI导入和导出 -->
         <module>boot-05-05</module>
+        <!-- java读取Excel导入导出工具ExcelUtils -->
+        <module>boot-05-06</module>
     </modules>
 
     <dependencies>

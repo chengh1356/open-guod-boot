@@ -25,10 +25,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "1601_user")
+@Table(name = "tb_sys_user")
 @DynamicInsert
 @DynamicUpdate
-public class UserEntity extends BaseEntity {
+public class SysUserEntity extends BaseEntity {
     /**
      * 用户名称
      */
@@ -38,6 +38,16 @@ public class UserEntity extends BaseEntity {
      */
     private String password;
     /**
+     * 用户编码
+     */
+    @Column(length = 64)
+    private String userCode;
+    /**
+     * 昵称
+     */
+    @Column(length = 100)
+    private String nickname;
+    /**
      * 身份证号
      */
     private String idNumber;
@@ -45,19 +55,32 @@ public class UserEntity extends BaseEntity {
      * 出生日期
      */
     private LocalDateTime birthday;
+    /**
+     * 年龄
+     */
     private Integer age;
     /**
      * 手机号码
      */
-    private String mobilePhone;
+    private String mobile;
+    /**
+     * 办公电话
+     */
+    @Column(length = 20)
+    private String phone;
     /**
      * 个人邮箱
      */
     private String email;
     /**
-     * 头像
+     * 头像路径
      */
     private String userIcon;
+    /**
+     * 个性签名
+     */
+    @Column(length = 200)
+    private String sign;
     /**
      * 状态 0：禁用;1：正常
      */
@@ -69,5 +92,11 @@ public class UserEntity extends BaseEntity {
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
-    private Set<RoleEntity> roleEntities = new HashSet<>();
+    private Set<SysRoleEntity> roleEntities = new HashSet<>();
+
+    /**
+     * 一个用户可以对应多个站点
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<SysUserSiteEntity> userSiteEntities;
 }

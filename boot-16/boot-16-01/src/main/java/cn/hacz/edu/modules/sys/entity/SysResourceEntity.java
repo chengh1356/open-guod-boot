@@ -22,8 +22,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "1601_resource")
-public class ResourceEntity extends BaseEntity {
+@Table(name = "tb_sys_resource")
+public class SysResourceEntity extends BaseEntity {
     /**
      * 资源名称
      */
@@ -49,15 +49,15 @@ public class ResourceEntity extends BaseEntity {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pid")
-    private ResourceEntity resource;
+    private SysResourceEntity resource;
     /**
      * 下级资源
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "resource")
-    private Set<ResourceEntity> resourceEntities = new HashSet<>();
+    private Set<SysResourceEntity> resourceEntities = new HashSet<>();
     /**
      * 资源与角色
      */
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "resourceEntities")
-    private Set<RoleEntity> roleEntities = new HashSet<>();
+    private Set<SysRoleEntity> roleEntities = new HashSet<>();
 }

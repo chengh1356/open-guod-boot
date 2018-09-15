@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.sys.dao;
 
-import cn.hacz.edu.modules.sys.entity.UserEntity;
+import cn.hacz.edu.modules.sys.entity.SysUserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -18,14 +18,14 @@ import java.io.Serializable;
  * @Description 功能模块：数据库操作
  */
 @Repository
-public interface UserDaoI extends JpaRepository<UserEntity, Serializable> {
+public interface UserDaoI extends JpaRepository<SysUserEntity, Serializable> {
     /**
      * 功能描述：根据年龄查询
      *
      * @param age
      * @return
      */
-    UserEntity findAllByAge(Integer age);
+    SysUserEntity findAllByAge(Integer age);
 
     /**
      * 功能描述：
@@ -34,8 +34,8 @@ public interface UserDaoI extends JpaRepository<UserEntity, Serializable> {
      * @return
      */
     @Transactional(timeout = 10)
-    @Query("select u from UserEntity u where u.id = ?1")
-    UserEntity findById(Integer id);
+    @Query("select u from SysUserEntity u where u.id = ?1")
+    SysUserEntity findById(Integer id);
 
 
     /**
@@ -52,6 +52,6 @@ public interface UserDaoI extends JpaRepository<UserEntity, Serializable> {
      * @param id
      * @return
      */
-    @Query(" select count(t) from UserEntity t where t.id = ?1")
+    @Query(" select count(t) from SysUserEntity t where t.id = ?1")
     Integer findFollowerNumberById(String id);
 }

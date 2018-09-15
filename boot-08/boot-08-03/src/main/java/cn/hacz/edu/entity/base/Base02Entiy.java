@@ -4,9 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
-import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.UUID;
 
@@ -27,5 +28,6 @@ public class Base02Entiy {
     @Id
     @GeneratedValue
     @Type(type = "uuid-char")
-    private UUID bid;
+    @Column(length = 36)
+    private UUID id;
 }
