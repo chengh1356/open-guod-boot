@@ -53,5 +53,6 @@
         <module>boot-04-19</module>
         <!-- SpringMVC+ZTree实现树形菜单权限配 -->
         <module>boot-04-20</module>
+        <module>boot-04-21</module>
     </modules>
 </project>
