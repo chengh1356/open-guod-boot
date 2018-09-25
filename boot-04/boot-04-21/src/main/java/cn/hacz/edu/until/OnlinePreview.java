@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * @version 1.0
  * @date 日期:2018/9/21 时间:11:50
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：OpenOfficeDocumentConverter
  */
 public class OnlinePreview {
     /**
@@ -107,7 +107,7 @@ public class OnlinePreview {
      */
     public static OfficeManager getOfficeManager() {
         DefaultOfficeManagerConfiguration config = new DefaultOfficeManagerConfiguration();
-        int Open_Office_Port=11601;
+        int Open_Office_Port = 11601;
 
         // 设置OpenOffice的安装目录
         config.setOfficeHome(getOfficeHome());
