@@ -17,7 +17,7 @@
     <modules>
         <!-- FastJson -->
         <module>boot-05-01</module>
-        <!-- JackSon -->
+        <!-- JackSon2 -->
         <module>boot-05-02</module>
         <!-- Gson -->
         <module>boot-05-03</module>

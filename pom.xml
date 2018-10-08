@@ -46,6 +46,8 @@
         <module>boot-10</module>
         <!-- RBAC权限管理 -->
         <module>boot-14</module>
+        <!-- 工作流 -->
+        <module>boot-15</module>
         <!-- 实战框架整合 -->
         <module>boot-16</module>
     </modules>
