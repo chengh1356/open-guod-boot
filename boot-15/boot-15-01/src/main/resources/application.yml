@@ -1,0 +1,18 @@
+server:
+  port: 1501
+spring:
+  activiti:
+    check-process-definitions: false
+    # 和数据库的生成类似
+    database-schema-update: true
+  datasource:
+    username: root
+    password: 123654
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/activiti6?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      format_sql: true
