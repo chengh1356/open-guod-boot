@@ -35,7 +35,7 @@ public class JacksonConfig {
     @Primary
     @ConditionalOnMissingBean(ObjectMapper.class)
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
-        // ObjectMapper objectMapper = builder.createXmlMapper(false).build();
+        // ObjectMapper objectMapper = builder.createXmlMapper(false).build()
         ObjectMapper objectMapper = new ObjectMapper();
         /**
          * 功能描述：ResponseBody格式化LocalDateTime的全局配置；
