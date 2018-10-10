@@ -72,7 +72,7 @@ public class HelloWorld {
                 System.out.println("任务ID：" + task.getId());
                 System.out.println("任务的办理人：" + task.getAssignee());
                 System.out.println("任务名称：" + task.getName());
-                System.out.println("任务的创建时间：" + task.getCreateTime());
+                System.out.println("cur：" + task.getCreateTime());
                 System.out.println("流程实例ID：" + task.getProcessInstanceId());
                 System.out.println("##################################");
             }
