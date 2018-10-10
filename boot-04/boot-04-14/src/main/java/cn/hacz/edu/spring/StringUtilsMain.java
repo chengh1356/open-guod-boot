@@ -1,4 +1,4 @@
-package cn.hacz.edu.springutils;
+package cn.hacz.edu.spring;
 
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
