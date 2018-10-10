@@ -1,4 +1,4 @@
-package cn.hacz.edu.Strings;
+package cn.hacz.edu.spring.string;
 
 /**
  * project -
