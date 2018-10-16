@@ -1,4 +1,4 @@
-package cn.hacz.edu.modules.sys.dto;
+package cn.hacz.edu.modules.sys.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;

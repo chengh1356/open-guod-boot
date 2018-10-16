@@ -7,10 +7,10 @@ jasypt:
     password: foo
 spring:
   datasource:
-    username: ENC(/xpC1lAH/ojTkmIdk68W9g==)
-    password: ENC(QF65IuLfPLKLnTG0LsR8sw==)
+    username: root
+    password: 123654
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.106.9.56:3306/boot?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://127.0.0.1:3306/boot?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
   jpa:
     show-sql: true
     hibernate:

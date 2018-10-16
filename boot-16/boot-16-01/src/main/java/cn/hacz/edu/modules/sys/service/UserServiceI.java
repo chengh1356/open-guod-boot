@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.sys.service;
 
 import cn.hacz.edu.vo.Json;
-import cn.hacz.edu.modules.sys.dto.UserVo;
+import cn.hacz.edu.modules.sys.vo.UserVo;
 
 import javax.validation.Valid; /**
  * project - Gitee开源系统

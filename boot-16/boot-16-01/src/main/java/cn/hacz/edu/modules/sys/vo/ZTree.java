@@ -1,4 +1,4 @@
-package cn.hacz.edu.modules.sys.dto;
+package cn.hacz.edu.modules.sys.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

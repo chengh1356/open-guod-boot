@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.sys.controller;
 
 import cn.hacz.edu.modules.sys.dao.UserDaoI;
-import cn.hacz.edu.modules.sys.dto.UserVo;
+import cn.hacz.edu.modules.sys.vo.UserVo;
 import cn.hacz.edu.modules.sys.entity.SysUserEntity;
 import cn.hacz.edu.modules.sys.service.UserServiceI;
 import cn.hacz.edu.util.ResultUtils;
@@ -10,6 +10,7 @@ import cn.hacz.edu.vo.JsonList;
 import com.fasterxml.jackson.annotation.JsonView;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,6 +39,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = "/lean")
 @Api(tags = "UserController-用户管理的增删改查")
+@Slf4j
 public class SysLeanController extends AbstractController {
     @Autowired
     private UserServiceI userServiceI;
@@ -53,6 +55,7 @@ public class SysLeanController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonObj")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonObj(@Validated(UserVo.AddUser.class) UserVo userVo) {
+        log.info("doSaveUserJsonObj添加用户===>输入参数列表：[{}]", userVo);
         SysUserEntity userEntity = new SysUserEntity();
         BeanUtils.copyProperties(userVo, userEntity);
         userEntity.setBirthday(LocalDateTime.now());
@@ -69,6 +72,7 @@ public class SysLeanController extends AbstractController {
     @PostMapping(value = "doSaveUserJsonMapObj")
     @ApiOperation(value = "添加用户", notes = "添加用户")
     public Json doSaveUserJsonMapObj(@RequestParam Map<String, Object> params) {
+        log.info("doSaveUserJsonMapObj添加用户接口===>输入参数列表：[{}]", params);
         SysUserEntity userEntity = new SysUserEntity();
         userEntity.setBirthday(LocalDateTime.now());
         userEntity.setUserName((String) params.get("name"));
@@ -216,4 +220,5 @@ public class SysLeanController extends AbstractController {
         Integer followerNumberById = userDaoI.findFollowerNumberById(id);
         return ResultUtils.successJson(followerNumberById);
     }
+
 }
