@@ -1,0 +1,7 @@
+server:
+  port: 10422
+my-props:
+  length: 30
+  width: 36
+  logo-width: 30
+  logo-length: 41

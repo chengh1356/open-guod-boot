@@ -83,6 +83,11 @@
             <artifactId>jasypt-spring-boot-starter</artifactId>
             <version>1.16</version>
         </dependency>
+        <!-- 属性配置文件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- Package as an executable jar -->
