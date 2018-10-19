@@ -55,7 +55,7 @@
 | boot-04-06        |  Druid数据源实现项目的监控PK连接池HikariCP   |  简书文档资料  |[官网]()|
 | boot-04-07        |  Swagger插件优雅的生成API文档   |  简书文档资料  |[官网]()|
 | boot-04-08        |  Spring boot域对象：VO、DTO、DO、PO   |  简书文档资料  |[官网]()|
-| boot-04-09        |  Spring boot工具类Java8中的LocalDateTime   |  简书文档资料  |[官网]()|
+| boot-04-09        |  时间Spring boot工具类Java8中的LocalDateTime   |  简书文档资料  |[官网]()|
 | boot-04-10        |  邮件发送   |  简书文档资料  |[官网]()|
 | boot-04-11        |  发送邮件-使用模板邮件并实现多账号轮询发送   |  简书文档资料  |[官网]()|
 | boot-04-12        |  使用多线程提高rest服务的性能   |  简书文档资料  |[官网]()|

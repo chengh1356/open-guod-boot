@@ -18,10 +18,12 @@ import java.util.Properties;
  */
 public class MainTest {
     public static void main(String[] args) throws IOException {
-        File file = ResourceUtils.getFile("application.properties");
+        File file = ResourceUtils.getFile("f:/aa.txt");
+        String fileMD5 = XMLAnalysisUtil.getFileMD5(file);
+        System.out.println(fileMD5);
         Properties properties = PropertiesLoaderUtils.loadAllProperties("classpath:conf/pay.properties");
         String o = (String) properties.get("pay.name");
         String property = properties.getProperty("server.port");
-        System.out.println(o);
+        System.out.println(file.isFile());
     }
 }
