@@ -1,9 +1,12 @@
 package cn.hacz.edu;
 
 import cn.hacz.edu.properties.PayProperties;
+import cn.hacz.edu.util.InfoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,8 +29,18 @@ public class Boot0102Application {
         new SpringApplicationBuilder(Boot0102Application.class).run(args);
     }
 
-    @GetMapping(value = "/test")
-    public String test() {
-        return payProperties.getPayName();
+    @GetMapping(value = "/info")
+    public String info() {
+        return payProperties.getPayName() + InfoUtils.info();
+    }
+
+    @Bean
+    public InfoUtils info(@Value("${guodd.name}") String name) {
+        InfoUtils.setName(name);
+        return new InfoUtils();
+    }
+
+    public void test() {
+
     }
 }

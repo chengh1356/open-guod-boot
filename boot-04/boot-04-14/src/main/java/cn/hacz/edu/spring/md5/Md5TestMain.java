@@ -13,7 +13,7 @@ import org.springframework.util.DigestUtils;
  */
 public class Md5TestMain {
     public static void main(String[] args) {
-        String s = DigestUtils.md5DigestAsHex("1".getBytes());
+        String s = DigestUtils.md5DigestAsHex((String.valueOf("100") + "1").getBytes());
         System.out.println(s);
     }
 }
