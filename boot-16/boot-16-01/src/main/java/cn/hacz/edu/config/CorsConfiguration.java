@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @version 3.0
  * @date 日期:2018/7/8 时间:16:31
  * @JDK 1.8
- * @Description 功能模块：跨域请求处理
+ * @Description 功能模块：跨域请求处理（分支测试）
  */
 @Configuration
 public class CorsConfiguration implements WebMvcConfigurer {
