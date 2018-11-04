@@ -1,5 +1,7 @@
 package cn.hacz.edu.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 
 /**
@@ -15,6 +17,7 @@ public class PersonVo {
     private String id;
     private String name;
     private Integer age;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime birthday;
 
     public String getId() {

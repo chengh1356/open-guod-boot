@@ -1,5 +1,6 @@
 package cn.hacz.edu;
 
+import cn.hacz.edu.properties.ObjectProperties;
 import cn.hacz.edu.properties.PayProperties;
 import cn.hacz.edu.util.InfoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class Boot0102Application {
     @Autowired
     private PayProperties payProperties;
+    @Autowired
+    private ObjectProperties objectProperties;
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(Boot0102Application.class).run(args);
@@ -31,16 +34,12 @@ public class Boot0102Application {
 
     @GetMapping(value = "/info")
     public String info() {
-        return payProperties.getPayName() + InfoUtils.info();
+        return payProperties.getPayName() + InfoUtils.info() + objectProperties.getName();
     }
 
     @Bean
     public InfoUtils info(@Value("${guodd.name}") String name) {
         InfoUtils.setName(name);
         return new InfoUtils();
-    }
-
-    public void test() {
-
     }
 }
