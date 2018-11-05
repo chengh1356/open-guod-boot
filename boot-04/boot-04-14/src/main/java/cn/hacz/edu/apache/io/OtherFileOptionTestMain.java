@@ -53,7 +53,8 @@ public class OtherFileOptionTestMain {
         long sizeOfDirectory = FileUtils.sizeOfDirectory(new File("f:/a"));
         System.out.println(sizeOf == sizeOfDirectory);
         // 10文件流copy到文件中.这个在Spring MVC,文件上传时常用举个MVC的例子
-        CommonsMultipartFile mf = null; //此处是Spring MVC上传时的文件接收对象
+        // 此处是Spring MVC上传时的文件接收对象
+        CommonsMultipartFile mf = null;
         FileUtils.copyInputStreamToFile(mf.getInputStream(), new File(""));
     }
 }

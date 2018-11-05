@@ -11,7 +11,7 @@ import org.springframework.util.DigestUtils;
  * @JDK 1.8
  * @Description 功能模块：
  */
-public class Md5TestMain {
+public class DigestUtilsTestMain {
     public static void main(String[] args) {
         String s = DigestUtils.md5DigestAsHex((String.valueOf("100") + "1").getBytes());
         System.out.println(s);
