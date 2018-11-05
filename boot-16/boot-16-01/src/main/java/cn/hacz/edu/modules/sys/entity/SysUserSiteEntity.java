@@ -34,7 +34,7 @@ public class SysUserSiteEntity extends BaseEntity {
     @JoinTable(name = "t_base_user_role", joinColumns = {
             @JoinColumn(name = "user_id", nullable = false, updatable = false)}, inverseJoinColumns = {
             @JoinColumn(name = "role_id", nullable = false, updatable = false)})
-    private Set<SysRoleEntity> roles = new HashSet<>(0);// 用户有哪些角色
+    private Set<SysRoleEntity> roles = new HashSet<>();
 
     @Comment("关联用户")
     @ManyToOne(fetch = FetchType.LAZY)

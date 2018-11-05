@@ -10,10 +10,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>cn.hacz.edu</groupId>
     <artifactId>base-02</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    
 </project>
