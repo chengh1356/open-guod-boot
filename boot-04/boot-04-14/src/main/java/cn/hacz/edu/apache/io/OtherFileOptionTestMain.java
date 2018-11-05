@@ -3,6 +3,7 @@ package cn.hacz.edu.apache.io;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.TeeOutputStream;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -51,5 +52,8 @@ public class OtherFileOptionTestMain {
         long sizeOf = FileUtils.sizeOf(new File("f:/a"));
         long sizeOfDirectory = FileUtils.sizeOfDirectory(new File("f:/a"));
         System.out.println(sizeOf == sizeOfDirectory);
+        // 10文件流copy到文件中.这个在Spring MVC,文件上传时常用举个MVC的例子
+        CommonsMultipartFile mf = null; //此处是Spring MVC上传时的文件接收对象
+        FileUtils.copyInputStreamToFile(mf.getInputStream(), new File(""));
     }
 }
