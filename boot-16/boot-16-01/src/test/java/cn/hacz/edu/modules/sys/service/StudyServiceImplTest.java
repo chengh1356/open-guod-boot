@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -46,5 +47,10 @@ public class StudyServiceImplTest {
     public void findPage() {
         List<StudyEntity> studyEntities = studyDaoI.find(" from StudyEntity", PageRequest.of(0, 10));
         studyEntities.forEach(System.out::println);
+    }
+
+    @Test
+    public void optional() {
+        Optional<StudyEntity> studyEntity = studyDaoI.get(" from StudyEntity ");
     }
 }
