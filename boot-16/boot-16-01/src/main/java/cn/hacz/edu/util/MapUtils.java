@@ -3,7 +3,7 @@ package cn.hacz.edu.util;
 import java.util.HashMap;
 
 /**
- * project - 综合客户服务系统
+ * project -
  *
  * @author dong
  * @version 1.0

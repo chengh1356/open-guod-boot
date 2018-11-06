@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
- * project - ETC发票系统
+ * project - Gitee开源系统
  *
  * @author dong
  * @version 3.0

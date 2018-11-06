@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * project - 综合客户服务系统
+ * project - Gitee开源系统
  *
  * @author dong
  * @version 1.0
@@ -53,7 +53,6 @@ public class IPUtils {
                 ip = ip.substring(0, ip.indexOf(","));
             }
         }
-
         return ip;
     }
 }

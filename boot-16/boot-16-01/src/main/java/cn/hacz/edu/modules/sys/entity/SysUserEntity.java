@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * project - ETC发票系统
+ * project - Gitee开源系统
  *
  * @author dong
  * @version 3.0

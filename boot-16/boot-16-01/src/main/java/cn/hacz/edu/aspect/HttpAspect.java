@@ -3,6 +3,7 @@ package cn.hacz.edu.aspect;
 import cn.hacz.edu.modules.sys.entity.SysLogInfoEntity;
 import cn.hacz.edu.modules.sys.repository.comment.SysLog;
 import cn.hacz.edu.modules.sys.service.SysLogInfoServiceI;
+import cn.hacz.edu.util.IPUtils;
 import cn.hacz.edu.util.SnowFlakeIdGenerator;
 import cn.hacz.edu.vo.Json;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -83,7 +84,7 @@ public class HttpAspect {
         String remoteAddr = request.getRemoteAddr();
         long logId = SnowFlakeIdGenerator.getInstance().generateLongId();
         logger.info("============================================");
-        logger.info("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, postParams, remoteAddr, logId);
+        logger.info("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, postParams, IPUtils.getIpAddr(request), logId);
         StopWatch watch = new StopWatch(String.valueOf(logId));
         watch.start();
         Object result;

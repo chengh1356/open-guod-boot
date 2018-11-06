@@ -22,7 +22,7 @@ public class ResultUtils {
     public static Json successJson(Object object) {
         Json result = new Json();
         result.setCode("200");
-        result.setMessage("成功");
+        result.setMessage("成功！");
         result.setData(object);
         result.setSuccess(true);
         return result;
@@ -50,7 +50,7 @@ public class ResultUtils {
         JsonList result = new JsonList();
         result.setSuccess(true);
         result.setCode("200");
-        result.setMessage("成功");
+        result.setMessage("成功！");
         result.setDataRows(object);
         return result;
     }

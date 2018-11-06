@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * project - 综合客户服务系统
+ * project - Gitee开源系统
  *
  * @author dong
  * @version 1.0

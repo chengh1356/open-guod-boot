@@ -3,8 +3,10 @@
  */
 package cn.hacz.edu.vo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * project - ETC发票系统
+ * project - Gitee开源系统
  *
  * @author guod
  * @version 3.0
@@ -13,8 +15,15 @@ package cn.hacz.edu.vo;
  * @Description 功能模块：
  */
 public class JsonList extends Json {
+    /**
+     * 属性描述：多条数据
+     */
+    @ApiModelProperty(value = "多条数据", name = "dataRows", example = "")
     private Object dataRows;
-
+    /**
+     * 属性描述：总条数
+     */
+    @ApiModelProperty(value = "总条数", name = "total", example = "")
     private Long total;
 
     public Object getDataRows() {

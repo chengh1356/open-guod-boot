@@ -8,6 +8,7 @@ import cn.hacz.edu.vo.Json;
 import com.google.common.util.concurrent.RateLimiter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,8 +40,8 @@ public class StudyController {
 
     @PostMapping(value = "/getStudyInfo")
     @SysLog(type = "新增", name = "新增用户", module = "后台系统")
-    @ApiOperation(value = "用于新增用户")
-    public Json getStudyInfo(@RequestBody StudyVo studyVo) {
+    @ApiOperation(value = "用于新增用户", notes = "新增用户")
+    public Json getStudyInfo(@RequestBody @ApiParam(name = "用户对象", value = "传入json格式", required = true) StudyVo studyVo) {
         if (!rateLimiter.tryAcquire(10, TimeUnit.MILLISECONDS)) {
             log.info("获取失败!");
             return ResultUtils.errorJson("-200", "令牌桶容量溢出！");

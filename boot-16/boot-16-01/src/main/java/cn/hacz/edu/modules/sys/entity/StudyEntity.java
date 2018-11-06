@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 /**
- * project -
+ * project - Gitee开源系统
  *
  * @author guod
  * @version 1.0

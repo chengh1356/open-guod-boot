@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * project -
+ * project - Gitee开源系统
  *
  * @author dong
  * @version 1.0
