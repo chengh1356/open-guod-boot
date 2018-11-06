@@ -109,6 +109,7 @@ public class BaseRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRep
         return find(jpql, domainType, params, pageable);
     }
 
+    @Override
     @Transactional
     public void delete(T entity) {
         Assert.notNull(entity, "被删除的对象不能为空");

@@ -1,13 +1,17 @@
 package cn.hacz.edu.repository.base;
 
 
+import cn.hacz.edu.repository.parameter.Operator;
+import cn.hacz.edu.repository.parameter.Predicate;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.io.Serializable;
@@ -18,7 +22,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
+import static org.apache.commons.lang3.StringUtils.*;
 
+/**
+ * @author guod
+ */
 public class BaseRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID> {
 
     private EntityManager entityManager;
@@ -438,6 +446,28 @@ public class BaseRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRep
         List<Object[]> findBySql = findBySql(sql, params, null);
         Assert.notEmpty(findBySql, NOT_RESULT);
         return Optional.ofNullable(findBySql.get(0));
+    }
+
+    // ====================guod扩展=================
+
+    @Override
+    public T findOne(String condition, Object... values) {
+        if (isEmpty(condition)) {
+            throw new NullPointerException("条件不能为空!");
+        }
+        T result = null;
+        try {
+            // result = (T) Query.createQuery(condition, values).getSingleResult();
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
+        return result;
+
+    }
+
+    @Override
+    public Page<T> findAll(Iterable<Predicate> predicates, Operator operator, Pageable pageable) {
+        return null;
     }
 
 

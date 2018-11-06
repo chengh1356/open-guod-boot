@@ -9,5 +9,5 @@ package cn.hacz.edu.dao;
  * @JDK 1.8
  * @Description 功能模块：
  */
-public interface BaseDaoI {
+public interface BaseDaoI<T> {
 }

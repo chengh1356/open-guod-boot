@@ -1,6 +1,9 @@
 package cn.hacz.edu.repository.base;
 
 
+import cn.hacz.edu.repository.parameter.Operator;
+import cn.hacz.edu.repository.parameter.Predicate;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
@@ -118,5 +121,10 @@ public interface BaseRepository<T, ID> extends Repository<T, ID> {
 
     int executeBySql(String sql, Object... params);
 
+    // ====================guod扩展=================
+
+    T findOne(String condition, Object... objects);
+
+    Page<T> findAll(Iterable<Predicate> predicates, Operator operator, Pageable pageable);
 
 }

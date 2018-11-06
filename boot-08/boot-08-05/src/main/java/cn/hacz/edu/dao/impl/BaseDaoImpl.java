@@ -17,7 +17,7 @@ import javax.persistence.PersistenceContext;
  * @Description 功能模块：
  */
 @Service
-public class BaseDaoImpl implements BaseDaoI {
+public class BaseDaoImpl<T> implements BaseDaoI<T> {
     @PersistenceContext
     private EntityManager entityManager;
 

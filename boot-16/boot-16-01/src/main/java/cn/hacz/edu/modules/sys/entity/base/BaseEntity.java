@@ -72,7 +72,7 @@ public class BaseEntity implements Serializable {
      */
     @Type(type = "true_false")
     @Column(name = "remove")
-    private Boolean remove;
+    private Boolean remove = false;
     /**
      * spare1
      */

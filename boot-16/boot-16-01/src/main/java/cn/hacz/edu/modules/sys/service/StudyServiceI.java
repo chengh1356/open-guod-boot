@@ -1,5 +1,6 @@
 package cn.hacz.edu.modules.sys.service;
 
+import cn.hacz.edu.modules.sys.vo.StudyVo;
 import cn.hacz.edu.vo.Json;
 
 /**
@@ -12,5 +13,8 @@ import cn.hacz.edu.vo.Json;
  * @Description 功能模块：
  */
 public interface StudyServiceI {
-    Json insert();
+    Json insert(StudyVo studyVo);
+
+    Json doSave(StudyVo studyVo);
+
 }
