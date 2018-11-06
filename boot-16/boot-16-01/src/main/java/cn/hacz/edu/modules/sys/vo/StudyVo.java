@@ -1,6 +1,7 @@
 package cn.hacz.edu.modules.sys.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,15 +25,18 @@ public class StudyVo {
     /**
      * 属性描述：姓名
      */
+    @ApiModelProperty(name = "姓名")
     private String name;
     /**
      * 功能描述：年龄
      */
+    @ApiModelProperty(name = "age")
     private Integer age;
     /**
-     * 功能描述：年龄
+     * 功能描述：出生日期
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @ApiModelProperty(name = "出生日期")
     private LocalDateTime birthday;
 }

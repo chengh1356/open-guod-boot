@@ -25,14 +25,14 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "t_sys_user_site")
+@Table(name = "tb_sys_user_site")
 @DynamicInsert
 @DynamicUpdate
 public class SysUserSiteEntity extends BaseEntity {
     @Comment("用户有哪些角色")
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "t_base_user_role", joinColumns = {
-            @JoinColumn(name = "user_id", nullable = false, updatable = false)}, inverseJoinColumns = {
+    @JoinTable(name = "tb_base_role_size", joinColumns = {
+            @JoinColumn(name = "size_id", nullable = false, updatable = false)}, inverseJoinColumns = {
             @JoinColumn(name = "role_id", nullable = false, updatable = false)})
     private Set<SysRoleEntity> roles = new HashSet<>();
 

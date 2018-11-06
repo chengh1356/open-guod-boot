@@ -24,10 +24,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_sys_token")
+@Table(name = "tb_sys_user_token")
 @DynamicInsert
 @DynamicUpdate
-public class UserTokenEntity extends BaseEntity {
+public class SysUserTokenEntity extends BaseEntity {
     /**
      * 用户ID
      */

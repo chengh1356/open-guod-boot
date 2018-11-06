@@ -75,6 +75,12 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.9.0.pr3</version>
         </dependency>
+        <!-- google guava使用RateLimiter对API接口的限流实例 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>16.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>

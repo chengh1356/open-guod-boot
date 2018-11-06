@@ -56,7 +56,7 @@ public class SysRoleEntity extends BaseEntity {
      * 角色和资源
      */
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "t_base_role_resource",
+    @JoinTable(name = "tb_base_role_resource",
             joinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "resource_id", nullable = false, updatable = false)})
     private Set<SysResourceEntity> resourceEntities = new HashSet<>();

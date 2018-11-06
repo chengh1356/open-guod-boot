@@ -89,7 +89,7 @@ public class SysUserEntity extends BaseEntity {
      * 一个用户可以有多个角色
      */
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_role",
+    @JoinTable(name = "tb_base_user_role",
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
     private Set<SysRoleEntity> roleEntities = new HashSet<>();
