@@ -1,8 +1,7 @@
 package cn.hacz.edu;
 
-import cn.hacz.edu.util.FileUtil;
+import cn.hacz.edu.util.ExcelFileUtil;
 import cn.hacz.edu.vo.Person;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +41,7 @@ public class Boot0505Application {
         personList.add(person3);
         personList.add(person4);
         //导出操作
-        FileUtil.exportExcel(personList, "花名册", "草帽一伙", Person.class, "海贼王.xls", response);
+        ExcelFileUtil.exportExcel(personList, "花名册", "草帽一伙", Person.class, "海贼王.xls", response);
     }
 
 }

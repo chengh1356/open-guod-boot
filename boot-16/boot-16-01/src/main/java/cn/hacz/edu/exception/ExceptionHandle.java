@@ -43,7 +43,7 @@ public class ExceptionHandle {
             SelfException selfException = (SelfException) e;
             return ResultUtils.errorJson(selfException.getCode(), selfException.getMessage());
         } else {
-            logger.error("系统异常[{}]", e);
+            logger.error("系统异常[{}]", e.getStackTrace());
             return ResultUtils.errorJson("-200", "未知错误");
         }
     }
@@ -79,11 +79,10 @@ public class ExceptionHandle {
      * @param e
      * @param request
      * @return
-     * @throws Exception
      */
     @ResponseBody
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public Json valid(MethodArgumentNotValidException e, HttpServletRequest request) throws Exception {
+    public Json valid(MethodArgumentNotValidException e, HttpServletRequest request) {
         printlnException(request, e);
         Json j = new Json();
         j.setSuccess(false);
@@ -105,7 +104,7 @@ public class ExceptionHandle {
      */
     @ResponseBody
     @ExceptionHandler(value = Throwable.class)
-    public Json jsonErrorHandler(HttpServletRequest req, Throwable e) throws Exception {
+    public Json jsonErrorHandler(HttpServletRequest req, Throwable e) {
         Json j = new Json();
         j.setSuccess(false);
         j.setMessage(e.getMessage());

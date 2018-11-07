@@ -1,6 +1,7 @@
 package cn.hacz.edu.modules.sys.service.impl;
 
 import cn.hacz.edu.modules.sys.dao.StudyDaoI;
+import cn.hacz.edu.modules.sys.dto.StudyDto;
 import cn.hacz.edu.modules.sys.entity.StudyEntity;
 import cn.hacz.edu.modules.sys.repository.base.BaseRepository;
 import cn.hacz.edu.modules.sys.service.StudyServiceI;
@@ -37,21 +38,24 @@ public class StudyServiceImpl implements StudyServiceI {
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public Json insert(StudyVo studyVo) {
-        Integer age = Optional.ofNullable(studyVo).map(StudyVo::getAge).orElse(-1);
+    public Json insert(StudyDto studyDto) {
+        Integer age = Optional.ofNullable(studyDto).map(StudyDto::getAge).orElse(-1);
         // 更新前的操作
-        Optional.ofNullable(studyVo).filter(s -> s.getAge() < 18).ifPresent(s -> {
+        Optional.ofNullable(studyDto).filter(s -> s.getAge() < 18).ifPresent(s -> {
             s.setAge(66);
             System.out.println("年龄大于18岁!");
         });
         log.info("年龄：[{}]", age);
         StudyEntity studyEntity = new StudyEntity();
         // 数据拷贝
-        Assert.notNull(studyVo, "拷贝对象不能为空!");
-        BeanUtils.copyProperties(studyVo, studyEntity);
+        Assert.notNull(studyDto, "拷贝对象不能为空!");
+        BeanUtils.copyProperties(studyDto, studyEntity);
         // 持久化操作
         StudyEntity save = studyDaoI.save(studyEntity);
-        return ResultUtils.successJson(save);
+        // web数据返回vo对象
+        StudyVo studyVo = new StudyVo();
+        BeanUtils.copyProperties(studyEntity, studyVo);
+        return ResultUtils.successJson(studyVo);
     }
 
     @Override

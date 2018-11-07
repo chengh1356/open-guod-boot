@@ -26,6 +26,6 @@ public class SysLogInfoServiceImpl implements SysLogInfoServiceI {
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
     public void add(SysLogInfoEntity sysLogInfoEntity) {
-        Object save = baseRepository.save(sysLogInfoEntity);
+        baseRepository.save(sysLogInfoEntity);
     }
 }

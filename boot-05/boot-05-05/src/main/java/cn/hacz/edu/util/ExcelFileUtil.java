@@ -18,15 +18,26 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 /**
- * project - 综合客户服务系统
+ * project -
  *
  * @author guod
  * @version 1.0
  * @date 日期:2018/9/28 时间:17:31
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：导入/导出Excel数据
  */
-public class FileUtil {
+public class ExcelFileUtil {
+    /**
+     * 功能描述：导出Excel数据
+     *
+     * @param list           导出的数据
+     * @param title          导出文件名
+     * @param sheetName
+     * @param pojoClass
+     * @param fileName
+     * @param isCreateHeader
+     * @param response
+     */
     public static void exportExcel(List<?> list, String title, String sheetName, Class<?> pojoClass, String fileName, boolean isCreateHeader, HttpServletResponse response) {
         ExportParams exportParams = new ExportParams(title, sheetName);
         exportParams.setCreateHeadRows(isCreateHeader);
@@ -34,13 +45,40 @@ public class FileUtil {
 
     }
 
+    /**
+     * 功能描述：导出Excel数据
+     *
+     * @param list      导出的数据
+     * @param title     导出文件名
+     * @param sheetName 工作区名称
+     * @param pojoClass 数据vo对象
+     * @param fileName  导出文件名
+     * @param response
+     */
     public static void exportExcel(List<?> list, String title, String sheetName, Class<?> pojoClass, String fileName, HttpServletResponse response) {
         defaultExport(list, pojoClass, fileName, response, new ExportParams(title, sheetName));
     }
 
+    /**
+     * 功能描述：导出Excel数据
+     *
+     * @param list     导出的数据
+     * @param fileName 导出文件名
+     * @param response
+     */
     public static void exportExcel(List<Map<String, Object>> list, String fileName, HttpServletResponse response) {
         defaultExport(list, fileName, response);
     }
+
+    /**
+     * 功能描述：导入数据处理
+     *
+     * @param list
+     * @param pojoClass
+     * @param fileName
+     * @param response
+     * @param exportParams
+     */
 
     private static void defaultExport(List<?> list, Class<?> pojoClass, String fileName, HttpServletResponse response, ExportParams exportParams) {
         Workbook workbook = ExcelExportUtil.exportExcel(exportParams, pojoClass, list);
@@ -48,6 +86,13 @@ public class FileUtil {
         downLoadExcel(fileName, response, workbook);
     }
 
+    /**
+     * 功能描述：写出到浏览器
+     *
+     * @param fileName
+     * @param response
+     * @param workbook
+     */
     private static void downLoadExcel(String fileName, HttpServletResponse response, Workbook workbook) {
         try {
             response.setCharacterEncoding("UTF-8");
@@ -60,12 +105,29 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 功能描述：
+     *
+     * @param list
+     * @param fileName
+     * @param response
+     */
     private static void defaultExport(List<Map<String, Object>> list, String fileName, HttpServletResponse response) {
         Workbook workbook = ExcelExportUtil.exportExcel(list, ExcelType.HSSF);
         if (workbook != null) ;
         downLoadExcel(fileName, response, workbook);
     }
 
+    /**
+     * 功能描述：导入Excel数据
+     *
+     * @param filePath
+     * @param titleRows
+     * @param headerRows
+     * @param pojoClass
+     * @param <T>
+     * @return
+     */
     public static <T> List<T> importExcel(String filePath, Integer titleRows, Integer headerRows, Class<T> pojoClass) {
         if (StringUtils.isBlank(filePath)) {
             return null;
@@ -85,6 +147,16 @@ public class FileUtil {
         return list;
     }
 
+    /**
+     * 功能描述：导入Excel数据
+     *
+     * @param file
+     * @param titleRows
+     * @param headerRows
+     * @param pojoClass
+     * @param <T>
+     * @return
+     */
     public static <T> List<T> importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Class<T> pojoClass) {
         if (file == null) {
             return null;

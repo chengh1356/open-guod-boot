@@ -114,8 +114,9 @@ public class HttpAspect {
         result = joinPoint.proceed();
         j = (Json) result;
         //方法执行失败，则直接返回
-        if (!j.isSuccess())
+        if (!j.isSuccess()) {
             return result;
+        }
         //保存系统日志
         this.saveSysLog(joinPoint, result);
         return result;

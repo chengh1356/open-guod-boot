@@ -5,6 +5,8 @@ import cn.hacz.edu.modules.sys.repository.base.BaseRepository;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -32,4 +34,12 @@ public interface StudyDaoI extends BaseRepository<StudyEntity, Serializable> {
      * @return
      */
     StudyEntity findByName(String name);
+
+    /**
+     * 功能描述：年龄查找
+     *
+     * @param age
+     * @return
+     */
+    Optional<List<StudyEntity>> findByAge(Integer age);
 }

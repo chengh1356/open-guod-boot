@@ -8,7 +8,7 @@ jasypt:
 spring:
   datasource:
     username: root
-    password: 123456
+    password: 123654
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/boot?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
   jpa:

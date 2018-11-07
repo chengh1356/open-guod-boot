@@ -33,7 +33,7 @@ public interface UserDaoI extends JpaRepository<SysUserEntity, Serializable> {
      * @param id
      * @return
      */
-    @Transactional(timeout = 10)
+    @Transactional(timeout = 10, rollbackFor = RuntimeException.class)
     @Query("select u from SysUserEntity u where u.id = ?1")
     SysUserEntity findById(Integer id);
 

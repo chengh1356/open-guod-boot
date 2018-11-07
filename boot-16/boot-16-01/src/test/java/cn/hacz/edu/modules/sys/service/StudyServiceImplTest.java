@@ -1,8 +1,8 @@
 package cn.hacz.edu.modules.sys.service;
 
 import cn.hacz.edu.modules.sys.dao.StudyDaoI;
+import cn.hacz.edu.modules.sys.dto.StudyDto;
 import cn.hacz.edu.modules.sys.entity.StudyEntity;
-import cn.hacz.edu.modules.sys.vo.StudyVo;
 import cn.hacz.edu.vo.Json;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,8 +34,8 @@ public class StudyServiceImplTest {
 
     @Test
     public void insert() {
-        StudyVo studyVo = new StudyVo();
-        Json insert = studyServiceI.insert(studyVo);
+        StudyDto studyDto = new StudyDto();
+        Json insert = studyServiceI.insert(studyDto);
         System.out.println(insert);
     }
 
@@ -56,5 +56,11 @@ public class StudyServiceImplTest {
         Optional<StudyEntity> studyEntity = studyDaoI.get(" from StudyEntity ");
         Optional<Integer> integer = studyEntity.map(StudyEntity::getAge);
         System.out.println(integer);
+    }
+
+    @Test
+    public void findByName() {
+        StudyEntity guo = studyDaoI.findByName("11");
+        System.out.println(guo);
     }
 }
