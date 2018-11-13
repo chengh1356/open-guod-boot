@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_sys_log")
+@Table(name = "tb_sys_operator_log")
 public class SysLogInfoEntity extends BaseEntity {
     private String module;
     private String type;
