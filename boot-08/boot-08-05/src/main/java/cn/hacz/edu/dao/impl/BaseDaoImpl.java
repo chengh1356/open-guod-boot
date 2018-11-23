@@ -29,4 +29,5 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
     public Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }
+
 }

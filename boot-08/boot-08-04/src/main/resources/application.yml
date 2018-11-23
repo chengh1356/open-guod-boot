@@ -3,10 +3,13 @@ server:
 spring:
   datasource:
     username: root
-    password: 123456
+    password: passw0rd
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///test
   jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
     properties:
       hibernate:
-        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+        format_sql: true   # 格式化SQL语句

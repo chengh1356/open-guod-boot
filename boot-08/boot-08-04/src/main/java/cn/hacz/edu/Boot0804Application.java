@@ -17,4 +17,5 @@ public class Boot0804Application {
     public static void main(String[] args) {
         new SpringApplicationBuilder(Boot0804Application.class).run(args);
     }
+
 }

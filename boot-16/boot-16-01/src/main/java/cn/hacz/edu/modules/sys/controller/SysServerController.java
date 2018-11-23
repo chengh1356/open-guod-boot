@@ -7,6 +7,7 @@ import cn.hacz.edu.vo.Json;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -23,6 +24,21 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "服务端")
 @Slf4j
 public class SysServerController {
+    /**
+     * 功能描述：指定格式
+     */
+    @RequestMapping(value = "/pathUser", consumes = {"application/json"}, produces = {"application/json"})
+    public Object pathUser(@RequestBody @Validated Object object) {
+        return object;
+    }
+
+    /**
+     * 功能描述：
+     *
+     * @param name
+     * @param age
+     * @return
+     */
     @GetMapping("/getStudentPath/{name}/{age}")
     public Json getByUsername(@PathVariable("name") String name, @PathVariable("age") Integer age) {
         StudentVo studentVo = new StudentVo();
@@ -31,6 +47,12 @@ public class SysServerController {
         return ResultUtils.successJson(studentVo);
     }
 
+    /**
+     * 功能描述：
+     *
+     * @param studentDto
+     * @return
+     */
     @PostMapping(value = "/getStudentOneObj")
     public Json getStudentOneObj(StudentDto studentDto) {
         log.info("getStudentOne单个用户信息===>输入参数列表：[{}]", studentDto);
@@ -39,6 +61,12 @@ public class SysServerController {
         return ResultUtils.successJson(studentVo);
     }
 
+    /**
+     * 功能描述：
+     *
+     * @param studentDto
+     * @return
+     */
     @PostMapping(value = "/getStudentOneStr")
     public Json getStudentOneStr(@RequestBody StudentDto studentDto) {
         log.info("getStudentOne单个用户信息===>输入参数列表：[{}]", studentDto);

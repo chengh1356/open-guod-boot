@@ -19,10 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * project - 中原金控后台管理服务
@@ -53,7 +50,7 @@ public class FileUploadUtils {
      */
     private String executeUpload(String uploadDir, MultipartFile file) throws Exception {
         //文件后缀名
-        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+        String suffix = file.getOriginalFilename().substring(Objects.requireNonNull(file.getOriginalFilename()).lastIndexOf("."));
         //上传文件名
         String filename = UUID.randomUUID() + suffix;
         //服务器端保存的文件对象

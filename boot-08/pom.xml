@@ -19,7 +19,7 @@
         <module>boot-08-02</module>
         <!-- SQL关系型数据库-Spring-data-JPA -->
         <module>boot-08-03</module>
-        <!-- SQL关系型数据库-Hibernate -->
+        <!-- SQL关系型数据库-Hibernate+关系映射 -->
         <module>boot-08-04</module>
         <!-- JPA转Hibernate使用-->
         <module>boot-08-05</module>
