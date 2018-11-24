@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class HqlMainTest {
+public class HqlMainTest01 {
     @Autowired
     private HibernateHQL hibernateHQL;
 
@@ -94,5 +94,40 @@ public class HqlMainTest {
     @Test
     public void testHQL_12() {
         hibernateHQL.testHQL_12();
+    }
+
+    @Test
+    public void testHQL_13() {
+        hibernateHQL.testHQL_13();
+    }
+
+    @Test
+    public void testHQL_14() {
+        hibernateHQL.testHQL_14();
+    }
+
+    @Test
+    public void testHQL_15() {
+        hibernateHQL.testHQL_15();
+    }
+
+    @Test
+    public void testHQL_16() {
+        hibernateHQL.testHQL_16();
+    }
+
+    @Test
+    public void testHQL_17() {
+        hibernateHQL.testHQL_17();
+    }
+
+    @Test
+    public void testHQL_18() {
+        hibernateHQL.testHQL_18();
+    }
+
+    @Test
+    public void testHQL_19() {
+        hibernateHQL.testHQL_19();
     }
 }

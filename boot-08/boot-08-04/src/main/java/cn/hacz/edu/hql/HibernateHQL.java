@@ -1,10 +1,10 @@
 package cn.hacz.edu.hql;
 
-import cn.hacz.edu.mapping.entity.hql.Category;
-import cn.hacz.edu.mapping.entity.hql.Msg;
-import cn.hacz.edu.mapping.entity.hql.Topic;
-import cn.hacz.edu.mapping.entity.one2one.WifeEntity;
+import cn.hacz.edu.mapping.entity.hql01.Category;
+import cn.hacz.edu.mapping.entity.hql01.Msg;
+import cn.hacz.edu.mapping.entity.hql01.Topic;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -141,16 +141,60 @@ public class HibernateHQL {
     }
 
     public void testHQL_12() {
-        List<Msg> list = this.getSessionUnwrap().createQuery("select new cn.hacz.edu.mapping.entity.hql.MsgInfo(" +
+        List list = this.getSessionUnwrap().createQuery("select new cn.hacz.edu.mapping.entity.hql01.MsgInfo(" +
                 "m.id," +
                 " m.cont," +
                 " m.topic.title," +
                 " m.topic.category.name" +
                 ") " +
-                "from Msg m", Msg.class)
+                "from Msg m")
                 .list();
-        list.forEach(e -> {
-            System.out.println(e.getCont());
-        });
+
+    }
+
+    /**
+     * 为什么不能直接写Category名，而必须写t.category
+     * 因为有可能存在多个成员变量（同一个类），需要指明用哪一个成员变量的连接条件来做连接
+     */
+    public void testHQL_13() {
+        List list = this.getSessionUnwrap().createQuery("select t.title, c.name from Topic t join t.category c ").list();
+    }
+
+    /**
+     * 学习使用uniqueResult
+     */
+    public void testHQL_14() {
+        Query q = this.getSessionDelegate().createQuery("from Msg m where m = :MsgToSearch");
+        Msg m = new Msg();
+        m.setId(1);
+        q.setParameter("MsgToSearch", m);
+        Msg mResult = (Msg) q.uniqueResult();
+    }
+
+    public void testHQL_15() {
+        Query q = this.getSessionDelegate().createQuery("select count(*) from Msg m");
+        long count = (Long) q.uniqueResult();
+        System.out.println(count);
+    }
+
+    public void testHQL_16() {
+        Query q = this.getSessionDelegate().createQuery("select max(m.id), min(m.id), avg(m.id), sum(m.id) from Msg m");
+        Object[] o = (Object[]) q.uniqueResult();
+        System.out.println(o[0] + "-" + o[1] + "-" + o[2] + "-" + o[3]);
+    }
+
+    public void testHQL_17() {
+        List<Msg> list = this.getSessionDelegate().createQuery("from Msg m where m.id between 3 and 5", Msg.class).list();
+    }
+
+    public void testHQL_18() {
+        List<Msg> list = this.getSessionDelegate().createQuery("from Msg m where m.id in (3,4, 5)", Msg.class).list();
+    }
+
+    /**
+     * is null   is not null
+     */
+    public void testHQL_19() {
+        List<Msg> list = this.getSessionDelegate().createQuery("from Msg m where m.cont is null", Msg.class).list();
     }
 }
