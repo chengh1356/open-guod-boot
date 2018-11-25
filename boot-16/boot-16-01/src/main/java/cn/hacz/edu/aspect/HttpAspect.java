@@ -4,6 +4,7 @@ import cn.hacz.edu.modules.sys.entity.SysLogInfoEntity;
 import cn.hacz.edu.modules.sys.repository.comment.SysLog;
 import cn.hacz.edu.modules.sys.service.SysLogInfoServiceI;
 import cn.hacz.edu.util.IPUtils;
+import cn.hacz.edu.util.LoggerUtils;
 import cn.hacz.edu.util.SnowFlakeIdGenerator;
 import cn.hacz.edu.vo.Json;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -82,9 +83,12 @@ public class HttpAspect {
         String postParams = mapper.writeValueAsString(pjp.getArgs());
         // 获取IP地址
         String remoteAddr = request.getRemoteAddr();
+        String cliectIp = LoggerUtils.getCliectIp(request);
+        String ipAddr = IPUtils.getIpAddr(request);
         long logId = SnowFlakeIdGenerator.getInstance().generateLongId();
         logger.info("============================================");
-        logger.info("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, postParams, IPUtils.getIpAddr(request), logId);
+        logger.info("IP地址：[{}],[{}],[{}]", remoteAddr, cliectIp, ipAddr);
+        logger.info("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, postParams, ipAddr, logId);
         StopWatch watch = new StopWatch(String.valueOf(logId));
         watch.start();
         Object result;

@@ -6,7 +6,7 @@ import javax.servlet.*;
 import java.io.IOException;
 
 /**
- * project - ETC发票系统
+ * project -
  *
  * @author dong
  * @version 3.0
