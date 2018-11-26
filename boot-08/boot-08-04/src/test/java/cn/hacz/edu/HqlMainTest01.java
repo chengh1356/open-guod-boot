@@ -1,6 +1,6 @@
 package cn.hacz.edu;
 
-import cn.hacz.edu.hql.HibernateHQL;
+import cn.hacz.edu.hql.HibernateHQL01;
 import org.hibernate.Session;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class HqlMainTest01 {
     @Autowired
-    private HibernateHQL hibernateHQL;
+    private HibernateHQL01 hibernateHQL;
 
     /**
      * 功能描述：获取session的两种方式
@@ -130,4 +130,5 @@ public class HqlMainTest01 {
     public void testHQL_19() {
         hibernateHQL.testHQL_19();
     }
+
 }

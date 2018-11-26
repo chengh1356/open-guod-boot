@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Repository
 @Transactional(rollbackFor = RuntimeException.class)
-public class HibernateHQL {
+public class HibernateHQL01 {
     @PersistenceContext
     private EntityManager entityManager;
 
