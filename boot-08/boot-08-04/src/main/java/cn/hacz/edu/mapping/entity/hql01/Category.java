@@ -11,7 +11,7 @@ import javax.persistence.Id;
  * @version 1.0
  * @date 日期:2018/11/23 时间:21:06
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：板块
  */
 @Entity
 public class Category {
