@@ -1,6 +1,6 @@
 package cn.hacz.edu.server;
 
-import cn.hacz.edu.mapping.entity.many2one.GroupEntity;
+import cn.hacz.edu.mapping.many2one.GroupEntity;
 
 /**
  * project -

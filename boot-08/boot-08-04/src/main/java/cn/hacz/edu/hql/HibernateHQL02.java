@@ -1,6 +1,6 @@
 package cn.hacz.edu.hql;
 
-import cn.hacz.edu.mapping.entity.many2one.GroupEntity;
+import cn.hacz.edu.mapping.many2one.GroupEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.sql.SQLOutput;
 import java.util.List;
 
 /**

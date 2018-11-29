@@ -43,7 +43,7 @@ public class ExceptionHandle {
             SelfException selfException = (SelfException) e;
             return ResultUtils.errorJson(selfException.getCode(), selfException.getMessage());
         } else {
-            logger.error("系统异常[{}]", e.getStackTrace());
+            logger.error("系统异常[{}]", (Object) e.getStackTrace());
             return ResultUtils.errorJson("-200", "未知错误");
         }
     }

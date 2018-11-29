@@ -1,4 +1,4 @@
-package cn.hacz.edu.mapping.entity.tree;
+package cn.hacz.edu.mapping.tree;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package cn.hacz.edu.mapping.entity.many2many;
+package cn.hacz.edu.mapping.one2one;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,15 +7,13 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
- * project -
+ * project - 一对一映射（单向外键、双向外键、单向主键、双向主键、联合主键、联合组件映射）
  *
  * @author yanfa07
  * @version 1.0
- * @date 日期:2018/11/21 时间:22:40
+ * @date 日期:2018/11/21 时间:20:48
  * @JDK 1.8
  * @Description 功能模块：
  */
@@ -23,10 +21,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "map_teacher")
+@Table(name = "map_wife")
 @DynamicInsert
 @DynamicUpdate
-public class TeacherEntity {
+public class WifeEntity {
     /**
      * 功能描述：主机id
      */
@@ -37,10 +35,10 @@ public class TeacherEntity {
      * 属性描述：姓名
      */
     private String name;
-
-    @ManyToMany
-    @JoinTable(name = "map_tea_stu",
-            joinColumns = {@JoinColumn(name = "teacher_id")},
-            inverseJoinColumns = {@JoinColumn(name = "student_id")})
-    private Set<StudentEntity> students = new HashSet<>();
+    /**
+     * 属性描述：丈夫
+     * 规律01：凡是双向关联，必设mappedBy，指定这个一对一关联是被Husband类的wife属性(准确说是getWife方法)做的映射。
+     */
+    @OneToOne(mappedBy = "wife")
+    private HusbandEntity husband;
 }

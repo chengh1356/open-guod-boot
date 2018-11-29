@@ -1,4 +1,4 @@
-package cn.hacz.edu.mapping.entity.one2one;
+package cn.hacz.edu.mapping.one2one;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,18 +13,18 @@ import javax.persistence.*;
  *
  * @author yanfa07
  * @version 1.0
- * @date 日期:2018/11/21 时间:20:48
+ * @date 日期:2018/11/21 时间:20:49
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：丈夫，数据库只有一种关系：外键；以妻子为主导的双向外键关联
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "map_wife")
+@Table(name = "map_husband")
 @DynamicInsert
 @DynamicUpdate
-public class WifeEntity {
+public class HusbandEntity {
     /**
      * 功能描述：主机id
      */
@@ -36,9 +36,9 @@ public class WifeEntity {
      */
     private String name;
     /**
-     * 属性描述：丈夫
-     * 规律01：凡是双向关联，必设mappedBy，指定这个一对一关联是被Husband类的wife属性(准确说是getWife方法)做的映射。
+     * 属性描述：妻子
      */
-    @OneToOne(mappedBy = "wife")
-    private HusbandEntity husband;
+    @OneToOne
+    @JoinColumn(name = "wife_id")
+    private WifeEntity wife;
 }

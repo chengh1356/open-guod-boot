@@ -1,6 +1,6 @@
 package cn.hacz.edu;
 
-import cn.hacz.edu.mapping.entity.many2one.GroupEntity;
+import cn.hacz.edu.mapping.many2one.GroupEntity;
 import cn.hacz.edu.server.GroupServerI;
 import cn.hacz.edu.server.UserServerI;
 import org.junit.Test;

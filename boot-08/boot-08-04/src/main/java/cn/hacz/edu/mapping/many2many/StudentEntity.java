@@ -1,4 +1,4 @@
-package cn.hacz.edu.mapping.entity.one2one;
+package cn.hacz.edu.mapping.many2many;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,24 +7,26 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * project - 一对一映射（单向外键、双向外键、单向主键、双向主键、联合主键、联合组件映射）
+ * project -
  *
  * @author yanfa07
  * @version 1.0
- * @date 日期:2018/11/21 时间:20:49
+ * @date 日期:2018/11/21 时间:22:41
  * @JDK 1.8
- * @Description 功能模块：丈夫，数据库只有一种关系：外键；以妻子为主导的双向外键关联
+ * @Description 功能模块：
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "map_husband")
+@Table(name = "map_student")
 @DynamicInsert
 @DynamicUpdate
-public class HusbandEntity {
+public class StudentEntity {
     /**
      * 功能描述：主机id
      */
@@ -35,10 +37,7 @@ public class HusbandEntity {
      * 属性描述：姓名
      */
     private String name;
-    /**
-     * 属性描述：妻子
-     */
-    @OneToOne
-    @JoinColumn(name = "wife_id")
-    private WifeEntity wife;
+
+    @ManyToMany(mappedBy = "students")
+    private Set<TeacherEntity> teachers = new HashSet<>();
 }

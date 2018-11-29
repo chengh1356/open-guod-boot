@@ -1,8 +1,8 @@
 package cn.hacz.edu.hql;
 
-import cn.hacz.edu.mapping.entity.hql01.Category;
-import cn.hacz.edu.mapping.entity.hql01.Msg;
-import cn.hacz.edu.mapping.entity.hql01.Topic;
+import cn.hacz.edu.mapping.hql01.Category;
+import cn.hacz.edu.mapping.hql01.Msg;
+import cn.hacz.edu.mapping.hql01.Topic;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
@@ -141,7 +141,7 @@ public class HibernateHQL01 {
     }
 
     public void testHQL_12() {
-        List list = this.getSessionUnwrap().createQuery("select new cn.hacz.edu.mapping.entity.hql01.MsgInfo(" +
+        List list = this.getSessionUnwrap().createQuery("select new cn.hacz.edu.mapping.admin.hql01.MsgInfo(" +
                 "m.id," +
                 " m.cont," +
                 " m.topic.title," +

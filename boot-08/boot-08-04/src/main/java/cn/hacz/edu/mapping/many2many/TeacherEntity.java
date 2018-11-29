@@ -1,4 +1,4 @@
-package cn.hacz.edu.mapping.entity.many2many;
+package cn.hacz.edu.mapping.many2many;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.util.Set;
  *
  * @author yanfa07
  * @version 1.0
- * @date 日期:2018/11/21 时间:22:41
+ * @date 日期:2018/11/21 时间:22:40
  * @JDK 1.8
  * @Description 功能模块：
  */
@@ -23,10 +23,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "map_student")
+@Table(name = "map_teacher")
 @DynamicInsert
 @DynamicUpdate
-public class StudentEntity {
+public class TeacherEntity {
     /**
      * 功能描述：主机id
      */
@@ -38,6 +38,9 @@ public class StudentEntity {
      */
     private String name;
 
-    @ManyToMany(mappedBy = "students")
-    private Set<TeacherEntity> teachers = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "map_tea_stu",
+            joinColumns = {@JoinColumn(name = "teacher_id")},
+            inverseJoinColumns = {@JoinColumn(name = "student_id")})
+    private Set<StudentEntity> students = new HashSet<>();
 }

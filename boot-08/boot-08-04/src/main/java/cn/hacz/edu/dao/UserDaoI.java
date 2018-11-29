@@ -1,6 +1,6 @@
 package cn.hacz.edu.dao;
 
-import cn.hacz.edu.mapping.entity.many2one.UserEntity;
+import cn.hacz.edu.mapping.many2one.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

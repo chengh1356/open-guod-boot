@@ -1,4 +1,4 @@
-package cn.hacz.edu.mapping.entity.hql01;
+package cn.hacz.edu.mapping.hql01;
 
 /**
  * project -
