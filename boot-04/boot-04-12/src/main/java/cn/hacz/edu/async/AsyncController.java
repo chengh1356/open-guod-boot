@@ -13,7 +13,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 import java.util.concurrent.Callable;
 
 /**
- * project - ETC发票系统
+ * project -
  *
  * @author dong
  * @version 3.0
@@ -45,14 +45,11 @@ public class AsyncController {
     @GetMapping(value = "/callAble")
     public Callable<String> callAble() {
         logger.info("主线程启动");
-        Callable<String> returns = new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                logger.info("副线程启动");
-                Thread.sleep(2000);
-                logger.info("副线程启动");
-                return "success";
-            }
+        Callable<String> returns = () -> {
+            logger.info("副线程启动");
+            Thread.sleep(2000);
+            logger.info("副线程启动");
+            return "success";
         };
         logger.info("主线程结束");
         return returns;

@@ -31,7 +31,13 @@ public class SysMenu {
     @Id
     @GeneratedValue
     private Long id;
-    @ManyToMany(mappedBy = "menus")
+
+    /**
+     * 属性描述：菜单名称
+     */
+    private String name;
+
+    @ManyToMany(mappedBy = "menus", cascade = {CascadeType.ALL})
     private Set<SysRole> roles = new HashSet<>();
 
 }

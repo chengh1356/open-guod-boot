@@ -9,7 +9,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 /**
- * project - ETC发票系统
+ * project -
  *
  * @author dong
  * @version 3.0

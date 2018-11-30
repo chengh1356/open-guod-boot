@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * project - ETC发票系统
+ * project -
  *
  * @author dong
  * @version 3.0
@@ -33,7 +33,7 @@ public class MockQueue {
         new Thread(() -> {
             logger.info("接收到下单请求：" + placeOrder);
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

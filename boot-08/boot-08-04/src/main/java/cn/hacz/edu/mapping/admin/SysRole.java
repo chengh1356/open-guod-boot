@@ -36,9 +36,9 @@ public class SysRole {
      * 属性描述：用户名称
      */
     private String name;
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", cascade = {CascadeType.ALL})
     private Set<SysUser> users = new HashSet<>();
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "sys_role_menu",
             joinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "menu_id", nullable = false, updatable = false)})

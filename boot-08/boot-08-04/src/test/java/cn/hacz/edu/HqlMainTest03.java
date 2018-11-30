@@ -23,37 +23,42 @@ public class HqlMainTest03 {
     private HibernateHQL03 hibernateHQL03;
 
     @Test
-    public void testHQL01() {
-        hibernateHQL03.doSaveUser();
+    public void doInit() {
+        hibernateHQL03.doInit();
     }
 
     @Test
-    public void testHQL02() {
-        hibernateHQL03.getDelete01();
+    public void doDelete01() {
+        hibernateHQL03.doDelete01();
     }
 
     @Test
-    public void testHQL03() {
-        hibernateHQL03.getDelete02();
+    public void doDelete02() {
+        hibernateHQL03.doDelete02();
     }
 
     @Test
-    public void testHQL04() {
-        hibernateHQL03.getDelete03();
+    public void doDelete03() {
+        hibernateHQL03.doDelete03();
     }
 
     @Test
-    public void testHQL05() {
+    public void merge() {
         hibernateHQL03.merge();
     }
 
     @Test
-    public void testHQL06() {
+    public void get() {
         hibernateHQL03.get();
     }
 
     @Test
-    public void testHQL07() {
+    public void getDep() {
+        hibernateHQL03.getDep();
+    }
+
+    @Test
+    public void load() {
         // 没有发送sql语句
         hibernateHQL03.load();
     }

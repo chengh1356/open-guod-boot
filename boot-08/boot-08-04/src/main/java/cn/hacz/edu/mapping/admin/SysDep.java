@@ -31,6 +31,11 @@ public class SysDep {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany(mappedBy = "sysDep")
+    @OneToMany(mappedBy = "sysDep", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private Set<SysUser> users = new HashSet<>();
+
+    /**
+     * 属性描述：部門名称
+     */
+    private String name;
 }

@@ -2,10 +2,11 @@ package cn.hacz.edu.config;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * project - ETC发票系统
+ * project -
  *
  * @author dong
  * @version 3.0
@@ -17,5 +18,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer{
     @Override
     public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
     }
 }
