@@ -63,4 +63,9 @@ public class HqlMainTest03 {
         hibernateHQL03.load();
     }
 
+    @Test
+    public void leftJoin(){
+        hibernateHQL03.leftJoin();
+    }
+
 }

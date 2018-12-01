@@ -69,7 +69,7 @@ public class HibernateHQL03 {
 
         sysUser.setRoles(new HashSet<>(roles));
 
-        this.getSessionUnwrap().persist(sysDep);
+        this.getSessionUnwrap().save(sysDep);
     }
 
     /**
@@ -133,5 +133,13 @@ public class HibernateHQL03 {
 
     public void merge() {
         SysUser sysUser = (SysUser) this.getSessionUnwrap().merge(new SysUser());
+    }
+
+    public void leftJoin() {
+        List<SysDep> list = this.getSessionUnwrap().createQuery("from SysDep dep " +
+                " left join fetch dep.users users " +
+                " left join fetch users.roles roles " +
+                " left join fetch roles.menus menus ", SysDep.class).list();
+        System.out.println(list);
     }
 }

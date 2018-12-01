@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     username: root
-    password: passw0rd
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///mapper
   jpa:
