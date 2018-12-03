@@ -136,7 +136,7 @@ public class HibernateHQL03 {
     }
 
     public void leftJoin() {
-        List<SysDep> list = this.getSessionUnwrap().createQuery("from SysDep dep " +
+        List<SysDep> list = this.getSessionUnwrap().createQuery(" from SysDep dep " +
                 " left join fetch dep.users users " +
                 " left join fetch users.roles roles " +
                 " left join fetch roles.menus menus ", SysDep.class).list();
