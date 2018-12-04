@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- 使用Filter、Interceptor拦截restful API -->
+        <!-- 使用Filter、Interceptor、aop拦截restful API -->
         <module>boot-04-01</module>
         <!-- AOP统一异常处理 -->
         <module>boot-04-02</module>

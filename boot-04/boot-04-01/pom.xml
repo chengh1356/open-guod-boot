@@ -12,6 +12,12 @@
 
     <artifactId>boot-04-01</artifactId>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>

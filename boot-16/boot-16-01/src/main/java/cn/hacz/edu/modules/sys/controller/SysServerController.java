@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = "/server")
-@Api(tags = "服务端")
+@Api(tags = "SysServerController-服务端")
 @Slf4j
 public class SysServerController {
     /**
      * 功能描述：指定格式
      */
-    @RequestMapping(value = "/pathUser", consumes = {"application/json"}, produces = {"application/json"})
+    @PostMapping(value = "/pathUser", consumes = {"application/json"}, produces = {"application/json"})
     public Object pathUser(@RequestBody @Validated Object object) {
         return object;
     }

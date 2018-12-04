@@ -18,20 +18,23 @@ import java.io.IOException;
 public class TimeFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("init");
+        System.out.println("time filter init");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("start");
-        long start = System.currentTimeMillis();
+        System.out.println("time filter start");
+        long startTime = System.currentTimeMillis();
+
         filterChain.doFilter(servletRequest, servletResponse);
-        System.out.println(System.currentTimeMillis() - start);
-        System.out.println("finish");
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("time filter consume " + (endTime - startTime) + " ms");
+        System.out.println("time filter end");
     }
 
     @Override
     public void destroy() {
-        System.out.println("destroy");
+        System.out.println("time filter init");
     }
 }
