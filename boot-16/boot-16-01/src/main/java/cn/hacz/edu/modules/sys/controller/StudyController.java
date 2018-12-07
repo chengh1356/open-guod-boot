@@ -8,6 +8,7 @@ import cn.hacz.edu.modules.sys.service.StudyServiceI;
 import cn.hacz.edu.modules.sys.vo.StudyVo;
 import cn.hacz.edu.util.ResultUtils;
 import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.vo.JsonList;
 import com.google.common.util.concurrent.RateLimiter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -83,5 +84,11 @@ public class StudyController {
         List<StudyEntity> list = new ArrayList<>();
         list.stream().map(StudyEntity::getName).collect(Collectors.toList());
         return ResultUtils.successJson(byAge.get());
+    }
+
+    @PostMapping(value = "/getStudyAll")
+    public JsonList getStudyAll() {
+        List<StudyEntity> from = studyDaoI.find("from StudyEntity");
+        return ResultUtils.successJsonList(from);
     }
 }

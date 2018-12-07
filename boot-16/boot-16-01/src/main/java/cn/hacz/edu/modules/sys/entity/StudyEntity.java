@@ -28,6 +28,7 @@ public class StudyEntity extends BaseEntity {
      * 属性描述：姓名
      */
     private String name;
+    private String sex;
     /**
      * 功能描述：年龄
      */
@@ -36,4 +37,6 @@ public class StudyEntity extends BaseEntity {
      * 功能描述：生日
      */
     private LocalDateTime birthday;
+    private String city;
+    private String note;
 }
