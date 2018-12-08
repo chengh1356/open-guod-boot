@@ -63,6 +63,9 @@ public class StudyServiceImpl implements StudyServiceI {
     public Json doSave(StudyVo studyVo) {
         StudyEntity studyEntity = new StudyEntity();
         BeanUtils.copyProperties(studyVo, studyEntity);
-        return ResultUtils.successJson(baseStudyRepository.save(studyEntity));
+        StudyEntity save = baseStudyRepository.save(studyEntity);
+        StudyDto studyDto = new StudyDto();
+        BeanUtils.copyProperties(save, studyDto);
+        return ResultUtils.successJson(studyDto);
     }
 }

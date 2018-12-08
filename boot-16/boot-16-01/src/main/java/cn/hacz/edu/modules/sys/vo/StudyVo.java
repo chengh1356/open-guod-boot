@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
 
@@ -35,12 +35,31 @@ public class StudyVo {
     @ApiModelProperty(value = "年龄", name = "age", required = true, example = "23")
     private Integer age;
     /**
+     * 属性描述：性别
+     */
+    @ApiModelProperty(value = "性别", name = "name", example = "郭冬冬")
+    private String sex;
+    /**
+     * 属性描述：城市
+     */
+    @ApiModelProperty(value = "城市", name = "name", example = "郭冬冬")
+    private String city;
+    /**
      * 功能描述：出生日期
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "出生日期", name = "birthday", required = true, example = "2018-01-01 12:25:00")
     private LocalDateTime birthday;
+    /**
+     * 功能描述：是否删除
+     */
+    @Type(type = "numeric_boolean=0_1")
+    private Boolean delete;
+    /**
+     * 功能描述：状态
+     */
+    @Type(type = "numeric_boolean=0_1")
+    private Boolean status;
     /**
      * 功能描述：说明
      */
