@@ -16,16 +16,23 @@ import java.util.List;
  */
 public class ReadFileUtilsTestMain {
     public static void main(String[] args) throws Exception {
-        File f = new File("f:/aa.txt");
+        // 定义一个文件
+        File f = new File("D:/111.xml");
         String encoding = "UTF-8";
-        // 01读取文件到String中
-        String s = FileUtils.readFileToString(f, encoding);
-        System.out.println(s);
-        // 02读取文件到List中
-        List<String> strings = FileUtils.readLines(f, encoding);
-        strings.forEach(System.out::println);
-        // 03读取文件到字节数组中
-        byte[] bytes = FileUtils.readFileToByteArray(f);
-        System.out.println(new String(bytes, encoding));
+
+        // 01.把文件的所有内容放到String里,第二个参数是编码可选的..
+        System.out.println("-------------把文件的所有内容读到String中---------");
+        String readFileToString = FileUtils.readFileToString(f, encoding);
+        System.out.println(readFileToString);
+
+        // 02.把文件的所有内容按行放到List中.第二个参数是编码,可选
+        System.out.println("-------------把文件的所有内容按行读到List中---------");
+        List<String> readLines = FileUtils.readLines(f, encoding);
+        readLines.forEach(System.out::println);
+
+        // 03.读成字节数组(一般用于二进制文件)
+        System.out.println("-------------把文件的所有内容读成一个byteArray---------");
+        byte[] readFileToByteArray = FileUtils.readFileToByteArray(f);
+        System.out.println(new String(readFileToByteArray, encoding));
     }
 }

@@ -3,7 +3,7 @@ package cn.hacz.edu.spring.md5;
 import org.springframework.util.DigestUtils;
 
 /**
- * project - 综合客户服务系统
+ * project -
  *
  * @author guod
  * @version 1.0

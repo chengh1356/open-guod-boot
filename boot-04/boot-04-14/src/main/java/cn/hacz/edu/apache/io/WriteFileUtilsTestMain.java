@@ -20,23 +20,25 @@ import java.util.stream.Stream;
  */
 public class WriteFileUtilsTestMain {
     public static void main(String[] args) throws Exception {
-        File f = new File("f:/aa.txt");
-        CharSequence charSequence = "你好";
-        Charset charset = StandardCharsets.UTF_8;
-        String encoding = "UTF-8";
-        String info = "java";
-        List<String> collect = Stream.of("java", "你好").collect(Collectors.toList());
-        // 01CharSequence类型的写入到文件
-        FileUtils.write(f, charSequence, encoding);
-        FileUtils.write(f, info, charset);
-        FileUtils.write(f, "hello", charset, true);
-        // 02将string写入到文件
-        FileUtils.writeStringToFile(f, info, encoding);
-        // 03将list写入到文件
-        FileUtils.writeLines(f, collect);
-        FileUtils.writeLines(f, collect, true);
-        FileUtils.writeLines(f, "UTF-8", collect, true);
-        // 04写入二进制数据
-        FileUtils.writeByteArrayToFile(f, info.getBytes());
+        File f = new File("D" + File.pathSeparator + "01.txt");
+        //定义一个文件
+        Charset c = StandardCharsets.UTF_8;
+        String s = "你好,世界\n hello world";
+        List<String> lines = Stream.of("你好,世界", "hello, world").collect(Collectors.toList());
+
+        //01.把内容写进文件
+        FileUtils.write(f, s);
+        //02.把内容写进文件,用UTF-8编码
+        FileUtils.write(f, s, c);
+        //03.把内容追加进文件
+        FileUtils.write(f, s, true);
+        //04.把一个List写进文件,List的每一个元素是一行
+        FileUtils.writeLines(f, lines);
+        FileUtils.writeLines(f, lines, true);
+        FileUtils.writeLines(f, "UTF-8", lines, true);
+        //05.写入二进制数据
+        FileUtils.writeByteArrayToFile(f, s.getBytes());
+        //06.还有writeStringtoFile
+        FileUtils.writeStringToFile(f, s, c);
     }
 }

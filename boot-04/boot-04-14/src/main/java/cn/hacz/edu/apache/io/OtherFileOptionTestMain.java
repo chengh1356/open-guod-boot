@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * project - 综合客户服务系统
+ * project -
  *
  * @author guod
  * @version 1.0

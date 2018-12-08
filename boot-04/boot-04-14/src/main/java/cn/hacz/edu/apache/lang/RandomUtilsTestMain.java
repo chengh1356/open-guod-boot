@@ -1,5 +1,8 @@
 package cn.hacz.edu.apache.lang;
 
+import jodd.util.RandomStringUtil;
+import org.apache.commons.lang.RandomStringUtils;
+
 /**
  * project -
  *
@@ -11,5 +14,8 @@ package cn.hacz.edu.apache.lang;
  */
 public class RandomUtilsTestMain {
     public static void main(String[] args) {
+        System.out.println(RandomStringUtils.randomNumeric(12));
+        System.out.println(org.apache.commons.lang3.RandomStringUtils.randomNumeric(12));
+        System.out.println(RandomStringUtil.randomNumeric(12));
     }
 }
