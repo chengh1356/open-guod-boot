@@ -11,6 +11,5 @@ package cn.hacz.edu.apache.collections;
  */
 public class CollectionUtilsTestMain {
     public static void main(String[] args) {
-
     }
 }
