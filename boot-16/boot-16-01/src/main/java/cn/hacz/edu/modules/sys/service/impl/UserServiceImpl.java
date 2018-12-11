@@ -22,7 +22,7 @@ import javax.validation.Valid;
  * @version 1.0
  * @date 日期:2018/7/10 时间:9:35
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：统一异常处理
  */
 @Service
 @Transactional(rollbackFor = RuntimeException.class)
