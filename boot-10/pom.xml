@@ -16,6 +16,7 @@
     <modules>
         <!-- 定时任务（Scheduling Tasks） -->
         <module>boot-10-01</module>
+        <module>boot-10-02</module>
     </modules>
 
 
