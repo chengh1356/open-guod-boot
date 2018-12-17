@@ -12,11 +12,16 @@
 
     <artifactId>boot-01-02</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-<dependencies>
-    <dependency>
-        <groupId>dom4j</groupId>
-        <artifactId>dom4j</artifactId>
-    </dependency>
-</dependencies>
-    
+    <dependencies>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.10</version>
+        </dependency>
+    </dependencies>
+
 </project>

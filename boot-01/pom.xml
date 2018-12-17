@@ -17,7 +17,7 @@
     <modules>
         <!-- Spring boot简单项目的快速搭建 -->
         <module>boot-01-01</module>
-        <!-- Spring boot配置文件详解：properties -->
+        <!-- Spring boot配置文件详解：properties配置和读取 -->
         <module>boot-01-02</module>
         <!-- Spring boot配置文件详解：yml、yaml -->
         <module>boot-01-03</module>

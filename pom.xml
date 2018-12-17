@@ -19,6 +19,13 @@
     </parent>
 
     <!-- 项目模块 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
+    </properties>
+
     <modules>
         <!-- 点睛spring -->
         <module>base-01</module>
@@ -44,6 +51,8 @@
         <module>boot-09</module>
         <!-- 实战spring boot中定时任务 -->
         <module>boot-10</module>
+        <!-- 实战spring boot中异步处理 -->
+        <module>boot-11</module>
         <!-- RBAC权限管理 -->
         <module>boot-14</module>
         <!-- 工作流 -->
@@ -51,13 +60,6 @@
         <!-- 实战框架整合 -->
         <module>boot-16</module>
     </modules>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
-    </properties>
 
     <dependencies>
         <dependency>

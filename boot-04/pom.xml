@@ -31,7 +31,7 @@
         <module>boot-04-07</module>
         <!-- Spring boot域对象：VO、DTO、DO、PO -->
         <module>boot-04-08</module>
-        <!-- Java8中的LocalDateTime -->
+        <!-- Java8中的时间日期操作 -->
         <module>boot-04-09</module>
         <!-- 邮件发送 -->
         <module>boot-04-10</module>
