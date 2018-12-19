@@ -34,7 +34,9 @@ public class Boot0102Application {
 
     @GetMapping(value = "/info")
     public String info() {
-        return payProperties.getPayName() + InfoUtils.info() + objectProperties.getName();
+        return payProperties.getPayName() + ","
+                + InfoUtils.info() + ","
+                + objectProperties.getName();
     }
 
     @Bean

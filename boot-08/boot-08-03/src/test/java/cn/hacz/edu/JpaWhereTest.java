@@ -8,8 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 /**
  * project -
@@ -25,6 +30,15 @@ import java.util.Date;
 public class JpaWhereTest {
     @Autowired
     private UserDaoI userDaoI;
+
+    @Test
+    public void init(){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("sample");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        TypedQuery<UserEntity> query = entityManager.createQuery("SELECT t1 FROM UserEntity t1",UserEntity.class);
+        List<UserEntity> personList = query.getResultList();
+        entityManager.close();
+    }
 
     @Test
     public void test() {

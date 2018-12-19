@@ -2,6 +2,7 @@ package cn.hacz.edu.vo;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  * @JDK 1.8
  * @Description 功能模块：
  */
-public class Person {
+public class Person implements Serializable {
     @Excel(name = "姓名", orderNum = "0")
     private String name;
 
@@ -22,6 +23,9 @@ public class Person {
 
     @Excel(name = "生日", exportFormat = "yyyy-MM-dd", orderNum = "2")
     private Date birthday;
+
+    public Person() {
+    }
 
     public Person(String name, String sex, Date birthday) {
         this.name = name;

@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-@PropertySource(value = "classpath:conf/pay.properties")
+@PropertySource(value = {"classpath:conf/pay.properties"})
 public class PayProperties {
     /**
      * 属性描述：支付名称

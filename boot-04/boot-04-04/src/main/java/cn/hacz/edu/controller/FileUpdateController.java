@@ -42,7 +42,8 @@ public class FileUpdateController {
         //服务器端保存的文件对象
         File serverFile = new File(uploadDir + filename);
         InputStream inputStream = file.getInputStream();
-        //将上传的文件写入到服务器端文件内，file.transferTo(serverFile)
+        // FileUtils.copyInputStreamToFile(file.getInputStream(), serverFile);
+        // 将上传的文件写入到服务器端文件内，file.transferTo(serverFile)
         FileUtils.copyInputStreamToFile(file.getInputStream(), serverFile);
     }
 
