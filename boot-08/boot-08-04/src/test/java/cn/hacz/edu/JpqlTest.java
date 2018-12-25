@@ -1,5 +1,6 @@
 package cn.hacz.edu;
 
+import cn.hacz.edu.dao.HotelDaoI;
 import cn.hacz.edu.mapping.many2one.GroupEntity;
 import cn.hacz.edu.server.GroupServerI;
 import cn.hacz.edu.server.UserServerI;
@@ -26,6 +27,7 @@ public class JpqlTest {
     @Autowired
     private UserServerI userServerI;
 
+
     @Test
     public void doSaveGroup() {
         groupServerI.doSaveGroup();
@@ -46,4 +48,5 @@ public class JpqlTest {
         GroupEntity groupEntity = groupServerI.doGetGroup();
         groupEntity.getUsers().forEach(System.out::println);
     }
+
 }

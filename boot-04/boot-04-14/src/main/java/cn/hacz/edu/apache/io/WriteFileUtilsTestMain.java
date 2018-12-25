@@ -20,7 +20,7 @@ import java.util.stream.Stream;
  */
 public class WriteFileUtilsTestMain {
     public static void main(String[] args) throws Exception {
-        File f = new File("D" + File.pathSeparator + "01.txt");
+        File f = new File("D:/01.txt");
         //定义一个文件
         Charset c = StandardCharsets.UTF_8;
         String s = "你好,世界\n hello world";
