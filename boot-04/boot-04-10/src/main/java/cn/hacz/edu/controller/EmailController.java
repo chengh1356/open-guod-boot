@@ -28,7 +28,8 @@ public class EmailController {
     @PostMapping("/sendMail")
     public void sendSimpleMail() {
         logger.info("准备发送！");
-        mailUtilServiceService.sendSimpleMail();
+//        mailUtilServiceService.sendSimpleMail();
+        mailUtilServiceService.sendMail();
         logger.info("已经发送了邮件！");
     }
 
