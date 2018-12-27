@@ -1,14 +1,15 @@
 package cn.hacz.edu.dao;
 
-import cn.hacz.edu.mapping.manytable.CityHohel;
-import cn.hacz.edu.mapping.manytable.Hotel;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
+import cn.hacz.edu.mapping.manytable.CityHotel;
+import cn.hacz.edu.mapping.manytable.Hotel;
 
 /**
  * project -
