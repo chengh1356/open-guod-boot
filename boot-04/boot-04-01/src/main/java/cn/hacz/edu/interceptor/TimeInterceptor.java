@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 /**
- * project - ETC发票系统
+ * project - 
  *
  * @author dong
  * @version 3.0

@@ -19,10 +19,12 @@ import java.util.Properties;
  */
 public class MainTest {
     public static void main(String[] args) throws IOException, ConfigurationException {
+    	// 方式01
         Configuration configuration = new PropertiesConfiguration("conf/pay.properties");
-        Properties properties = PropertiesLoaderUtils.loadAllProperties("classpath:conf/pay.properties");
-        System.out.println(configuration.getString("pay.name"));
-        String o = (String) properties.get("pay.name");
+        String string = configuration.getString("pay.name");
+        System.out.println(string);
+        // 方式02
+        Properties properties = PropertiesLoaderUtils.loadAllProperties("conf/pay.properties");
         String property = properties.getProperty("pay.name");
         System.out.println(property);
     }
