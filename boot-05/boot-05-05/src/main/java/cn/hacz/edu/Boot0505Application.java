@@ -105,11 +105,9 @@ public class Boot0505Application {
     @RequestMapping(value = "/showFile")
     public ResponseEntity<byte[]> showFile(@RequestParam("path") String path) throws Exception {
         if (StringUtils.isEmpty(path)) {
-            // 此时path值为空
             return null;
         }
         String filepath = path;
-        logger.info("下载文档路径：[{}]", filepath);
         System.out.println(filepath);
         URL url = new URL(filepath);
         ResponseEntity r;

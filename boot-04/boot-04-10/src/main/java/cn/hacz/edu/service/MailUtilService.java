@@ -1,6 +1,8 @@
 package cn.hacz.edu.service;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -8,13 +10,11 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.activation.DataSource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 @Service
@@ -50,15 +50,10 @@ public class MailUtilService {
                     .append("<p style='color:#F00'>红色字</p>")
                     .append("<p style='text-align:right'>右对齐</p>");
             helper.setText(sb.toString(), true);
-            InputStream inputStream = new URL("http://171.8.252.62:8083/api/dl.do?id=73ACE52F131C91BFE050F80A0B016515").openStream();
-            FileSystemResource fileSystemResource = new FileSystemResource(new File(String.valueOf(inputStream)));
-            helper.addAttachment("电子发票", (DataSource) inputStream);
+            FileSystemResource fileSystemResource = new FileSystemResource(new File(""));
+            helper.addAttachment("电子发票", fileSystemResource);
             mailSender.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -69,13 +64,30 @@ public class MailUtilService {
      */
     @RequestMapping(value = "businessEmail")
     public Object businessEmail() {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("fapiao@etccyw.com"); //注意这里的发送人邮箱，要与yml配置中的username相同，否则验证不通过
-        message.setTo("guodd369@163.com");
-        message.setSubject("主题：简单邮件(QQ个人邮件)-抄送，密送测试");
-        message.setText("测试邮件内容");
-        mailSender.send(message);
-        System.out.println("发送成功！");
+        MimeMessage mimeMessage;
+        mimeMessage = mailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+            // 注意这里的发送人邮箱，要与yml配置中的username相同，否则验证不通过
+            helper.setFrom("");
+            helper.setTo("");
+            helper.setSubject("主题：河南省视博电子股份有限公司");
+
+            // 拼装主题
+            StringBuffer sb = new StringBuffer();
+            sb.append("<h5>尊敬的客户您好</h5>")
+                    .append("<span>电子发票URL地址：</span>")
+                    .append("<a href='' style='color:#F00'></a>");
+            helper.setText(sb.toString(), true);
+            InputStream inputStream = new URL("").openStream();
+
+            // 流的方式输出
+            helper.addAttachment("电子发票PDF文件",
+                    new ByteArrayResource(IOUtils.toByteArray(inputStream)));
+            mailSender.send(mimeMessage);
+        } catch (MessagingException | IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

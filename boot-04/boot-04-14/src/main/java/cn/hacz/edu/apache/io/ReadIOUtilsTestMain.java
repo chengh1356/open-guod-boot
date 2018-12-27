@@ -17,9 +17,16 @@ import java.net.URL;
 public class ReadIOUtilsTestMain {
     public static void main(String[] args) throws Exception {
         String encoding = "UTF-8";
-        InputStream inputStream = new URL("https://www.baidu.com/").openStream();
+        InputStream inputStream = new URL("http://171.8.252.62:8083/api/dl.do?id=73ACE52F0D9291BFE050F80A0B016515").openStream();
         // 01读取链接地址网页
         String s = IOUtils.toString(inputStream, encoding);
-        System.out.println(s);
+        byte[] a = new byte[1024];
+        int n = 0;
+        int read = IOUtils.read(inputStream, a);
+        while (read != -1) {
+            System.out.println(read);
+        }
+
+//        System.out.println(s);
     }
 }
