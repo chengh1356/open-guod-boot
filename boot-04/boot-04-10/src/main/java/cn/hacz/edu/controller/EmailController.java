@@ -29,7 +29,8 @@ public class EmailController {
     public void sendSimpleMail() {
         logger.info("准备发送！");
 //        mailUtilServiceService.sendSimpleMail();
-        mailUtilServiceService.sendMail();
+//        mailUtilServiceService.sendMail();
+        mailUtilServiceService.businessEmail();
         logger.info("已经发送了邮件！");
     }
 
@@ -39,4 +40,5 @@ public class EmailController {
                 null, "<h3><a href='http://www.baidu.com'>百度一下，你就知道</a></h3>", null);
         return "发送邮件:" + isSend;
     }
+
 }

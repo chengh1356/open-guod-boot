@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: mail-demo
+  mail:
+    host: smtp.qq.com
+    username: xxxx@qq.com # 这里填写个人的qq邮箱
+    password: 789456 # 注：这里不是qq邮箱的密码，而是授权码
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true

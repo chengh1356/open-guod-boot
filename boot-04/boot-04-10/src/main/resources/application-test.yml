@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: mail-demo
+  mail:
+    host: smtp.exmail.qq.com
+    username: fapiao@etccyw.com # 这里填写企业邮箱
+    password: Passw0rd # 这里填写企业邮箱登录密码
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
+      mail.smtp.socketFactory.port: 465

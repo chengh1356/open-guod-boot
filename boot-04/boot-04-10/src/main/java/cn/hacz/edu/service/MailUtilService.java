@@ -6,6 +6,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.activation.DataSource;
 import javax.mail.MessagingException;
@@ -60,5 +61,21 @@ public class MailUtilService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    /**
+     * 功能描述：企业邮箱
+     */
+    @RequestMapping(value = "businessEmail")
+    public Object businessEmail() {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("fapiao@etccyw.com"); //注意这里的发送人邮箱，要与yml配置中的username相同，否则验证不通过
+        message.setTo("guodd369@163.com");
+        message.setSubject("主题：简单邮件(QQ个人邮件)-抄送，密送测试");
+        message.setText("测试邮件内容");
+        mailSender.send(message);
+        System.out.println("发送成功！");
+        return null;
     }
 }
