@@ -1,5 +1,9 @@
 package cn.hacz.edu.mapping.manytable;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * project -
  *
@@ -9,12 +13,10 @@ package cn.hacz.edu.mapping.manytable;
  * @JDK 1.8
  * @Description 功能模块：
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CityHotel {
     private String cityName;
     private String hotelName;
-
-    public CityHotel(String cityName, String hotelName) {
-        this.cityName = cityName;
-        this.hotelName = hotelName;
-    }
 }
