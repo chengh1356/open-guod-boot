@@ -9,11 +9,11 @@ package cn.hacz.edu.mapping.manytable;
  * @JDK 1.8
  * @Description 功能模块：
  */
-public class CityHohel {
+public class CityHotel {
     private String cityName;
     private String hotelName;
 
-    public CityHohel(String cityName, String hotelName) {
+    public CityHotel(String cityName, String hotelName) {
         this.cityName = cityName;
         this.hotelName = hotelName;
     }
