@@ -60,7 +60,9 @@ public class MailUtilService {
 
 
     /**
-     * 功能描述：企业邮箱
+     * 功能描述：获取网络资源
+     *
+     * @return
      */
     @RequestMapping(value = "businessEmail")
     public Object businessEmail() {
