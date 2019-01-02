@@ -17,7 +17,7 @@
     <modules>
         <!-- 使用Filter、Interceptor、aop拦截restful API -->
         <module>boot-04-01</module>
-        <!-- AOP统一异常处理 -->
+        <!-- AOP统一异常、日志、加密解密处理 -->
         <module>boot-04-02</module>
         <!-- CORS跨域请求处理 -->
         <module>boot-04-03</module>

@@ -3,7 +3,7 @@ package cn.hacz.edu.modules.sys.controller;
 import cn.hacz.edu.modules.sys.dao.StudyDaoI;
 import cn.hacz.edu.modules.sys.dto.StudyDto;
 import cn.hacz.edu.modules.sys.entity.StudyEntity;
-import cn.hacz.edu.modules.sys.repository.comment.SysLog;
+import cn.hacz.edu.annotation.SysLog;
 import cn.hacz.edu.modules.sys.service.StudyServiceI;
 import cn.hacz.edu.modules.sys.vo.StudyVo;
 import cn.hacz.edu.util.ResultUtils;

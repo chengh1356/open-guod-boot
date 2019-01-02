@@ -1,4 +1,4 @@
-package cn.hacz.edu.modules.sys.repository.comment;
+package cn.hacz.edu.annotation;
 
 
 import org.hibernate.annotations.common.reflection.XClass;

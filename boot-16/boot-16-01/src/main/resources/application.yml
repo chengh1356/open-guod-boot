@@ -1,3 +1,4 @@
+secretkey: 1234456
 server:
   port: 11601
   tomcat:

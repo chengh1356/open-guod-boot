@@ -1,4 +1,4 @@
-package cn.hacz.edu.modules.sys.repository.comment;
+package cn.hacz.edu.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

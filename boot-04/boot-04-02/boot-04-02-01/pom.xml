@@ -6,14 +6,11 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>boot-04</artifactId>
+        <artifactId>boot-04-02</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot-04-02</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>boot-04-02-01</module>
-    </modules>
+    <artifactId>boot-04-02-01</artifactId>
+
 
 </project>

@@ -1,8 +1,10 @@
 package cn.hacz.edu.aspect;
 
 import cn.hacz.edu.modules.sys.entity.SysLogInfoEntity;
-import cn.hacz.edu.modules.sys.repository.comment.SysLog;
+import cn.hacz.edu.annotation.EncryptField;
+import cn.hacz.edu.annotation.SysLog;
 import cn.hacz.edu.modules.sys.service.SysLogInfoServiceI;
+import cn.hacz.edu.util.AseUtil;
 import cn.hacz.edu.util.IPUtils;
 import cn.hacz.edu.util.LoggerUtils;
 import cn.hacz.edu.util.SnowFlakeIdGenerator;
@@ -16,6 +18,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 import org.springframework.web.context.request.RequestAttributes;
@@ -24,9 +27,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * project -
@@ -41,7 +46,8 @@ import java.util.List;
 @Component
 public class HttpAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    @Value("${secretkey}")
+    private String secretKey;
     @Autowired
     private ObjectMapper mapper;
     @Autowired
@@ -51,14 +57,21 @@ public class HttpAspect {
      * 所有Controller
      */
     @Pointcut("execution(public * cn.hacz.edu.modules..*Controller.*(..))")
-    public void pointcut() {
+    public void pointcutController() {
     }
 
     /**
-     * 注解声明切点
+     * 日志注解声明切点
      */
-    @Pointcut("@annotation(cn.hacz.edu.modules.sys.repository.comment.SysLog)")
-    public void annotationPointCut() {
+    @Pointcut("@annotation(cn.hacz.edu.annotation.SysLog)")
+    public void annotationPointCutLog() {
+    }
+
+    /**
+     * 加密注解声明切点
+     */
+    @Pointcut("@annotation(cn.hacz.edu.annotation.EncryptMethod)")
+    public void annotationPointCutEncrypt() {
     }
 
     /**
@@ -68,7 +81,7 @@ public class HttpAspect {
      * @return
      * @throws Throwable
      */
-    @Around("pointcut()")
+    @Around("pointcutController()")
     public Object aroundHttp(ProceedingJoinPoint pjp) throws Throwable {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
@@ -111,7 +124,7 @@ public class HttpAspect {
         return j;
     }
 
-    @Around("annotationPointCut()")
+    @Around("annotationPointCutLog()")
     public Object aroundLog(ProceedingJoinPoint joinPoint) throws Throwable {
         Object result;
         Json j;
@@ -163,5 +176,71 @@ public class HttpAspect {
 
         //持久化到库
         this.sysLogInfoServiceI.add(entity);
+    }
+
+    /**
+     * 功能描述：
+     *
+     * @param joinPoint
+     * @return
+     */
+    @Around("annotationPointCutEncrypt()")
+    public Object around(ProceedingJoinPoint joinPoint) {
+        Object responseObj = null;
+        try {
+            Object requestObj = joinPoint.getArgs()[0];
+            handleEncrypt(requestObj);
+            responseObj = joinPoint.proceed();
+            handleDecrypt(responseObj);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            logger.error("SecureFieldAop处理出现异常{}", throwable);
+        }
+        return responseObj;
+    }
+
+    /**
+     * 处理加密
+     *
+     * @param requestObj
+     */
+    private void handleEncrypt(Object requestObj) throws IllegalAccessException {
+        if (Objects.isNull(requestObj)) {
+            return;
+        }
+        Field[] fields = requestObj.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            boolean hasSecureField = field.isAnnotationPresent(EncryptField.class);
+            if (hasSecureField) {
+                field.setAccessible(true);
+                String plaintextValue = (String) field.get(requestObj);
+                String encryptValue = AseUtil.encrypt(plaintextValue, secretKey);
+                field.set(requestObj, encryptValue);
+            }
+        }
+    }
+
+
+    /**
+     * 处理解密
+     *
+     * @param responseObj
+     */
+    private Object handleDecrypt(Object responseObj) throws IllegalAccessException {
+        if (Objects.isNull(responseObj)) {
+            return null;
+        }
+
+        Field[] fields = responseObj.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            boolean hasSecureField = field.isAnnotationPresent(EncryptField.class);
+            if (hasSecureField) {
+                field.setAccessible(true);
+                String encryptValue = (String) field.get(responseObj);
+                String plaintextValue = AseUtil.decrypt(encryptValue, secretKey);
+                field.set(responseObj, plaintextValue);
+            }
+        }
+        return responseObj;
     }
 }

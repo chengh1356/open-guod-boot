@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.test.controller;
 
-import cn.hacz.edu.modules.sys.repository.comment.SysLog;
+import cn.hacz.edu.annotation.SysLog;
 import cn.hacz.edu.modules.test.dao.CarDaoI;
 import cn.hacz.edu.modules.test.entity.CarEntity;
 import cn.hacz.edu.modules.test.vo.CarVo;

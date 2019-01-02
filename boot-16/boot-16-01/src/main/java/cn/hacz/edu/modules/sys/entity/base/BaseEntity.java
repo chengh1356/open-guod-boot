@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.sys.entity.base;
 
-import cn.hacz.edu.modules.sys.repository.comment.Comment;
+import cn.hacz.edu.annotation.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
