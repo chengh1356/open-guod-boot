@@ -50,7 +50,7 @@ public class MailUtilService {
                     .append("<p style='color:#F00'>红色字</p>")
                     .append("<p style='text-align:right'>右对齐</p>");
             helper.setText(sb.toString(), true);
-            FileSystemResource fileSystemResource = new FileSystemResource(new File(""));
+            FileSystemResource fileSystemResource = new FileSystemResource(new File("H:/01.pdf"));
             helper.addAttachment("电子发票", fileSystemResource);
             mailSender.send(message);
         } catch (MessagingException e) {
@@ -71,8 +71,8 @@ public class MailUtilService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
             // 注意这里的发送人邮箱，要与yml配置中的username相同，否则验证不通过
-            helper.setFrom("");
-            helper.setTo("");
+            helper.setFrom("guodd369@163.com");
+            helper.setTo("1007916121@qq.com");
             helper.setSubject("主题：河南省视博电子股份有限公司");
 
             // 拼装主题
@@ -81,7 +81,7 @@ public class MailUtilService {
                     .append("<span>电子发票URL地址：</span>")
                     .append("<a href='' style='color:#F00'></a>");
             helper.setText(sb.toString(), true);
-            InputStream inputStream = new URL("").openStream();
+            InputStream inputStream = new URL("http://171.8.252.62:8083/api/dl.do?id=7E6FA73F4942EA45E050F80A0F017E21").openStream();
 
             // 流的方式输出
             helper.addAttachment("电子发票PDF文件",

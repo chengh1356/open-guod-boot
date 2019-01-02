@@ -4,7 +4,7 @@ spring:
   mail:
     host: smtp.163.com
     username: guodd369@163.com # 这里填写企业邮箱
-    password: he12152866 # 这里填写企业邮箱登录密码
+    password: '*******' # 这里填写企业邮箱登录密码
     properties:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true

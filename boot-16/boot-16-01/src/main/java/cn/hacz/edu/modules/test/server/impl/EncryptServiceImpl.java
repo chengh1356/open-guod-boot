@@ -5,7 +5,6 @@ import cn.hacz.edu.modules.test.vo.EncryptRequest;
 import cn.hacz.edu.util.ResultUtils;
 import cn.hacz.edu.vo.Json;
 import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
 
 /**
  * project -
@@ -28,10 +27,4 @@ public class EncryptServiceImpl implements EncryptServiceI {
     public Json testDecrypt(EncryptRequest request) {
         return null;
     }
-
-    public static void main(String[] args) {
-        String md5Password = DigestUtils.md5DigestAsHex("1".getBytes());
-        System.out.println(md5Password);
-    }
-
 }
