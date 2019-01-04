@@ -14,8 +14,8 @@ import org.junit.Test;
  * @Description 功能模块：
  */
 public class JackSonMain01 {
-    ObjectMapper objectMapper = new ObjectMapper();
-    UserEntity userEntity = new UserEntity("guo", 22);
+    private ObjectMapper objectMapper = new ObjectMapper();
+    private UserEntity userEntity = new UserEntity("guo", 22);
 
     @Test
     public void jackSonMainTest01() throws Exception {
