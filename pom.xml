@@ -27,6 +27,7 @@
     </properties>
 
     <modules>
+        <module>common-01</module>
         <!-- 点睛spring -->
         <module>base-01</module>
         <!-- 点睛spring MVC -->
