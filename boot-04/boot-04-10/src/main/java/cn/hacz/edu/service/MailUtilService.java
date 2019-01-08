@@ -71,7 +71,7 @@ public class MailUtilService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
             // 注意这里的发送人邮箱，要与yml配置中的username相同，否则验证不通过
-            helper.setFrom("guodd369@163.com");
+            helper.setFrom("admin@cywetc.cn");
             helper.setTo("1007916121@qq.com");
             helper.setSubject("主题：河南省视博电子股份有限公司");
 

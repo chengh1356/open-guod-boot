@@ -2,7 +2,7 @@ spring:
   application:
     name: mail-demo
   mail:
-    host: smtp.163.com
+    host: smtphm.qiye.163.com
     username: admin@cywetc.cn
     password: Test2019
     properties:
