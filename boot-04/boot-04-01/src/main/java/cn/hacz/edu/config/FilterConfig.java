@@ -36,6 +36,7 @@ public class FilterConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         TimeInterceptor timeInterceptor = new TimeInterceptor();
+        registry.addInterceptor(timeInterceptor).addPathPatterns("/test/**");
         registry.addInterceptor(timeInterceptor);
     }
 }
