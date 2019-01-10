@@ -3,4 +3,4 @@ server:
 
 jasypt:
   encryptor:
-    password: foo
+    password: guodd

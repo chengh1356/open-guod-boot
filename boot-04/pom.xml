@@ -33,7 +33,7 @@
         <module>boot-04-08</module>
         <!-- Java8中的时间日期操作 -->
         <module>boot-04-09</module>
-        <!-- 邮件发送：QQ、163 -->
+        <!-- Email邮件发送：QQ、163 -->
         <module>boot-04-10</module>
         <!-- 异步处理使用多线程提高rest服务的性能 -->
         <module>boot-04-12</module>

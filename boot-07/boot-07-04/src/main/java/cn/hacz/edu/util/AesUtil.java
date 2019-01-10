@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 /**
- * project - 综合客户服务系统
+ * project -
  *
  * @author guod
  * @version 1.0
@@ -19,13 +19,12 @@ import java.security.SecureRandom;
 public class AesUtil {
 
     public static void main(String[] args) {
-        System.out.println("加密");
         // 密钥的种子，可以是任何形式，本质是字节数组
-        String strKey = "sbdz-10001";
+        String strKey = "guodd-001";
         // 密钥数据
         byte[] rawKey = getRawKey(strKey.getBytes());
         // 密码的明文
-        String clearPwd = "My world is full of wonders! No body can match my spirit";
+        String clearPwd = "你好加密";
         // 密码加密后的密文
         byte[] encryptedByteArr = encrypt(rawKey, clearPwd);
         String encryptedPwd = new String(encryptedByteArr);
