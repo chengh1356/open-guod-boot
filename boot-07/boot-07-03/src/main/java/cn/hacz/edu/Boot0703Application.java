@@ -4,7 +4,8 @@ import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,18 +22,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class Boot0703Application {
 
     @Autowired
-    StringEncryptor encryptor;
+    StringEncryptor encryptors;
 
     public static void main(String[] args) {
         SpringApplication.run(Boot0703Application.class, args);
     }
 
-    @GetMapping(value = "/getPassword")
-    public String getPassword() {
-        String url = encryptor.encrypt("xxx.xxx.xxx.xxx");
-        String userName = encryptor.encrypt("xxxx");
-        String password = encryptor.encrypt("xxxxxx");
-        System.out.println("加密用户名：" + url + "加密用户名：" + userName + "加密用户名：" + password);
-        return url + ";" + userName + ";" + password;
+    @PostMapping(value = "/getPassword")
+    public String getPassword(@RequestBody UserVo userVo) {
+        String ip = encryptors.encrypt(userVo.getIp());
+        String userName = encryptors.encrypt(userVo.getUserName());
+        String password = encryptors.encrypt(userVo.getPassword());
+        System.out.println("加密用户名：" + ip + "加密用户名：" + userName + "加密用户名：" + password);
+        return "加密用户名：" + ip + "；加密用户名：" + userName + "；加密用户名：" + password;
     }
 }
