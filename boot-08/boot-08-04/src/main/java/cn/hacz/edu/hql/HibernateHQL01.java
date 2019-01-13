@@ -1,8 +1,8 @@
 package cn.hacz.edu.hql;
 
-import cn.hacz.edu.mapping.hql01.Category;
-import cn.hacz.edu.mapping.hql01.Msg;
-import cn.hacz.edu.mapping.hql01.Topic;
+import cn.hacz.edu.mapping.hql2jpql.Category;
+import cn.hacz.edu.mapping.hql2jpql.Msg;
+import cn.hacz.edu.mapping.hql2jpql.Topic;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;

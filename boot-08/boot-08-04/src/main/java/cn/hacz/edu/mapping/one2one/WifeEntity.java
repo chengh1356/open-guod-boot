@@ -30,6 +30,7 @@ public class WifeEntity {
      */
     @Id
     @GeneratedValue
+    @Column(name = "id", length = 36, nullable = false)
     private Integer id;
     /**
      * 属性描述：姓名

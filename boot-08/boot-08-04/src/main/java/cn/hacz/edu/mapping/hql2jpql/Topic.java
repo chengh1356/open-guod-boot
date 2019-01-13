@@ -1,4 +1,4 @@
-package cn.hacz.edu.mapping.hql01;
+package cn.hacz.edu.mapping.hql2jpql;
 
 import javax.persistence.*;
 import java.util.Date;
