@@ -1,0 +1,30 @@
+# 服务基础
+server:
+  port: 11002
+  servlet:
+    context-path: /job
+# 持久化配置
+spring:
+  datasource:
+    username: root
+    password: passw0rd
+    url: jdbc:mysql:///test01
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      format_sql: true
+# 任务调度
+xxl:
+  job:
+    executor:
+      logpath: /data/applogs/xxl-job/jobhandler
+      appname: boot-10-02
+      port: 9999
+      logretentiondays: -1
+      ip:
+    admin:
+      addresses: http://127.0.0.1:9090/xxl-job-admin
+    accessToken:

@@ -14,8 +14,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- 定时任务（Scheduling Tasks） -->
+        <!-- 定时任务（Spring Scheduling Tasks） -->
         <module>boot-10-01</module>
+        <!-- 定时任务（Xxl Job Core ） -->
         <module>boot-10-02</module>
     </modules>
 
