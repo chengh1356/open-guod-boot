@@ -19,11 +19,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(rollbackFor = RuntimeException.class)
 public class TeacherServiceImpl implements TeacherServiceI {
-    @Autowired
-    private TeacherDaoI teacherDaoI;
+	@Autowired
+	private TeacherDaoI teacherDaoI;
 
-    @Override
-    public Teacher getTeacherAll() {
-        return null;
-    }
+	@Override
+	public Teacher getTeacherAll() {
+		return null;
+	}
 }

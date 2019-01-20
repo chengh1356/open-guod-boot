@@ -17,7 +17,7 @@ mybatis:
   # 实体扫描，多个package用逗号或者分号分隔
   type-aliases-package: cn.hacz.edu.*.entity
 
-#pagehelper
+# pagehelper
 pagehelper:
     helperDialect: mysql
     reasonable: true
