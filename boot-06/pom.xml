@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>cn.hacz.edu</groupId>
-        <artifactId>open-guod-boot</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+	<parent>
+		<groupId>cn.hacz.edu</groupId>
+		<artifactId>open-guod-boot</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 
-    <artifactId>boot-06</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+	<artifactId>boot-06</artifactId>
+	<packaging>pom</packaging>
 
-    <modules>
-        <!-- Rest Full的常用方式 -->
-        <module>boot-06-01</module>
-        <!-- Rest Full的监控机制admin的server实例 -->
-        <module>boot-06-02</module>
-        <!-- Rest Full的监控机制admin的client实例 -->
-        <module>boot-06-03</module>
-        <!-- HttpMessageConverter消息转换器 -->
-        <module>boot-06-04</module>
-    </modules>
+	<modules>
+		<!-- Rest Full的常用方式 -->
+		<module>boot-06-01</module>
+		<!-- Rest Full的监控机制admin的server实例 -->
+		<module>boot-06-02</module>
+		<!-- Rest Full的监控机制admin的client实例 -->
+		<module>boot-06-03</module>
+		<!-- HttpMessageConverter消息转换器 -->
+		<module>boot-06-04</module>
+	</modules>
 
 </project>

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * project - ETC发票系统
+ * project - 接收的实体类
  *
  * @author dong
  * @version 3.0
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
-    private String id;
-    private String name;
-    private Integer age;
+	private String id;
+	private String name;
+	private Integer age;
 }
