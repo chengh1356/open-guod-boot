@@ -1,39 +1,34 @@
 package cn.hacz.edu.service.impl;
 
-import cn.hacz.edu.dao.UserMapper;
-import cn.hacz.edu.entity.User;
+import cn.hacz.edu.mapper.UserEntityMapper;
+import cn.hacz.edu.model.UserEntity;
 import cn.hacz.edu.service.UserServiceI;
-import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * project -
  *
- * @author dong
+ * @author yanfa07
  * @version 1.0
- * @date 日期:2018/8/18 时间:16:37
+ * @date 日期:2019/1/21 时间:16:52
  * @JDK 1.8
  * @Description 功能模块：
  */
 @Service
-@Transactional(rollbackFor = RuntimeException.class)
+@Transactional
 public class UserServiceImpl implements UserServiceI {
     @Autowired
-    private UserMapper userMapper;
+    private UserEntityMapper userEntityMapper;
 
     @Override
-    public User getUser(String id) {
-        return userMapper.selectByPrimaryKey(id);
-    }
-
-    @Override
-    public List<User> findAllUser(int pageNum, int pageSize) {
-        // 将参数传给这个方法就可以实现物理分页了，非常简单。new PageInfo(users);
-        PageHelper.startPage(pageNum, pageSize);
-        return userMapper.selectAllUser();
+    public int save(UserEntity user) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("userName", user.getUserName());
+        return userEntityMapper.saveUser(map);
     }
 }
