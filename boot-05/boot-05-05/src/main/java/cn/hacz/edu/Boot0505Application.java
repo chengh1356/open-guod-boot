@@ -4,6 +4,7 @@ import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.hacz.edu.util.ExcelFileUtil;
 import cn.hacz.edu.vo.Person;
+import cn.hacz.edu.vo.UserVo;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
@@ -76,15 +77,15 @@ public class Boot0505Application {
     @RequestMapping("/importExcel")
     public Object importExcel(@RequestParam("file") MultipartFile file) {
         ImportParams params = new ImportParams();
-        params.setTitleRows(1);
+        params.setTitleRows(0);
         params.setHeadRows(1);
         long start = new Date().getTime();
         file.getName();
         // PoiPublicUtil.getWebRootPath();
-        List<Person> list = null;
+        List<UserVo> list = null;
         try {
             // 直接通过输入流的方式
-            list = ExcelImportUtil.importExcel(file.getInputStream(), Person.class, params);
+            list = ExcelImportUtil.importExcel(file.getInputStream(), UserVo.class, params);
         } catch (Exception e) {
             e.printStackTrace();
         }
