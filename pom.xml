@@ -40,7 +40,7 @@
         <module>boot-03</module>
         <!-- 实战spring boot中WEB应用开发中常用基础操作-->
         <module>boot-04</module>
-        <!-- 实战spring boot中简洁的JSON和XML数据交互-->
+        <!-- 实战spring boot中简洁的JSON和XML数据交互+Excel导入导出-->
         <module>boot-05</module>
         <!-- 实战spring boot中Rest full接口-->
         <module>boot-06</module>
