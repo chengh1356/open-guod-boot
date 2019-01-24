@@ -20,7 +20,7 @@
 		<module>boot-06-02</module>
 		<!-- Rest Full的监控机制admin的client实例 -->
 		<module>boot-06-03</module>
-		<!-- HttpMessageConverter消息转换器+文件流返回 -->
+		<!-- HttpMessageConverter消息转换器+文件流返回格式 -->
 		<module>boot-06-04</module>
 	</modules>
 
