@@ -5,25 +5,17 @@ import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.hacz.edu.util.ExcelFileUtil;
 import cn.hacz.edu.vo.Person;
 import cn.hacz.edu.vo.UserVo;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -94,34 +86,4 @@ public class Boot0505Application {
         System.out.println(ReflectionToStringBuilder.toString(list.get(0)));
         return list;
     }
-
-
-    /**
-     * 功能描述：
-     *
-     * @param path
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value = "/showFile")
-    public ResponseEntity<byte[]> showFile(@RequestParam("path") String path) throws Exception {
-        if (StringUtils.isEmpty(path)) {
-            return null;
-        }
-        String filepath = path;
-        System.out.println(filepath);
-        URL url = new URL(filepath);
-        ResponseEntity r;
-        try {
-            byte[] bytes1 = IOUtils.toByteArray(url.openConnection().getInputStream());
-            MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-            headers.add("Content-Disposition", "attachment;filename=" + URLEncoder.encode(org.springframework.util.StringUtils.getFilename(filepath), "utf-8"));
-            r = new ResponseEntity(bytes1, headers, HttpStatus.OK);
-            return r;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 }
