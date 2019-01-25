@@ -21,5 +21,9 @@
         <module>boot-02-04</module>
         <!-- 打包：war -->
         <module>boot-02-05</module>
+        <!-- 打包：项目里面的jar包打包到指定文件夹 -->
+        <module>boot-02-06</module>
+        <!-- 打包：所有第三方jar放lib中 -->
+        <module>boot-02-07</module>
     </modules>
 </project>
