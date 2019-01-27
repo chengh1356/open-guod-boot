@@ -20,6 +20,7 @@
         <module>boot-07-02</module>
         <!-- 配置文件安全策略 -->
         <module>boot-07-03</module>
+        <!-- AES加密工具类 -->
         <module>boot-07-04</module>
     </modules>
 </project>

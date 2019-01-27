@@ -15,5 +15,7 @@ public interface StudentService {
 
     int updateByPrimaryKeySelective(StudentEntity studentEntity);
 
-    StudentEntity selectStudent(Map<String, Object> map);
+    StudentEntity selectStudentMap(Map<String, Object> map);
+
+    StudentEntity selectStudentObj(StudentEntity studentEntity);
 }

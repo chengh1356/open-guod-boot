@@ -6,6 +6,7 @@ import cn.hacz.edu.service.StudentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +37,15 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentEntity selectStudent(Map<String, Object> map) {
+    public StudentEntity selectStudentMap(Map<String, Object> map) {
         return studentMapper.getStudentMap(map);
+    }
+
+    @Override
+    public StudentEntity selectStudentObj(StudentEntity studentEntity) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", studentEntity.getName());
+        map.put("age", studentEntity.getAge());
+        return studentMapper.getStudentBean(map);
     }
 }

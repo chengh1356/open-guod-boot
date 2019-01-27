@@ -32,10 +32,18 @@ public class StudentController {
     }
 
     /**
+     *  功能描述：test01
+     */
+    @RequestMapping(value = "/test01")
+    public Object test01(StudentEntity studentEntity){
+        return studentService.selectStudentObj(studentEntity);
+    }
+
+    /**
      * 功能描述：test02
      */
     @RequestMapping(value = "/test02")
     public Object test02(@RequestParam Map<String, Object> map) {
-        return studentService.selectStudent(map);
+        return studentService.selectStudentMap(map);
     }
 }

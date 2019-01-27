@@ -28,7 +28,7 @@ public interface StudentMapper {
     StudentEntity getStudent(String name, int age);
 
     /**
-     * 功能描述：方法2：@Param注解传参法
+     * 功能描述：方法2：@Param注解传参法，为Dao层的注解，作用是用于传递参数，一般在2=<参数数<=5时使用最佳。
      * #{}里面的名称对应的是注解@Param括号里面修饰的名称，这种方法在参数不多的情况还是比较直观的，推荐使用。
      *
      * @param name
