@@ -1,3 +1,4 @@
 logging:
+  config: classpath:logback.xml
   level:
     com.yuqiyu.chapter12.controller: 'off'

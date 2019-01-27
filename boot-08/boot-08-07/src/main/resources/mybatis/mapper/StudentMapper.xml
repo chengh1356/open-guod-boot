@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hacz.edu.mapper.StudentMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="cn.hacz.edu.model.StudentEntity">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="class_num" property="classNum" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        name,
+        age,
+        class_num
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="studentEntity.id">
+        INSERT INTO student_entity (
+            id,
+            name,
+            age,
+            class_num
+        ) VALUES (
+            #{studentEntity.id,jdbcType=INTEGER},
+            #{studentEntity.name,jdbcType=VARCHAR},
+            #{studentEntity.age,jdbcType=INTEGER},
+            #{studentEntity.classNum,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="studentEntity.id">
+        INSERT INTO student_entity
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentEntity.id!=null">id,</if>
+            <if test="studentEntity.name!=null">name,</if>
+            <if test="studentEntity.age!=null">age,</if>
+            <if test="studentEntity.classNum!=null">class_num,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentEntity.id!=null">#{studentEntity.id,jdbcType=INTEGER},
+            </if>
+            <if test="studentEntity.name!=null">#{studentEntity.name,jdbcType=VARCHAR},
+            </if>
+            <if test="studentEntity.age!=null">#{studentEntity.age,jdbcType=INTEGER},
+            </if>
+            <if test="studentEntity.classNum!=null">#{studentEntity.classNum,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO student_entity (
+        id,
+        name,
+        age,
+        class_num
+        )VALUES
+        <foreach collection="studentEntitys" item="studentEntity" index="index" separator=",">
+            (
+            #{studentEntity.id,jdbcType=INTEGER},
+            #{studentEntity.name,jdbcType=VARCHAR},
+            #{studentEntity.age,jdbcType=INTEGER},
+            #{studentEntity.classNum,jdbcType=INTEGER}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE student_entity
+        <set>
+            <if test="studentEntity.name != null">name= #{studentEntity.name,jdbcType=VARCHAR},</if>
+            <if test="studentEntity.age != null">age= #{studentEntity.age,jdbcType=INTEGER},</if>
+            <if test="studentEntity.classNum != null">class_num= #{studentEntity.classNum,jdbcType=INTEGER}</if>
+        </set>
+        WHERE id = #{studentEntity.id,jdbcType=INTEGER}
+    </update>
+
+    <select id="getStudent" resultMap="BaseResultMap">
+      select * from student_entity
+        where name = #{0} and age = #{2}
+    </select>
+
+    <select id="getStudentParam" resultMap="BaseResultMap">
+      select * from student_entity
+        where name = #{name} and age = #{age}
+    </select>
+
+    <select id="getStudentMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+      select * from student_entity
+        where name = #{name} and age = #{age}
+    </select>
+
+    <select id="getStudentBean" parameterType="cn.hacz.edu.model.StudentEntity" resultMap="BaseResultMap">
+      select * from student_entity
+        where name = #{name} and age = #{age}
+    </select>
+</mapper>
+

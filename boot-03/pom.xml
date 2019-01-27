@@ -14,7 +14,10 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- logback日志，spring boot默认日志框架 -->
         <module>boot-03-01</module>
+        <!-- log4g -->
+        <module>boot-03-02</module>
     </modules>
 
     
