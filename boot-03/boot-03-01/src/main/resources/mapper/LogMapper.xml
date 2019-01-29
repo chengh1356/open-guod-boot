@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hacz.edu.dao.LogMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="cn.hacz.edu.entity.LogEntity">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="info" property="info" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        name,
+        info
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="logEntity.id">
+        INSERT INTO tb_log (
+            id,
+            name,
+            info
+        ) VALUES (
+            #{logEntity.id,jdbcType=INTEGER},
+            #{logEntity.name,jdbcType=VARCHAR},
+            #{logEntity.info,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="logEntity.id">
+        INSERT INTO tb_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logEntity.id!=null"> id,</if>
+            <if test="logEntity.name!=null"> name,</if>
+            <if test="logEntity.info!=null"> info,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logEntity.id!=null">#{logEntity.id,jdbcType=INTEGER},
+            </if>
+            <if test="logEntity.name!=null">#{logEntity.name,jdbcType=VARCHAR},
+            </if>
+            <if test="logEntity.info!=null">#{logEntity.info,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO tb_log (
+            id,
+            name,
+            info
+        )VALUES
+        <foreach collection="logEntitys" item="logEntity" index="index" separator=",">
+            (
+            #{logEntity.id,jdbcType=INTEGER},
+            #{logEntity.name,jdbcType=VARCHAR},
+            #{logEntity.info,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE tb_log
+        <set>
+            <if test="logEntity.name != null"> name= #{logEntity.name,jdbcType=VARCHAR},</if>
+            <if test="logEntity.info != null"> info= #{logEntity.info,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE id = #{logEntity.id,jdbcType=INTEGER}
+    </update>
+</mapper>
+
