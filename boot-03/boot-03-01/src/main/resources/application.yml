@@ -1,4 +1,27 @@
+spring:
+  profiles:
+    active: test
+  datasource:
+    username: root
+    password: passw0rd
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///test
+---
+server:
+  port: 8009
+spring:
+  profiles: dev
+---
+server:
+  port: 8009
+spring:
+  profiles: test
+---
+server:
+  port: 8008
+spring:
+  profiles: prod
 logging:
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml
   level:
     com.yuqiyu.chapter12.controller: 'off'
