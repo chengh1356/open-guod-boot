@@ -11,7 +11,7 @@ spring:
     username: root
     password: passw0rd
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://10.9.4.107:3306/test?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
   jpa:
     show-sql: true
     hibernate:
@@ -28,6 +28,6 @@ spring:
   mvc:
     static-path-pattern: /**
 image:
-  imgUrl: http://39.106.9.56/
-  imgPath: //home//kaifa//resources//
+  imgUrl: http://192.168.100.12:8000/
+  imgPath: /home/kaifa/resource/
   # imgPath: D:/data/

@@ -3,6 +3,7 @@ package cn.hacz.edu.file;
 import cn.hacz.edu.util.ResultUtils;
 import cn.hacz.edu.vo.Json;
 import cn.hacz.edu.vo.JsonList;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * project - 中原金控后台管理服务
+ * project - Gitee开源项目（spring boot）
  *
  * @author guod
  * @version 1.0
@@ -56,7 +56,8 @@ public class FileUploadUtils {
         //服务器端保存的文件对象
         File serverFile = new File(uploadDir + filename);
         //将上传的文件写入到服务器端文件内
-        file.transferTo(serverFile);
+        // file.transferTo(serverFile);
+        FileUtils.copyInputStreamToFile(file.getInputStream(), serverFile);
         // 返回用户回显路径
         String returnFile = uploadDir + filename;
         logger.info("服务器图片地址：[{}]", serverFile);
@@ -71,7 +72,7 @@ public class FileUploadUtils {
      * @return
      */
     @PostMapping(value = "/upload")
-    public Json upload(HttpServletRequest request, MultipartFile file) {
+    public Json upload(MultipartFile file) {
         String returnImage = null;
         try {
             // 上传目录服务器地址
@@ -97,12 +98,11 @@ public class FileUploadUtils {
     /**
      * 功能描述：上传多个文件方法（注解请求头信息：enctype=multipart/form-data）
      *
-     * @param request 请求对象
-     * @param file    上传文件集合
+     * @param file 上传文件集合
      * @return
      */
     @PostMapping(value = "/uploads")
-    public JsonList uploads(HttpServletRequest request, MultipartFile[] file) {
+    public JsonList uploads(MultipartFile[] file) {
         List<String> returnImages = new ArrayList<>();
         try {
             //上传目录地址
@@ -131,13 +131,13 @@ public class FileUploadUtils {
     /**
      * 功能描述：显示图片接口
      *
-     * @param request
      * @param response
      * @throws Exception
      */
     @RequestMapping(value = "/image", method = RequestMethod.GET)
-    public void imageDisplay(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        File file = new File("F:\\aa.jpg");
+    public void imageDisplay(HttpServletResponse response) throws Exception {
+        // 文件业务逻辑自行处理，替换下面
+        File file = new File("/home/kaifa/resource/2019/02/18/upload/9a9bf096-ab71-48b3-93fd-b68f3ce255d6.png");
         // 进行文件下载的指定，设置强制下载不打开
         OutputStream outputStream = response.getOutputStream();
         // 设置显示图片
@@ -153,13 +153,13 @@ public class FileUploadUtils {
     /**
      * 功能描述：下载文件
      *
-     * @param request
      * @param response
      * @throws IOException
      */
     @RequestMapping(value = "/downloadFile")
-    public void downloadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        File file = new File("F:\\dome\\aaa.jpg");
+    public void downloadFile(HttpServletResponse response) throws IOException {
+        // 文件业务逻辑自行处理，替换下面
+        File file = new File("/home/kaifa/resource/2019/02/18/upload/9a9bf096-ab71-48b3-93fd-b68f3ce255d6.png");
         OutputStream outputStream = response.getOutputStream();
         // 进行文件下载的指定
         response.setContentType("application/x-download");
