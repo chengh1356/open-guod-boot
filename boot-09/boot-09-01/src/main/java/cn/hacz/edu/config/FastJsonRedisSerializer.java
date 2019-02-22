@@ -8,7 +8,7 @@ import org.springframework.data.redis.serializer.SerializationException;
 import java.nio.charset.Charset;
 
 /**
- * project - 中原金控后台管理服务
+ * project -
  *
  * @author guod
  * @version 1.0

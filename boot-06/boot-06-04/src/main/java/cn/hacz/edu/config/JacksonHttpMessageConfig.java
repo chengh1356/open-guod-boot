@@ -31,7 +31,7 @@ import java.time.format.DateTimeFormatter;
  * @Description 功能模块：将原生jackson的返回值为null转化为""，方便前台输出
  */
 @Configuration
-public class JacksonConfig {
+public class JacksonHttpMessageConfig {
     @Bean
     @Primary
     @ConditionalOnMissingBean(ObjectMapper.class)

@@ -9,7 +9,7 @@ spring:
   redis:
     database: 0  # Redis数据库索引（默认为0）
     password:  # Redis服务器连接密码（默认为空）
-    host: 'ENC(y3jjpYbJcYNd0nq2OT7jT87m7A7H+cAt)'  # Redis服务器地址
+    host: 192.168.100.11  # Redis服务器地址
     port: 6379  # Redis服务器连接端口
     timeout: 1000
     jedis:  # 变更后 增加了一层jedis
@@ -19,10 +19,10 @@ spring:
         max-idle: 8
         min-idle: 0
   datasource:
-    username: ENC(/xpC1lAH/ojTkmIdk68W9g==)
-    password: ENC(QF65IuLfPLKLnTG0LsR8sw==)
+    username: root
+    password: passw0rd
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.106.9.56:3306/boot?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://127.0.0.1:3306/test?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
   jpa:
     show-sql: true
     generate-ddl: true

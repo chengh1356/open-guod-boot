@@ -6,12 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -23,7 +21,7 @@ import java.io.IOException;
  * @JDK 1.8
  * @Description 功能模块：
  */
-@ControllerAdvice
+@RestControllerAdvice
 public class ExceptionHandle {
     /**
      * 日志输出
@@ -31,20 +29,19 @@ public class ExceptionHandle {
     private final static Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);
 
     /**
-     * 功能描述：自定义异常和系统异常
+     * 功能描述：自定义异常和全局异常捕捉处理
      *
      * @param e
      * @return
      */
     @ExceptionHandler(value = Exception.class)
-    @ResponseBody
     public Json handle(Exception e) {
         if (e instanceof SelfException) {
             SelfException selfException = (SelfException) e;
             return ResultUtils.errorJson(selfException.getCode(), selfException.getMessage());
         } else {
             logger.error("系统异常[{}]", (Object) e.getStackTrace());
-            return ResultUtils.errorJson("-200", "未知错误");
+            return ResultUtils.errorJson("500", "系统异常");
         }
     }
 
@@ -53,17 +50,15 @@ public class ExceptionHandle {
      *
      * @param e
      * @param request
-     * @param response
      * @return
-     * @throws Exception
      */
-    @ResponseBody
     @ExceptionHandler(value = BindException.class)
-    public Json valid(BindException e, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public Json valid(BindException e, HttpServletRequest request) {
         printlnException(request, e);
         Json j = new Json();
         j.setSuccess(false);
-        j.setCode("-7001");
+        j.setCode("-406");
+        j.setData("http状态码406，不接受From数据校验异常。");
         if (!e.getBindingResult().hasErrors()) {
             j.setMessage("没有找到对应校验异常!");
             return j;
@@ -80,35 +75,18 @@ public class ExceptionHandle {
      * @param request
      * @return
      */
-    @ResponseBody
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public Json valid(MethodArgumentNotValidException e, HttpServletRequest request) {
         printlnException(request, e);
         Json j = new Json();
         j.setSuccess(false);
+        j.setCode("-406");
+        j.setData("http状态码406，不接受Json数据校验异常。");
         if (!e.getBindingResult().hasErrors()) {
             j.setMessage("没有找到校验异常!");
             return j;
         }
         j.setMessage(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
-        return j;
-    }
-
-    /**
-     * 功能描述：Throwable异常处理
-     *
-     * @param req
-     * @param e
-     * @return
-     * @throws Exception
-     */
-    @ResponseBody
-    @ExceptionHandler(value = Throwable.class)
-    public Json jsonErrorHandler(HttpServletRequest req, Throwable e) {
-        Json j = new Json();
-        j.setSuccess(false);
-        j.setMessage(e.getMessage());
-        j.setCode("500");
         return j;
     }
 

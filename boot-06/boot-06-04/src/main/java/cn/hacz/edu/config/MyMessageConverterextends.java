@@ -23,7 +23,7 @@ import java.util.List;
  * @version 1.0
  * @date 日期:2018/9/20 时间:14:02
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：自定义消息转换器
  */
 @Component
 public class MyMessageConverterextends extends AbstractHttpMessageConverter<Object> {

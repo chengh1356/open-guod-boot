@@ -45,11 +45,15 @@ import java.util.Objects;
 @Aspect
 @Component
 public class HttpAspect {
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Value("${secretkey}")
     private String secretKey;
+
     @Autowired
     private ObjectMapper mapper;
+
     @Autowired
     private SysLogInfoServiceI sysLogInfoServiceI;
 
