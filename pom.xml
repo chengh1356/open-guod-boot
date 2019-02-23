@@ -60,6 +60,8 @@
         <module>boot-15</module>
         <!-- 实战框架整合 -->
         <module>boot-16</module>
+        <!-- 自定义starter -->
+        <module>boot-17</module>
     </modules>
 
     <dependencies>
