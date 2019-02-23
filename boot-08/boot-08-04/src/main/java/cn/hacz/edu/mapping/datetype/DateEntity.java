@@ -1,8 +1,10 @@
-package cn.hacz.edu.mapping.common;
+package cn.hacz.edu.mapping.datetype;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,17 +15,20 @@ import java.util.Date;
 /**
  * project -
  *
- * @author yanfa07
+ * @author Administrator
  * @version 1.0
- * @date 日期:2018/12/19 时间:8:41
+ * @date 日期:2019/2/23 时间:10:59
  * @JDK 1.8
  * @Description 功能模块：
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@MappedSuperclass
-public class CommonEntity {
+@Entity
+@Table(name = "map_date")
+@DynamicInsert
+@DynamicUpdate
+public class DateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

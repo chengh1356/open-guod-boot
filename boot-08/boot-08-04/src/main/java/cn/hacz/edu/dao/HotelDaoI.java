@@ -21,9 +21,5 @@ import cn.hacz.edu.mapping.manytable.Hotel;
  * @Description 功能模块：
  */
 public interface HotelDaoI extends JpaRepository<Hotel, Serializable> {
-    @Query(value = "select new map(t1,t2) from  City t1 left  join Hotel t2 on t1.id=t2.city where t2.name =:name")
-    List<Map<String, Object>> findCityAndHotelByHQL(@Param("name") String name);
 
-    @Query(value = "select new cn.hacz.edu.mapping.manytable.CityHohel(t1.name ,t2.name) from City t1 left  join Hotel t2 on t1.id=t2.city where t2.name =:name")
-    List<CityHotel> findCityAndHotelByHQLResultObj(@Param("name") String name);
 }
