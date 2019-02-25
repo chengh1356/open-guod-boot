@@ -1,4 +1,4 @@
-package cn.hacz.edu.model;
+package cn.hacz.edu.entity;
 
 public class UserEntity {
     private Integer userId;

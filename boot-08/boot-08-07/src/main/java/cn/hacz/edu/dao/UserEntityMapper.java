@@ -1,6 +1,6 @@
-package cn.hacz.edu.mapper;
+package cn.hacz.edu.dao;
 
-import cn.hacz.edu.model.UserEntity;
+import cn.hacz.edu.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -20,4 +20,5 @@ public interface UserEntityMapper {
     int updateByPrimaryKeySelective(UserEntity record);
 
     UserEntity selectByPrimaryKey(Integer userId);
+
 }

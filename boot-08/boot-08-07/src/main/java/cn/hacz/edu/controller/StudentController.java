@@ -1,11 +1,9 @@
 package cn.hacz.edu.controller;
 
-import cn.hacz.edu.model.StudentEntity;
+import cn.hacz.edu.entity.StudentEntity;
 import cn.hacz.edu.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -27,8 +25,19 @@ public class StudentController {
      * 功能描述：save
      */
     @RequestMapping(value = "/save")
-    public Object save(StudentEntity studentEntity) {
+    public Object save(@RequestBody StudentEntity studentEntity) {
         return studentService.insertSelective(studentEntity);
+    }
+
+    @RequestMapping("/mapParam")
+    public Object mapParam(@RequestParam Map<String, Object> params) {
+        studentService.mapParam(params);
+        return null;
+    }
+
+    @RequestMapping("/mapBody")
+    public Object mapBody(@RequestBody Map<String, Object> params) {
+        return null;
     }
 
     /**

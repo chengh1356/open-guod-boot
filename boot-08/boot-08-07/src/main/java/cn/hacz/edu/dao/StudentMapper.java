@@ -1,6 +1,6 @@
-package cn.hacz.edu.mapper;
+package cn.hacz.edu.dao;
 
-import cn.hacz.edu.model.StudentEntity;
+import cn.hacz.edu.entity.StudentEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -54,4 +54,6 @@ public interface StudentMapper {
      * @return
      */
     StudentEntity getStudentBean(Map<String, Object> map);
+
+    StudentEntity mapParam(Map<String, Object> params);
 }

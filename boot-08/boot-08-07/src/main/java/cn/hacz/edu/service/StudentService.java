@@ -1,6 +1,6 @@
 package cn.hacz.edu.service;
 
-import cn.hacz.edu.model.StudentEntity;
+import cn.hacz.edu.entity.StudentEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -18,4 +18,6 @@ public interface StudentService {
     StudentEntity selectStudentMap(Map<String, Object> map);
 
     StudentEntity selectStudentObj(StudentEntity studentEntity);
+
+    StudentEntity mapParam(Map<String, Object> params);
 }

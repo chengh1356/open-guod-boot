@@ -1,7 +1,7 @@
 package cn.hacz.edu.service.impl;
 
-import cn.hacz.edu.mapper.UserEntityMapper;
-import cn.hacz.edu.model.UserEntity;
+import cn.hacz.edu.dao.UserEntityMapper;
+import cn.hacz.edu.entity.UserEntity;
 import cn.hacz.edu.service.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

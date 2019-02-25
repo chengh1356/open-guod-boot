@@ -1,6 +1,6 @@
 package cn.hacz.edu.service;
 
-import cn.hacz.edu.model.UserEntity;
+import cn.hacz.edu.entity.UserEntity;
 
 /**
  * project -

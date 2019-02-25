@@ -1,7 +1,7 @@
 package cn.hacz.edu.service.impl;
 
-import cn.hacz.edu.model.StudentEntity;
-import cn.hacz.edu.mapper.StudentMapper;
+import cn.hacz.edu.entity.StudentEntity;
+import cn.hacz.edu.dao.StudentMapper;
 import cn.hacz.edu.service.StudentService;
 import org.springframework.stereotype.Service;
 
@@ -47,5 +47,10 @@ public class StudentServiceImpl implements StudentService {
         map.put("name", studentEntity.getName());
         map.put("age", studentEntity.getAge());
         return studentMapper.getStudentBean(map);
+    }
+
+    @Override
+    public StudentEntity mapParam(Map<String, Object> params) {
+        return studentMapper.mapParam(params);
     }
 }

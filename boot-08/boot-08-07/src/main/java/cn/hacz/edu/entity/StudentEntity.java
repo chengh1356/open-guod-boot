@@ -1,4 +1,4 @@
-package cn.hacz.edu.model;
+package cn.hacz.edu.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,19 +20,19 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StudentEntity {
     /**
-     *  功能描述：主键id
+     * 功能描述：主键id
      */
     private Integer id;
     /**
-     *  属性描述：姓名
+     * 属性描述：姓名
      */
     private String name;
     /**
-     *  功能描述：年龄
+     * 功能描述：年龄
      */
     private Integer age;
     /**
-     *  功能描述：班级号
+     * 功能描述：班级号
      */
     private Integer classNum;
 }
