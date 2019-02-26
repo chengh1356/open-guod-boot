@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hacz.edu.dao.TeacherEntityMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="cn.hacz.edu.entity.TeacherEntity">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="date_time" property="dateTime" jdbcType="TIMESTAMP"/>
+        <result column="date" property="date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        name,
+        age,
+        date_time,
+        date
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="teacherEntity.id">
+        INSERT INTO teacher_entity (
+            id,
+            name,
+            age,
+            date_time,
+            date
+        ) VALUES (
+            #{teacherEntity.id,jdbcType=INTEGER},
+            #{teacherEntity.name,jdbcType=VARCHAR},
+            #{teacherEntity.age,jdbcType=INTEGER},
+            #{teacherEntity.dateTime,jdbcType=TIMESTAMP},
+            #{teacherEntity.date,jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="teacherEntity.id">
+        INSERT INTO teacher_entity
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="teacherEntity.id!=null">id,</if>
+            <if test="teacherEntity.name!=null">name,</if>
+            <if test="teacherEntity.age!=null">age,</if>
+            <if test="teacherEntity.dateTime!=null">date_time,</if>
+            <if test="teacherEntity.date!=null">date,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="teacherEntity.id!=null">#{teacherEntity.id,jdbcType=INTEGER},
+            </if>
+            <if test="teacherEntity.name!=null">#{teacherEntity.name,jdbcType=VARCHAR},
+            </if>
+            <if test="teacherEntity.age!=null">#{teacherEntity.age,jdbcType=INTEGER},
+            </if>
+            <if test="teacherEntity.dateTime!=null">#{teacherEntity.dateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="teacherEntity.date!=null">#{teacherEntity.date,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO teacher_entity (
+        id,
+        name,
+        age,
+        date_time,
+        date
+        )VALUES
+        <foreach collection="teacherEntitys" item="teacherEntity" index="index" separator=",">
+            (
+            #{teacherEntity.id,jdbcType=INTEGER},
+            #{teacherEntity.name,jdbcType=VARCHAR},
+            #{teacherEntity.age,jdbcType=INTEGER},
+            #{teacherEntity.dateTime,jdbcType=TIMESTAMP},
+            #{teacherEntity.date,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE teacher_entity
+        <set>
+            <if test="teacherEntity.name != null">name= #{teacherEntity.name,jdbcType=VARCHAR},</if>
+            <if test="teacherEntity.age != null">age= #{teacherEntity.age,jdbcType=INTEGER},</if>
+            <if test="teacherEntity.dateTime != null">date_time= #{teacherEntity.dateTime,jdbcType=TIMESTAMP},</if>
+            <if test="teacherEntity.date != null">date= #{teacherEntity.date,jdbcType=TIMESTAMP}</if>
+        </set>
+        WHERE id = #{teacherEntity.id,jdbcType=INTEGER}
+    </update>
+</mapper>
+
