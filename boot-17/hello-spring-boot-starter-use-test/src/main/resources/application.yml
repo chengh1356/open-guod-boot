@@ -1,0 +1,5 @@
+server:
+  port: 9696
+car:
+  price: 100
+  weight: 1000

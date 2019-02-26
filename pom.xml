@@ -62,6 +62,7 @@
         <module>boot-16</module>
         <!-- 自定义starter -->
         <module>boot-17</module>
+        <module>project</module>
     </modules>
 
     <dependencies>

@@ -1,0 +1,2 @@
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.hacz.edu.HelloStarterEnableAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.hacz.edu.config.CarAutoConfiguration

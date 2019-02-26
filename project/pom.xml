@@ -6,19 +6,15 @@
 
     <parent>
         <groupId>cn.hacz.edu</groupId>
-        <artifactId>boot-17</artifactId>
+        <artifactId>open-guod-boot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>hello-spring-boot-starter</artifactId>
+    <artifactId>project</artifactId>
+    <packaging>pom</packaging>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>project-ssh</module>
+    </modules>
 
 </project>
