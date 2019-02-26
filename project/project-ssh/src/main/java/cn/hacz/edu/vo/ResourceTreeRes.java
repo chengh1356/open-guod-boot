@@ -27,5 +27,9 @@ public class ResourceTreeRes {
 
     private String icon;
 
+    /**
+     * 功能描述：id
+     */
+    private Integer id;
 
 }

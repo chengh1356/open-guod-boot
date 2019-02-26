@@ -116,6 +116,7 @@ public class UserServiceImpl implements UserServiceI {
                 if (!StringUtils.isEmpty(resourceEntity.getParentId())) {
                     treeRes.setPid(resourceEntity.getParentId().getId());
                 }
+                treeRes.setId(resourceEntity.getId());
                 treeRes.setIcon(resourceEntity.getIcon());
                 treeRes.setUrl(resourceEntity.getUrl());
                 treeRes.setResourceName(resourceEntity.getResourceName());

@@ -23,8 +23,8 @@ public class InitController {
      * 功能描述：初始化数据
      */
     @GetMapping(value = "/init")
-    public Object init() {
+    public String init() {
         initServiceI.init();
-        return null;
+        return "success";
     }
 }

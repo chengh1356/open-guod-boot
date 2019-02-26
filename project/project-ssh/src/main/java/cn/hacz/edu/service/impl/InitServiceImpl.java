@@ -75,6 +75,13 @@ public class InitServiceImpl implements InitServiceI {
         fun.setCreateTime(LocalDateTime.now());
         fun.setRemove(false);
         resourceTypeDaoI.save(fun);
+
+        ResourceTypeEntity but = new ResourceTypeEntity();
+        but.setResourceType(2);
+        but.setResourceTypeName("按钮");
+        but.setCreateTime(LocalDateTime.now());
+        but.setRemove(false);
+        resourceTypeDaoI.save(but);
     }
 
 
@@ -83,19 +90,35 @@ public class InitServiceImpl implements InitServiceI {
         ResourceTypeEntity menuType = resourceTypeDaoI.findByResourceType(0);
         // 功能类型
         ResourceTypeEntity funType = resourceTypeDaoI.findByResourceType(1);
+        // 按钮类型
+        ResourceTypeEntity butType = resourceTypeDaoI.findByResourceType(2);
         ResourceEntity xtgl = new ResourceEntity();
         xtgl.setResourceName("系统管理");
         xtgl.setResourceTypeEntities(menuType);
         xtgl.setSeq(0);
-        xtgl.setIcon("系统管理");
+        xtgl.setIcon("/xtgl");
+        xtgl.setCreateTime(LocalDateTime.now());
         resourceDaoI.save(xtgl);
+
+
+        ResourceEntity xtrz = new ResourceEntity();
+        xtrz.setResourceName("系统日志");
+        xtrz.setRemark("系统日志");
+        xtrz.setResourceTypeEntities(funType);
+        xtrz.setSeq(0);
+        xtrz.setIcon("/rzgl");
+        xtrz.setUrl("/logController/log");
+        xtrz.setParentId(xtgl);
+        xtrz.setCreateTime(LocalDateTime.now());
+        resourceDaoI.save(xtrz);
 
         ResourceEntity zygl = new ResourceEntity();
         zygl.setResourceName("资源管理");
         zygl.setResourceTypeEntities(menuType);
         zygl.setParentId(xtgl);
         zygl.setSeq(1);
-        zygl.setIcon("系统管理");
+        zygl.setIcon("/zygl");
+        zygl.setCreateTime(LocalDateTime.now());
         resourceDaoI.save(zygl);
     }
 
