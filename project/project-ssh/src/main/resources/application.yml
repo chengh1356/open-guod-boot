@@ -1,5 +1,20 @@
 spring:
   profiles:
     active: dev
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
 server:
   port: 9696
+  servlet:
+    context-path: /ssh
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.yuqiyu.chapter12.controller: 'off'
