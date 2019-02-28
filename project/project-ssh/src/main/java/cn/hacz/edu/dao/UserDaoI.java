@@ -1,5 +1,6 @@
 package cn.hacz.edu.dao;
 
+import cn.hacz.edu.entity.LoginDetail;
 import cn.hacz.edu.entity.RoleEntity;
 import cn.hacz.edu.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -28,5 +29,7 @@ public interface UserDaoI extends JpaRepository<UserEntity, Serializable> {
 
     @Query(value = " from UserEntity t ")
     List<RoleEntity> userRoleDataAll();
+
+    LoginDetail findByUserName(String userName);
 
 }

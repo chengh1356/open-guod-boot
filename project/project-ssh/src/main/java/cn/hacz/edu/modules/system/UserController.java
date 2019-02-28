@@ -1,8 +1,15 @@
 package cn.hacz.edu.modules.system;
 
+import cn.hacz.edu.dao.UserDaoI;
+import cn.hacz.edu.entity.LoginDetail;
 import cn.hacz.edu.service.UserServiceI;
+import cn.hacz.edu.util.TokenDetail;
 import cn.hacz.edu.vo.base.ApiResult;
+import cn.hacz.edu.vo.base.Data;
+import cn.hacz.edu.vo.user.UserLoginReq;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +26,39 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserServiceI userServiceI;
+
+    @Autowired
+    private UserDaoI userDaoI;
+
+    @Value("${token.header}")
+    private String tokenHeader;
+
+    /**
+     * 功能描述：
+     */
+    @RequestMapping(value = "login")
+    public ApiResult login(@RequestBody UserLoginReq userLoginReq) {
+        LoginDetail loginDetail = userDaoI.findByUserName(userLoginReq.getUserName());
+        ApiResult apiResult = checkAccount(userLoginReq, loginDetail);
+        if (apiResult != null) {
+            return apiResult;
+        }
+        return ApiResult.ok().data(new Data().addObj(tokenHeader, userServiceI.generateToken((TokenDetail) loginDetail)));
+    }
+
+    private ApiResult checkAccount(UserLoginReq userLoginReq, LoginDetail loginDetail) {
+        if (loginDetail == null) {
+            return ApiResult.error(434, "账号不存在！");
+        } else {
+            if (loginDetail.enable() == false) {
+                return ApiResult.error(452, "账号在黑名单中！");
+            }
+            if (!loginDetail.getUserPassword().equals(userLoginReq.getUserPassword())) {
+                return ApiResult.error(438, "密码错误！");
+            }
+        }
+        return null;
+    }
 
     /**
      * 功能描述：获取用户数据表格
@@ -37,10 +77,10 @@ public class UserController {
     }
 
     /**
-     *  功能描述：获取用户资源
+     * 功能描述：获取用户资源
      */
     @RequestMapping(value = "/userResourceData")
-    public ApiResult userResourceData(){
+    public ApiResult userResourceData() {
         return userServiceI.userResourceData();
     }
 }

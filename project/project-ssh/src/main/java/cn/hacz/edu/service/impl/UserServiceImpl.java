@@ -7,12 +7,14 @@ import cn.hacz.edu.entity.ResourceEntity;
 import cn.hacz.edu.entity.RoleEntity;
 import cn.hacz.edu.entity.UserEntity;
 import cn.hacz.edu.service.UserServiceI;
+import cn.hacz.edu.util.TokenDetail;
+import cn.hacz.edu.util.TokenUtils;
 import cn.hacz.edu.vo.base.ApiResult;
 import cn.hacz.edu.vo.resource.ResourceTreeRes;
 import cn.hacz.edu.vo.role.RoleTreeRes;
-import cn.hacz.edu.vo.user.UserDataRes;
 import cn.hacz.edu.vo.user.UserAddReq;
 import cn.hacz.edu.vo.user.UserAddRes;
+import cn.hacz.edu.vo.user.UserDataRes;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,8 @@ public class UserServiceImpl implements UserServiceI {
     private RoleDaoI roleDaoI;
     @Autowired
     private ResourceDaoI resourceDaoI;
+    @Autowired
+    private TokenUtils tokenUtils;
 
     @Override
     public ApiResult addUser(UserAddReq userAddReq) {
@@ -127,5 +131,10 @@ public class UserServiceImpl implements UserServiceI {
             }
         }
         return ApiResult.ok(resourceTreeRes);
+    }
+
+    @Override
+    public String generateToken(TokenDetail tokenDetail) {
+        return tokenUtils.generateToken(tokenDetail);
     }
 }

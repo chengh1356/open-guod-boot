@@ -70,4 +70,15 @@ public class ApiResult extends HashMap<String, Object> {
         super.put(key, value);
         return this;
     }
+
+    public ApiResult data(Object obj) {
+        this.put("data", obj);
+        return this;
+    }
+
+    public ApiResult token(String token) {
+        this.put("X-Auth-Token", token);
+        return this;
+    }
+
 }

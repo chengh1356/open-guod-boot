@@ -1,5 +1,6 @@
 package cn.hacz.edu.service;
 
+import cn.hacz.edu.util.TokenDetail;
 import cn.hacz.edu.vo.base.ApiResult;
 import cn.hacz.edu.vo.user.UserAddReq;
 
@@ -20,4 +21,6 @@ public interface UserServiceI {
     ApiResult userRoleData();
 
     ApiResult userResourceData();
+
+    String generateToken(TokenDetail tokenDetail);
 }
