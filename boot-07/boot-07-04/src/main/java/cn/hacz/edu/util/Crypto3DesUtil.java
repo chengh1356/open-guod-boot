@@ -4,6 +4,8 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
@@ -75,15 +77,15 @@ public class Crypto3DesUtil {
 
 
     public static void main(String[] args) throws Exception {
-//        //生成指定算法的秘密密钥的生成器
-//        KeyGenerator kg = KeyGenerator.getInstance(KEY_ALGORITHM);
-//        //初始化此密钥生成器，使其具有确定的密钥大小
-//        kg.init(168);
-//        //生成一个密钥
-//        SecretKey secretKey = kg.generateKey();
-//        //将秘钥转为Base64编码字符串
-//        String keyStr= new BASE64Encoder().encode(secretKey.getEncoded());
-//        System.out.println(keyStr);
+        //生成指定算法的秘密密钥的生成器
+        KeyGenerator kg = KeyGenerator.getInstance(KEY_ALGORITHM);
+        //初始化此密钥生成器，使其具有确定的密钥大小
+        kg.init(168);
+        //生成一个密钥
+        SecretKey secretKey = kg.generateKey();
+        //将秘钥转为Base64编码字符串
+        String keyStr = new BASE64Encoder().encode(secretKey.getEncoded());
+        System.out.println(keyStr);
 
 
         // 加密

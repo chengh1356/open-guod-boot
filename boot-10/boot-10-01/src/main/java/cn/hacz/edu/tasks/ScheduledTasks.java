@@ -1,6 +1,6 @@
 package cn.hacz.edu.tasks;
 
-import cn.hacz.edu.controller.TasksController;
+import cn.hacz.edu.modules.system.TasksController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

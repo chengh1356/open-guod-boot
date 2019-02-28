@@ -11,7 +11,7 @@ import javax.persistence.*;
 /**
  * project - 一对一映射（单向外键、双向外键、单向主键、双向主键、联合主键、联合组件映射）
  *
- * @author yanfa07
+ * @author guodd
  * @version 1.0
  * @date 日期:2018/11/21 时间:20:48
  * @JDK 1.8

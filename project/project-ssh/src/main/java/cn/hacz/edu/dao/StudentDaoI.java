@@ -1,7 +1,7 @@
 package cn.hacz.edu.dao;
 
 import cn.hacz.edu.entity.StudentEntity;
-import cn.hacz.edu.vo.StudentReq;
+import cn.hacz.edu.vo.student.StudentAddReq;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * project -
  *
- * @author yanfa07
+ * @author guodd
  * @version 1.0
  * @date 日期:2019/2/27 时间:16:16
  * @JDK 1.8
@@ -32,8 +32,8 @@ public interface StudentDaoI extends JpaRepository<StudentEntity, Serializable> 
     @Query(value = " from StudentEntity s where s.age=?1 ")
     List<StudentEntity> findParamsAge(Integer name);
 
-    @Query(value = " from StudentEntity s where s.name=:#{#studentReq.name} and s.age=:#{#studentReq.age} ")
-    List<StudentEntity> findParamsVo(@Param("studentReq") StudentReq studentReq);
+    @Query(value = " from StudentEntity s where s.name=:#{#studentAddReq.name} and s.age=:#{#studentAddReq.age} ")
+    List<StudentEntity> findParamsVo(@Param("studentAddReq") StudentAddReq studentAddReq);
 
     @Query("select e from StudentEntity e ORDER BY e.dateTime ASC")
     Page<StudentEntity> findInOrders(Pageable pageable);

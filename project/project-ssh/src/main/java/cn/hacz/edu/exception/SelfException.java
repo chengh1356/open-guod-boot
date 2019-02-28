@@ -1,7 +1,7 @@
 package cn.hacz.edu.exception;
 
 
-import cn.hacz.edu.vo.ResultEnum;
+import cn.hacz.edu.vo.base.ApiResultEnum;
 
 /**
  * project - Gitee开源系统
@@ -13,18 +13,18 @@ import cn.hacz.edu.vo.ResultEnum;
  * @Description 功能模块：指定自己的错误码
  */
 public class SelfException extends RuntimeException {
-    private String code;
+    private Integer code;
 
-    public SelfException(ResultEnum resultEnum) {
-        super(resultEnum.getMsg());
-        this.code = resultEnum.getCode();
+    public SelfException(ApiResultEnum apiResultEnum) {
+        super(apiResultEnum.getMessage());
+        this.code = apiResultEnum.getCode();
     }
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 }

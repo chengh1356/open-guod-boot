@@ -7,9 +7,12 @@ import cn.hacz.edu.entity.ResourceEntity;
 import cn.hacz.edu.entity.RoleEntity;
 import cn.hacz.edu.entity.UserEntity;
 import cn.hacz.edu.service.UserServiceI;
-import cn.hacz.edu.util.OperationResUtils;
-import cn.hacz.edu.util.ResultUtils;
-import cn.hacz.edu.vo.*;
+import cn.hacz.edu.vo.base.ApiResult;
+import cn.hacz.edu.vo.resource.ResourceTreeRes;
+import cn.hacz.edu.vo.role.RoleTreeRes;
+import cn.hacz.edu.vo.user.UserDataRes;
+import cn.hacz.edu.vo.user.UserAddReq;
+import cn.hacz.edu.vo.user.UserAddRes;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,17 +41,17 @@ public class UserServiceImpl implements UserServiceI {
     private ResourceDaoI resourceDaoI;
 
     @Override
-    public BaseOperationRes addUser(UserReq userReq) {
+    public ApiResult addUser(UserAddReq userAddReq) {
         UserEntity userEntity = new UserEntity();
-        BeanUtils.copyProperties(userReq, userEntity);
+        BeanUtils.copyProperties(userAddReq, userEntity);
         UserEntity save = userDaoI.save(userEntity);
-        UserRes userRes = new UserRes();
-        BeanUtils.copyProperties(save, userRes);
-        return OperationResUtils.success(userRes);
+        UserAddRes userAddRes = new UserAddRes();
+        BeanUtils.copyProperties(save, userAddRes);
+        return ApiResult.ok(userAddRes);
     }
 
     @Override
-    public JsonList userData() {
+    public ApiResult userData() {
         List<UserDataRes> userDataResList = new ArrayList<>();
         List<UserEntity> userEntities = userDaoI.userDataList();
         if (!StringUtils.isEmpty(userEntities)) {
@@ -77,11 +80,11 @@ public class UserServiceImpl implements UserServiceI {
                 userDataResList.add(userDataRes);
             }
         }
-        return ResultUtils.successJsonList(userDataResList);
+        return ApiResult.ok(userDataResList);
     }
 
     @Override
-    public JsonList userRoleData() {
+    public ApiResult userRoleData() {
         List<RoleTreeRes> roleTreeRes = new ArrayList<>();
         List<RoleEntity> roleEntities;
         if (false) {
@@ -101,11 +104,11 @@ public class UserServiceImpl implements UserServiceI {
                 roleTreeRes.add(treeRes);
             }
         }
-        return ResultUtils.successJsonList(roleTreeRes);
+        return ApiResult.ok(roleTreeRes);
     }
 
     @Override
-    public JsonList userResourceData() {
+    public ApiResult userResourceData() {
         List<ResourceTreeRes> resourceTreeRes = new ArrayList<>();
         List<ResourceEntity> resourceEntities;
         resourceEntities = resourceDaoI.resourceTypeData();
@@ -123,6 +126,6 @@ public class UserServiceImpl implements UserServiceI {
                 resourceTreeRes.add(treeRes);
             }
         }
-        return ResultUtils.successJsonList(resourceTreeRes);
+        return ApiResult.ok(resourceTreeRes);
     }
 }

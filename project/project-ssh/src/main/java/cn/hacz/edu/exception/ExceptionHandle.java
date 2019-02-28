@@ -1,7 +1,6 @@
 package cn.hacz.edu.exception;
 
-import cn.hacz.edu.vo.Json;
-import cn.hacz.edu.util.ResultUtils;
+import cn.hacz.edu.vo.base.ApiResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -36,13 +35,13 @@ public class ExceptionHandle {
      * @return
      */
     @ExceptionHandler(value = Exception.class)
-    public Json handle(Exception e) {
+    public ApiResult handle(Exception e) {
         if (e instanceof SelfException) {
             SelfException selfException = (SelfException) e;
-            return ResultUtils.errorJson(selfException.getCode(), selfException.getMessage());
+            return ApiResult.error(selfException.getCode(), selfException.getMessage());
         } else {
             logger.error("系统异常[{}]", (Object) e.getStackTrace());
-            return ResultUtils.errorJson("500", "系统异常");
+            return ApiResult.error(500, "系统异常");
         }
     }
 
@@ -54,17 +53,17 @@ public class ExceptionHandle {
      * @return
      */
     @ExceptionHandler(value = BindException.class)
-    public Json valid(BindException e, HttpServletRequest request) {
+    public ApiResult valid(BindException e, HttpServletRequest request) {
         printlnException(request, e);
-        Json j = new Json();
-        j.setSuccess(false);
-        j.setCode("-406");
-        j.setData("http状态码406，不接受From数据校验异常。");
+        ApiResult j = new ApiResult();
+        j.put("success", false);
+        j.put("code", -406);
+        j.put("message", "http状态码406，不接受From数据校验异常。");
         if (!e.getBindingResult().hasErrors()) {
-            j.setMessage("没有找到对应校验异常!");
+            j.put("message", "没有找到对应校验异常!");
             return j;
         }
-        j.setMessage(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+        j.put("message", e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
         return j;
     }
 
@@ -77,29 +76,29 @@ public class ExceptionHandle {
      * @return
      */
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public Json valid(MethodArgumentNotValidException e, HttpServletRequest request) {
+    public ApiResult valid(MethodArgumentNotValidException e, HttpServletRequest request) {
         printlnException(request, e);
-        Json j = new Json();
-        j.setSuccess(false);
-        j.setCode("-406");
-        j.setData("http状态码406，不接受Json数据校验异常。");
+        ApiResult j = new ApiResult();
+        j.put("success", false);
+        j.put("code", -406);
+        j.put("data", "http状态码406，不接受Json数据校验异常。");
         if (!e.getBindingResult().hasErrors()) {
-            j.setMessage("没有找到校验异常!");
+            j.put("message", "没有找到校验异常!");
             return j;
         }
-        j.setMessage(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+        j.put("message", e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
         return j;
     }
 
 
     @ExceptionHandler(value = DataIntegrityViolationException.class)
-    public Json valid(DataIntegrityViolationException e, HttpServletRequest request) {
+    public ApiResult valid(DataIntegrityViolationException e, HttpServletRequest request) {
         printlnException(request, e);
-        Json j = new Json();
-        j.setSuccess(false);
-        j.setCode("-407");
-        j.setData("http状态码407，数据库中该字段是唯一索引，不能重复。");
-        j.setMessage(e.getLocalizedMessage());
+        ApiResult j = new ApiResult();
+        j.put("success", false);
+        j.put("code", -407);
+        j.put("data", "http状态码407，数据库中该字段是唯一索引，不能重复。");
+        j.put("message", e.getLocalizedMessage());
         return j;
     }
 
@@ -111,12 +110,14 @@ public class ExceptionHandle {
      * @throws IOException
      */
     private void printlnException(HttpServletRequest request, Throwable e) {
+        // 相关记录
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
+        // 日志打印
         logger.error("******************************");
-        logger.error("出错详细日志,url:[{}],method:[{}],uri:[{}],params:[{}]", url, method, uri, queryString);
+        logger.error("出错详细日志：url:[{}],method:[{}],uri:[{}],params:[{}]", url, method, uri, queryString);
         logger.error("出错异常:", e);
         logger.error("******************************");
     }
