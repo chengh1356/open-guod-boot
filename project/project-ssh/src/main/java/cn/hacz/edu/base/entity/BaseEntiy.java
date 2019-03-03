@@ -1,4 +1,4 @@
-package cn.hacz.edu.entity;
+package cn.hacz.edu.base.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
