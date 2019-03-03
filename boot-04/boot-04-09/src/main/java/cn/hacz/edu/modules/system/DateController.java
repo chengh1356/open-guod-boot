@@ -1,9 +1,9 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.dao.DateDaoI;
-import cn.hacz.edu.entity.DateEntity;
-import cn.hacz.edu.service.DateServiceI;
-import cn.hacz.edu.vo.DateVo;
+import cn.hacz.edu.modules.system.dao.DateDaoI;
+import cn.hacz.edu.modules.system.entity.DateEntity;
+import cn.hacz.edu.modules.system.service.DateServiceI;
+import cn.hacz.edu.modules.system.vo.DateVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;

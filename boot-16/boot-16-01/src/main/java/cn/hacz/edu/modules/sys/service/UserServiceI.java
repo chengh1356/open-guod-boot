@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.sys.service;
 
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 import cn.hacz.edu.modules.sys.vo.UserVo;
 
 import javax.validation.Valid; /**

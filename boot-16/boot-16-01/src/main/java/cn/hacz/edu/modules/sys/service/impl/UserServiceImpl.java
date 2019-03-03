@@ -6,7 +6,7 @@ import cn.hacz.edu.enums.ResultEnum;
 import cn.hacz.edu.exception.SelfException;
 import cn.hacz.edu.modules.sys.service.UserServiceI;
 import cn.hacz.edu.util.ResultUtils;
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 import cn.hacz.edu.modules.sys.vo.UserVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

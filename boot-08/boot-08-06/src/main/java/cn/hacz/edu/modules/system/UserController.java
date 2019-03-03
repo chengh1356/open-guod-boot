@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.entity.UserEntity;
+import cn.hacz.edu.modules.system.entity.UserEntity;
 import cn.hacz.edu.server.UserServerI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;

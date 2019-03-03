@@ -1,6 +1,6 @@
 package cn.hacz.edu.exception;
 
-import cn.hacz.edu.vo.base.ApiResult;
+import cn.hacz.edu.base.vo.ApiResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;

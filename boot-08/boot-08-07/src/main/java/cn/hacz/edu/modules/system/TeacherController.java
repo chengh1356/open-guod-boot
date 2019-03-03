@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.entity.TeacherEntity;
-import cn.hacz.edu.service.TeacherEntityService;
+import cn.hacz.edu.modules.system.entity.TeacherEntity;
+import cn.hacz.edu.modules.system.service.TeacherEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,6 +1,6 @@
 package cn.hacz.edu;
 
-import cn.hacz.edu.service.CarService;
+import cn.hacz.edu.modules.system.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

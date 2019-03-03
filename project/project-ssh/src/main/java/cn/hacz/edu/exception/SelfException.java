@@ -1,7 +1,7 @@
 package cn.hacz.edu.exception;
 
 
-import cn.hacz.edu.vo.base.ApiResultEnum;
+import cn.hacz.edu.base.vo.ApiResultEnum;
 
 /**
  * project - Gitee开源系统

@@ -1,6 +1,6 @@
 package cn.hacz.edu.jackson;
 
-import cn.hacz.edu.entity.UserEntity;
+import cn.hacz.edu.modules.system.entity.UserEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 

@@ -1,8 +1,8 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.dao.TeacherDaoI;
-import cn.hacz.edu.entity.TeacherEntity;
-import cn.hacz.edu.vo.TeacherVo;
+import cn.hacz.edu.modules.system.dao.TeacherDaoI;
+import cn.hacz.edu.modules.system.entity.TeacherEntity;
+import cn.hacz.edu.modules.system.vo.TeacherVo;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,5 @@
 package cn.hacz.edu;
 
-import cn.hacz.edu.dao.HotelDaoI;
 import cn.hacz.edu.mapping.many2one.GroupEntity;
 import cn.hacz.edu.server.GroupServerI;
 import cn.hacz.edu.server.UserServerI;

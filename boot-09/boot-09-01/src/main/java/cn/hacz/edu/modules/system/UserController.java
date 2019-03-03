@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.entity.UserEntity;
-import cn.hacz.edu.service.UserServiceI;
+import cn.hacz.edu.modules.system.entity.UserEntity;
+import cn.hacz.edu.modules.system.service.UserServiceI;
 import cn.hacz.edu.util.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

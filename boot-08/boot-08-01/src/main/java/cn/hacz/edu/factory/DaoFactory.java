@@ -1,7 +1,7 @@
 package cn.hacz.edu.factory;
 
-import cn.hacz.edu.dao.UserDaoI;
-import cn.hacz.edu.dao.impl.UserDaoImpl;
+import cn.hacz.edu.modules.system.dao.UserDaoI;
+import cn.hacz.edu.modules.system.dao.impl.UserDaoImpl;
 
 import java.sql.Connection;
 

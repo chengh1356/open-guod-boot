@@ -1,6 +1,6 @@
 package cn.hacz.edu;
 
-import cn.hacz.edu.dao.HotelDaoI;
+import cn.hacz.edu.modules.system.dao.HotelDaoI;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

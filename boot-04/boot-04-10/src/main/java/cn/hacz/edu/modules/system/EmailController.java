@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.service.MailUtilService;
+import cn.hacz.edu.modules.system.service.MailUtilService;
 import cn.hacz.edu.util.EmailUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

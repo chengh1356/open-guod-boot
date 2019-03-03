@@ -1,7 +1,7 @@
 package cn.hacz.edu.exception;
 
-import cn.hacz.edu.vo.Json;
-import cn.hacz.edu.vo.ResultUtils;
+import cn.hacz.edu.modules.system.vo.Json;
+import cn.hacz.edu.modules.system.vo.ResultUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;

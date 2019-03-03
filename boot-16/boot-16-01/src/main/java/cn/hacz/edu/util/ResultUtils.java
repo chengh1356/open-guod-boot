@@ -1,7 +1,7 @@
 package cn.hacz.edu.util;
 
-import cn.hacz.edu.vo.Json;
-import cn.hacz.edu.vo.JsonList;
+import cn.hacz.edu.modules.system.vo.Json;
+import cn.hacz.edu.modules.system.vo.JsonList;
 
 /**
  * project - Gitee开源系统

@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.service.UserServiceI;
+import cn.hacz.edu.modules.system.service.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,6 +1,6 @@
 package cn.hacz.edu.server.impl;
 
-import cn.hacz.edu.dao.UserDaoI;
+import cn.hacz.edu.modules.system.dao.UserDaoI;
 import cn.hacz.edu.mapping.many2one.GroupEntity;
 import cn.hacz.edu.mapping.many2one.UserEntity;
 import cn.hacz.edu.server.UserServerI;

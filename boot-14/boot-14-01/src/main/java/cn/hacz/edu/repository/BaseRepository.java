@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import cn.hacz.edu.base.PageHelper;
-import cn.hacz.edu.entity.BaseEntity;
+import cn.hacz.edu.modules.system.entity.BaseEntity;
 import org.hibernate.Session;
 
 

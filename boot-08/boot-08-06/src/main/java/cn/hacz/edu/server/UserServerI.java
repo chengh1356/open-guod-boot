@@ -1,6 +1,6 @@
 package cn.hacz.edu.server;
 
-import cn.hacz.edu.entity.UserEntity;
+import cn.hacz.edu.modules.system.entity.UserEntity;
 
 import java.util.List;
 

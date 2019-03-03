@@ -1,6 +1,6 @@
 package cn.hacz.edu.util;
 
-import cn.hacz.edu.vo.Student;
+import cn.hacz.edu.modules.system.vo.Student;
 import org.apache.poi.hssf.usermodel.*;
 
 import java.io.FileInputStream;

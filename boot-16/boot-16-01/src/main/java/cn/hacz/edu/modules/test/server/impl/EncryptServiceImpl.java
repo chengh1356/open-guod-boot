@@ -3,7 +3,7 @@ package cn.hacz.edu.modules.test.server.impl;
 import cn.hacz.edu.modules.test.server.EncryptServiceI;
 import cn.hacz.edu.modules.test.vo.EncryptRequest;
 import cn.hacz.edu.util.ResultUtils;
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 import org.springframework.stereotype.Service;
 
 /**

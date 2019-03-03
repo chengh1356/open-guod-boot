@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.entity.StudentEntity;
-import cn.hacz.edu.service.StudentService;
+import cn.hacz.edu.modules.system.entity.StudentEntity;
+import cn.hacz.edu.modules.system.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

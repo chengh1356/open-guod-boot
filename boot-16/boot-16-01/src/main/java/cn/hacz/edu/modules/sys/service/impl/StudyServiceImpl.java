@@ -7,7 +7,7 @@ import cn.hacz.edu.modules.sys.repository.base.BaseRepository;
 import cn.hacz.edu.modules.sys.service.StudyServiceI;
 import cn.hacz.edu.modules.sys.vo.StudyVo;
 import cn.hacz.edu.util.ResultUtils;
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

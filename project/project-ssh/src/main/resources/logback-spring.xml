@@ -60,7 +60,7 @@
     <!--测试环境:打印控制台-->
     <springProfile name="test">
         <!-- 打印sql -->
-        <logger name="cn.hacz.edu.dao" level="DEBUG"/>
+        <logger name="cn.hacz.edu.modules.system.dao" level="DEBUG"/>
         <root level="info">
             <appender-ref ref="CONSOLE"/>
         </root>

@@ -3,7 +3,7 @@ package cn.hacz.edu.modules.sys.controller;
 import cn.hacz.edu.modules.sys.dto.StudentDto;
 import cn.hacz.edu.modules.sys.vo.StudentVo;
 import cn.hacz.edu.util.ResultUtils;
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.entity.Article;
+import cn.hacz.edu.modules.system.entity.Article;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

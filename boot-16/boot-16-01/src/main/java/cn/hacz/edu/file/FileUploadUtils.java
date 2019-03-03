@@ -1,8 +1,8 @@
 package cn.hacz.edu.file;
 
 import cn.hacz.edu.util.ResultUtils;
-import cn.hacz.edu.vo.Json;
-import cn.hacz.edu.vo.JsonList;
+import cn.hacz.edu.modules.system.vo.Json;
+import cn.hacz.edu.modules.system.vo.JsonList;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

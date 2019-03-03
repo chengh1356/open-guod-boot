@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description 功能模块：
  */
 @SpringBootApplication
-@MapperScan(value = "cn.hacz.edu.dao")
+@MapperScan(value = "cn.hacz.edu.modules.system.dao")
 public class Boot0809Application {
     public static void main(String[] args) {
         SpringApplication.run(Boot0809Application.class, args);

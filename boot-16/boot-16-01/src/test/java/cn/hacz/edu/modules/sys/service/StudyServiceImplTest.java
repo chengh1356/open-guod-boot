@@ -3,7 +3,7 @@ package cn.hacz.edu.modules.sys.service;
 import cn.hacz.edu.modules.sys.dao.StudyDaoI;
 import cn.hacz.edu.modules.sys.dto.StudyDto;
 import cn.hacz.edu.modules.sys.entity.StudyEntity;
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

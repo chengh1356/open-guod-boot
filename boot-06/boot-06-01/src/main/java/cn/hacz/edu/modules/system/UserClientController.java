@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.entity.UserEntity;
-import cn.hacz.edu.vo.UserVo;
+import cn.hacz.edu.modules.system.entity.UserEntity;
+import cn.hacz.edu.modules.system.vo.UserVo;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;

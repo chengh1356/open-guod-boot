@@ -1,8 +1,8 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.dao.UserDaoI;
-import cn.hacz.edu.entity.UserEntity;
-import cn.hacz.edu.service.UserServiceI;
+import cn.hacz.edu.modules.system.dao.UserDaoI;
+import cn.hacz.edu.modules.system.entity.UserEntity;
+import cn.hacz.edu.modules.system.service.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

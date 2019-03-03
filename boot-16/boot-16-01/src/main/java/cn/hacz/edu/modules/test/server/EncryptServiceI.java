@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.test.server;
 
 import cn.hacz.edu.modules.test.vo.EncryptRequest;
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 
 /**
  * project -

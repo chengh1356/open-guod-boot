@@ -1,6 +1,6 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.vo.PersonVo;
+import cn.hacz.edu.modules.system.vo.PersonVo;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

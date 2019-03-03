@@ -1,6 +1,7 @@
 package cn.hacz.edu.aspect;
 
-import cn.hacz.edu.vo.base.ApiResult;
+import cn.hacz.edu.base.vo.ApiResult;
+import cn.hutool.core.util.IdUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -61,10 +63,10 @@ public class HttpAspect {
         String getParams = request.getQueryString();
         // 获取post的请求参数
         String postParams = mapper.writeValueAsString(pjp.getArgs());
-        // 获取IP地址
-        String remoteAddr = request.getRemoteAddr();
         logger.info("============================================");
-        logger.info("请求开始===>url:[{}],各个参数:[{}],客户端IP地址:[{}],logId:[{}]", url, postParams);
+        logger.info("请求开始===>url:[{}],各个参数:[{}]", url, postParams);
+        StopWatch watch = new StopWatch(IdUtil.randomUUID());
+        watch.start();
         Object result;
         ApiResult j;
         try {
@@ -72,12 +74,13 @@ public class HttpAspect {
             j = (ApiResult) result;
         } catch (Throwable e) {
             logger.error("******************************");
-            logger.error("出错详细日志logid:[{}],url:[{}],method:[{}],uri:[{}],params:[{}]", url, method, uri, getParams);
+            logger.error("出错详细日志url:[{}],method:[{}],uri:[{}],params:[{}]", url, method, uri, getParams);
             // 此处应该直接落地
             logger.error("******************************");
             throw e;
         }
-        logger.info("请求结束===>logId:[{}],执行时间:[{}],Controller返回值:[{}]", mapper.writeValueAsString(j));
+        watch.stop();
+        logger.info("请求结束===>执行时间:[{}],Controller返回值:[{}]", watch,mapper.writeValueAsString(j));
         logger.info("============================================");
         return j;
     }

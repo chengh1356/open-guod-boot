@@ -2,7 +2,7 @@ package cn.hacz.edu.modules.sys.service;
 
 import cn.hacz.edu.modules.sys.dto.StudyDto;
 import cn.hacz.edu.modules.sys.vo.StudyVo;
-import cn.hacz.edu.vo.Json;
+import cn.hacz.edu.modules.system.vo.Json;
 
 /**
  * project -

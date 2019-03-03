@@ -12,7 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import cn.hacz.edu.base.PageHelper;
-import cn.hacz.edu.entity.BaseEntity;
+import cn.hacz.edu.modules.system.entity.BaseEntity;
 import cn.hacz.edu.repository.BaseRepository;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;

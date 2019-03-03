@@ -1,6 +1,6 @@
 package cn.hacz.edu.repository;
 
-import cn.hacz.edu.entity.UserEntity;
+import cn.hacz.edu.modules.system.entity.UserEntity;
 import cn.hacz.edu.repository.base.BaseRepository;
 import org.springframework.stereotype.Repository;
 

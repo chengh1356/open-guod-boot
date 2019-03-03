@@ -1,7 +1,7 @@
 package cn.hacz.edu.config;
 
 import cn.hacz.edu.properties.CarProperties;
-import cn.hacz.edu.service.CarService;
+import cn.hacz.edu.modules.system.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

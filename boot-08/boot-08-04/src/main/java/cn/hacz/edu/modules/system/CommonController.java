@@ -1,14 +1,14 @@
 package cn.hacz.edu.modules.system;
 
-import cn.hacz.edu.dao.HotelDaoI;
-import cn.hacz.edu.dao.UserDaoI;
+import cn.hacz.edu.modules.system.dao.HotelDaoI;
+import cn.hacz.edu.modules.system.dao.UserDaoI;
 import cn.hacz.edu.hql.CommonHql;
 import cn.hacz.edu.mapping.common.CommonReqVo;
 import cn.hacz.edu.mapping.common.CommonResVo;
 import cn.hacz.edu.mapping.many2one.UserEntity;
-import cn.hacz.edu.vo.Json;
-import cn.hacz.edu.vo.JsonList;
-import cn.hacz.edu.vo.ResultUtils;
+import cn.hacz.edu.modules.system.vo.Json;
+import cn.hacz.edu.modules.system.vo.JsonList;
+import cn.hacz.edu.modules.system.vo.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
