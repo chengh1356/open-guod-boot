@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BaseOperationReq {
     /**
-     *  功能描述：id
+     * 功能描述：id
      */
     private Integer id;
 }

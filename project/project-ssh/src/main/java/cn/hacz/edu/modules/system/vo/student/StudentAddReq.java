@@ -1,5 +1,6 @@
 package cn.hacz.edu.modules.system.vo.student;
 
+import cn.hacz.edu.base.vo.BaseOperationReq;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentAddReq {
+public class StudentAddReq extends BaseOperationReq {
     /**
      * 返回基本信息
      */

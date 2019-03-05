@@ -1,5 +1,6 @@
 package cn.hacz.edu.modules.system.vo.student;
 
+import cn.hacz.edu.base.vo.BaseOperationRes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class StudentAddRes {
+public class StudentAddRes extends BaseOperationRes {
     /**
      * 返回基本信息
      */
