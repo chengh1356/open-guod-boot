@@ -1,8 +1,9 @@
 package cn.hacz.edu.modules.system.controller;
 
+import cn.hacz.edu.base.vo.ApiResult;
+import cn.hacz.edu.base.vo.PageReq;
 import cn.hacz.edu.modules.system.dao.StudentDaoI;
 import cn.hacz.edu.modules.system.entity.StudentEntity;
-import cn.hacz.edu.base.vo.ApiResult;
 import cn.hacz.edu.modules.system.vo.student.StudentAddReq;
 import cn.hacz.edu.modules.system.vo.student.StudentAddRes;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -89,9 +90,15 @@ public class StudentController {
      */
     @PostMapping(value = "/getPage")
     @ApiOperation(value = "分页列表查询", notes = "分页列表查询01")
-    public ApiResult getPage(@RequestBody StudentAddReq studentAddReq) {
+    public ApiResult getPage(@RequestBody StudentAddReq studentAddReq, PageReq pageReq) {
         Page<StudentEntity> inOrders = studentDaoI.findInOrders(PageRequest.of(0, 10));
-        return ApiResult.ok(inOrders.getContent(), inOrders.getNumberOfElements());
+        List<StudentAddRes> content = new ArrayList<>();
+        for (StudentEntity inOrder : inOrders) {
+            StudentAddRes studentAddRes = new StudentAddRes();
+            BeanUtils.copyProperties(inOrder, studentAddRes);
+            content.add(studentAddRes);
+        }
+        return ApiResult.okPage(inOrders, content);
     }
 
 
