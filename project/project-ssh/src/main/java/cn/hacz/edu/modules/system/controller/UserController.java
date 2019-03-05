@@ -1,11 +1,12 @@
 package cn.hacz.edu.modules.system.controller;
 
-import cn.hacz.edu.modules.system.dao.UserDaoI;
-import cn.hacz.edu.modules.system.entity.LoginDetail;
-import cn.hacz.edu.util.TokenDetail;
 import cn.hacz.edu.base.vo.ApiResult;
 import cn.hacz.edu.base.vo.Data;
+import cn.hacz.edu.modules.system.dao.UserDaoI;
+import cn.hacz.edu.modules.system.entity.LoginDetail;
+import cn.hacz.edu.modules.system.service.UserServiceI;
 import cn.hacz.edu.modules.system.vo.user.UserLoginReq;
+import cn.hacz.edu.util.TokenDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
