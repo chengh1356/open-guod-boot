@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author guod
  * @version 3.0

@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 3.0

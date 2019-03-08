@@ -4,7 +4,7 @@ import jodd.util.RandomStringUtil;
 import org.apache.commons.lang.RandomStringUtils;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

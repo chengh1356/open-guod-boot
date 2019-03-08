@@ -1,7 +1,7 @@
 package cn.hacz.edu.mapping.hql2jpql;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

@@ -135,3 +135,11 @@ Icon
 ## hack for graddle wrapper
 !wrapper/*.jar
 !**/wrapper/*.jar
+boot-01/boot-01-02/src/main/java/cn/hacz/edu/config/
+boot-04/boot-04-08/src/
+boot-08/boot-08-10/src/
+boot-10/boot-10-02/src/test/
+boot-11/boot-11-02/src/
+boot-11/boot-11-03/src/
+boot-17/hello-spring-boot-starter-use-test/src/test/
+common-01/common-01-01/src/

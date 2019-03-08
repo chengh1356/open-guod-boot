@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system.service;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

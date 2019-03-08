@@ -3,7 +3,7 @@ package cn.hacz.edu.Jodd.string;
 import jodd.util.StringUtil;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

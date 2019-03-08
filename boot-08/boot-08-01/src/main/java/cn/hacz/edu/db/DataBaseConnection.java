@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

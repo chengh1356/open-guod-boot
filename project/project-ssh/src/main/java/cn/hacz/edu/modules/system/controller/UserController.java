@@ -3,18 +3,18 @@ package cn.hacz.edu.modules.system.controller;
 import cn.hacz.edu.base.vo.ApiResult;
 import cn.hacz.edu.base.vo.Data;
 import cn.hacz.edu.modules.system.dao.UserDaoI;
-import cn.hacz.edu.modules.system.entity.LoginDetail;
 import cn.hacz.edu.modules.system.service.UserServiceI;
+import cn.hacz.edu.modules.system.util.TokenUtils;
 import cn.hacz.edu.modules.system.vo.user.UserLoginReq;
-import cn.hacz.edu.util.TokenDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0
@@ -33,32 +33,18 @@ public class UserController {
     @Value("${token.header}")
     private String tokenHeader;
 
+    @Autowired
+    private TokenUtils tokenUtils;
+
     /**
      * 功能描述：
      */
-    @RequestMapping(value = "login")
-    public ApiResult login(@RequestBody UserLoginReq userLoginReq) {
-        LoginDetail loginDetail = userDaoI.findByUserName(userLoginReq.getUserName());
-        ApiResult apiResult = checkAccount(userLoginReq, loginDetail);
-        if (apiResult != null) {
-            return apiResult;
-        }
-        return ApiResult.ok().data(new Data().addObj(tokenHeader, userServiceI.generateToken((TokenDetail) loginDetail)));
+    @PostMapping(value = "/getToken")
+    public ApiResult getToken(@RequestBody UserLoginReq userLoginReq) {
+        String s = tokenUtils.addAuthentication("aa", "bb");
+        return ApiResult.ok().data(new Data().addObj(tokenHeader, s));
     }
 
-    private ApiResult checkAccount(UserLoginReq userLoginReq, LoginDetail loginDetail) {
-        if (loginDetail == null) {
-            return ApiResult.error(434, "账号不存在！");
-        } else {
-            if (loginDetail.enable() == false) {
-                return ApiResult.error(452, "账号在黑名单中！");
-            }
-            if (!loginDetail.getUserPassword().equals(userLoginReq.getUserPassword())) {
-                return ApiResult.error(438, "密码错误！");
-            }
-        }
-        return null;
-    }
 
     /**
      * 功能描述：获取用户数据表格

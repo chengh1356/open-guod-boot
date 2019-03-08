@@ -3,7 +3,7 @@ package cn.hacz.edu.server;
 import cn.hacz.edu.mapping.many2one.GroupEntity;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

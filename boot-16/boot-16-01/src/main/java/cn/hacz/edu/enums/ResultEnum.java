@@ -1,7 +1,7 @@
 package cn.hacz.edu.enums;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 3.0

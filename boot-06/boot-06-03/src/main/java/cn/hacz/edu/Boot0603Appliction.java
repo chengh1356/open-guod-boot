@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import java.util.Scanner;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 3.0

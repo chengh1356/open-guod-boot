@@ -3,7 +3,7 @@ package cn.hacz.edu.annotation;
 import java.lang.annotation.*;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

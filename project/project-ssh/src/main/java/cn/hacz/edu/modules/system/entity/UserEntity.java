@@ -1,7 +1,6 @@
 package cn.hacz.edu.modules.system.entity;
 
 import cn.hacz.edu.base.entity.BaseEntiy;
-import cn.hacz.edu.util.TokenDetail;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
@@ -17,7 +16,7 @@ import java.util.Set;
 @Table(name = "tb_sys_user")
 @DynamicInsert
 @DynamicUpdate
-public class UserEntity extends BaseEntiy implements LoginDetail, TokenDetail {
+public class UserEntity extends BaseEntiy {
     @Column(name = "userName", unique = true, nullable = false, length = 100)
     private String userName;
 
@@ -29,19 +28,4 @@ public class UserEntity extends BaseEntiy implements LoginDetail, TokenDetail {
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
     private Set<RoleEntity> roles = new HashSet<>(0);
-
-    @Override
-    public String getUserName() {
-        return this.userName;
-    }
-
-    @Override
-    public String getUserPassword() {
-        return this.userPassword;
-    }
-
-    @Override
-    public boolean enable() {
-        return true;
-    }
 }

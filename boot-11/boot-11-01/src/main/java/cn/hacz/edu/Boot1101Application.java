@@ -5,7 +5,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

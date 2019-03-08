@@ -7,7 +7,7 @@ import cn.hacz.edu.modules.system.vo.Json;
 import org.springframework.stereotype.Service;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

@@ -5,7 +5,7 @@ import lombok.Data;
 import org.springframework.util.StringUtils;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

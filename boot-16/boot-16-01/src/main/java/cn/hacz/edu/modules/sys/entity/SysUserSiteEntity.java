@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author dong
  * @version 1.0

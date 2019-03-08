@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 /**
- * project - ETC发票系统
+ * project - GitHub整理 ETC发票系统
  *
  * @author dong
  * @version 3.0

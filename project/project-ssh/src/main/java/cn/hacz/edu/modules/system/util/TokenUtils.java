@@ -1,22 +1,30 @@
-package cn.hacz.edu.util;
+package cn.hacz.edu.modules.system.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
+@Component
 public class TokenUtils {
 
-    static final long EXPIRATIONTIME = 20 * 24 * 60 * 60 * 1000; // 5天
-    static final String SECRET = "makainb"; // JWT密码
-    static final String TOKEN_PREFIX = "Bearer"; // Token前缀
-    static final String HEADER_STRING = "Authorization";// 存放Token的Header Key
+    @Value("${token.secret}")
+    private String secret;
 
-    public static void main(String[] args) {
+    @Value("${token.expiration}")
+    private Long expiration;
+
+    @Value("${token.header}")
+    private String header;
+
+
+    public void main(String[] args) {
         String addAuthentication = addAuthentication("123", "测试站点");
         System.out.println(addAuthentication);
         System.out.println(addAuthentication.length());
@@ -24,7 +32,7 @@ public class TokenUtils {
     }
 
     // JWT生成方法
-    public static String addAuthentication(String userId, String userSystemId) {
+    public String addAuthentication(String userId, String userSystemId) {
         LocalDateTime plusDays = LocalDateTime.now().plusDays(30L);
 
         ZoneId zoneId = ZoneId.systemDefault();
@@ -41,28 +49,25 @@ public class TokenUtils {
                 // 有效期设置
                 .setExpiration(date)
                 // 签名设置
-                .signWith(SignatureAlgorithm.HS512, SECRET).compact();
+                .signWith(SignatureAlgorithm.HS512, secret).compact();
 
         return JWT;
     }
 
     // JWT验证方法
-    public static String getAuthentication(String token) {
-
+    public String getAuthentication(String token) {
         if (token == null) {
             return null;
         }
         // 解析 Token
         Claims claims = Jwts.parser()
                 // 验签
-                .setSigningKey(SECRET)
+                .setSigningKey(secret)
                 // 去掉 Bearer
-                .parseClaimsJws(token.replaceFirst(TOKEN_PREFIX, "")).getBody();
+                .parseClaimsJws(token.replaceFirst(header, "")).getBody();
 
         // 拿用户名
         String user = claims.getSubject();
         return user + "," + claims.get("authorities");
-
     }
-
 }

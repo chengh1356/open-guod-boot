@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

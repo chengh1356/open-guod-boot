@@ -1,7 +1,7 @@
 package cn.hacz.edu;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author Administrator
  * @version 1.0

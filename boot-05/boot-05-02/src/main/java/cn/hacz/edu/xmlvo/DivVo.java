@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 /**
- * project - ETC发票系统
+ * project - GitHub整理 ETC发票系统
  *
  * @author dong
  * @version 3.0

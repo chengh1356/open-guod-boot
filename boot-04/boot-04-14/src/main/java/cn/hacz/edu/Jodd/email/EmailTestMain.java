@@ -3,7 +3,7 @@ package cn.hacz.edu.Jodd.email;
 import jodd.mail.Email;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

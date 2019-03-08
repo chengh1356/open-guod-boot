@@ -4,9 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * project -
+ * project - GitHub整理
  *
- * @author yanfa07
+ * @author guodd
  * @version 1.0
  * @date 日期:2019/3/5 时间:15:57
  * @JDK 1.8

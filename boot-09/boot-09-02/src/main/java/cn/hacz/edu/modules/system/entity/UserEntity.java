@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 3.0

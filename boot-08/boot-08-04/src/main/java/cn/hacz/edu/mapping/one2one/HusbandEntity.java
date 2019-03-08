@@ -9,7 +9,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 
 /**
- * project - 一对一映射（单向外键、双向外键、单向主键、双向主键、联合主键、联合组件映射）
+ * project - GitHub整理 一对一映射（单向外键、双向外键、单向主键、双向主键、联合主键、联合组件映射）
  *
  * @author guodd
  * @version 1.0

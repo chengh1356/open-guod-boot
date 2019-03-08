@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

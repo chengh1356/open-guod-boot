@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.test.server;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

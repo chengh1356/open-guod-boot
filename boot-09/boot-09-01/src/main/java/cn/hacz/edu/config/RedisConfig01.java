@@ -14,7 +14,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.time.Duration;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 3.0

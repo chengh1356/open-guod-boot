@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * project - 接收的实体类
+ * project - GitHub整理 接收的实体类
  *
  * @author dong
  * @version 3.0

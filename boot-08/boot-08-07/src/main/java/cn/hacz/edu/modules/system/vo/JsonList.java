@@ -4,7 +4,7 @@
 package cn.hacz.edu.modules.system.vo;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author guod
  * @version 3.0

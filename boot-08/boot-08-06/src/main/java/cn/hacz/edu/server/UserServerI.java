@@ -5,7 +5,7 @@ import cn.hacz.edu.modules.system.entity.UserEntity;
 import java.util.List;
 
 /**
- * project - 综合客户服务系统
+ * project - GitHub整理 综合客户服务系统
  *
  * @author guod
  * @version 1.0

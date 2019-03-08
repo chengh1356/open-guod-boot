@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import cn.hacz.edu.mapping.manytable.Hotel;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

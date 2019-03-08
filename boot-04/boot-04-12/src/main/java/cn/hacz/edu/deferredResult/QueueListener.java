@@ -9,7 +9,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 3.0

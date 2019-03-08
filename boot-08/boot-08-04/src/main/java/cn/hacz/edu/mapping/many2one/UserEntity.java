@@ -7,7 +7,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 
 /**
- * project - 多对一（数据库表设计：在多方加外键，在一方加冗余）
+ * project - GitHub整理 多对一（数据库表设计：在多方加外键，在一方加冗余）
  *
  * @author guodd
  * @version 1.0

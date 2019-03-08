@@ -6,7 +6,7 @@ import cn.hacz.edu.modules.system.dao.impl.UserDaoImpl;
 import java.sql.Connection;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

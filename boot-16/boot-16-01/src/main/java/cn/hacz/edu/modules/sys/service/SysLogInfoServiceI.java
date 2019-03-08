@@ -3,7 +3,7 @@ package cn.hacz.edu.modules.sys.service;
 import cn.hacz.edu.modules.sys.entity.SysLogInfoEntity;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

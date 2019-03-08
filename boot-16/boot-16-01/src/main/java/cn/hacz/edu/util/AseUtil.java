@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author dong
  * @version 1.0

@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

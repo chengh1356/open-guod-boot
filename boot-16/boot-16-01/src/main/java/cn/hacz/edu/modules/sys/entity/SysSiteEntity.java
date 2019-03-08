@@ -12,7 +12,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author dong
  * @version 1.0

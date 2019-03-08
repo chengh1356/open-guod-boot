@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * project - Gitee开源项目（spring boot）
+ * project - GitHub整理 Gitee开源项目（spring boot）
  *
  * @author dong
  * @version 3.0

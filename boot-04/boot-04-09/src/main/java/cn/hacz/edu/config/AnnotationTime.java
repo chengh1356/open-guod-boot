@@ -6,7 +6,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean;
 import org.springframework.stereotype.Component;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

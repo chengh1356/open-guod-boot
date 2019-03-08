@@ -6,9 +6,7 @@ import cn.hacz.edu.modules.system.dao.StudentDaoI;
 import cn.hacz.edu.modules.system.entity.StudentEntity;
 import cn.hacz.edu.modules.system.vo.student.StudentAddReq;
 import cn.hacz.edu.modules.system.vo.student.StudentAddRes;
-import cn.hutool.json.JSONUtil;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -29,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0
@@ -95,18 +93,13 @@ public class StudentController {
     public ApiResult getPage(@RequestBody StudentAddReq studentAddReq, PageReq pageReq) {
         Page<StudentEntity> inOrders = studentDaoI.findInOrders(PageRequest.of(0, 10));
         List<StudentAddRes> content = new ArrayList<>();
-        PageInfo<StudentAddRes> pageInfo = new PageInfo<>(content);
         for (StudentEntity inOrder : inOrders) {
             StudentAddRes studentAddRes = new StudentAddRes();
             BeanUtils.copyProperties(inOrder, studentAddRes);
             content.add(studentAddRes);
         }
-        ApiResult apiResult = ApiResult.okPageMyb(pageInfo, pageInfo.getList());
-        String s = JSONUtil.toJsonStr(apiResult);
-        System.out.println(s);
         return ApiResult.okPage(inOrders, content);
     }
-
 
     /**
      * 功能描述：分页列表查询

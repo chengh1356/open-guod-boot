@@ -15,7 +15,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * project - ETC发票系统
+ * project - GitHub整理 ETC发票系统
  *
  * @author guod
  * @version 3.0

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.io.Serializable;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

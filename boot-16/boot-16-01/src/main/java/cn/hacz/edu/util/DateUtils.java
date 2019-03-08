@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author dong
  * @version 1.0

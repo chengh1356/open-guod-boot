@@ -3,7 +3,7 @@ package cn.hacz.edu.spring.md5;
 import org.springframework.util.DigestUtils;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

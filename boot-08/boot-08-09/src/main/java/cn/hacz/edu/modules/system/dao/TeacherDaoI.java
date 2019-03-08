@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

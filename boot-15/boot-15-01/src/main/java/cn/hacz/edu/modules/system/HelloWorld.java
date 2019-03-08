@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * project - 综合客户服务系统
+ * project - GitHub整理 综合客户服务系统
  *
  * @author guod
  * @version 1.0

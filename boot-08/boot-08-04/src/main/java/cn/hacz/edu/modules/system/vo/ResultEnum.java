@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system.vo;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 3.0

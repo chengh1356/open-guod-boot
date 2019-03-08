@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * project -
+ * project - GitHub整理
  * description -
  *
  * @author：guod <br/>

@@ -1,11 +1,13 @@
 package cn.hacz.edu.modules.system.service;
 
-import cn.hacz.edu.util.TokenDetail;
 import cn.hacz.edu.base.vo.ApiResult;
+import cn.hacz.edu.modules.system.entity.UserEntity;
 import cn.hacz.edu.modules.system.vo.user.UserAddReq;
 
+import java.util.List;
+
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0
@@ -22,5 +24,7 @@ public interface UserServiceI {
 
     ApiResult userResourceData();
 
-    String generateToken(TokenDetail tokenDetail);
+    UserEntity hasUser(Long userId, Long systemId, String token);
+
+    List<String> valid(Long userId, Long systemId);
 }

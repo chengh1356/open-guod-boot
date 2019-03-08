@@ -1,7 +1,7 @@
 package cn.hacz.edu.apache.lang3;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

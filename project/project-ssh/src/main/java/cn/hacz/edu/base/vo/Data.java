@@ -3,9 +3,9 @@ package cn.hacz.edu.base.vo;
 import java.util.HashMap;
 
 /**
- * project -
+ * project - GitHub整理
  *
- * @author yanfa07
+ * @author guodd
  * @version 1.0
  * @date 日期:2019/2/28 时间:17:23
  * @JDK 1.8

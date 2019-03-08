@@ -3,7 +3,7 @@ package cn.hacz.edu.util;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

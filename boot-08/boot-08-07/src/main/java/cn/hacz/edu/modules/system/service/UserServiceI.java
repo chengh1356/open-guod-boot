@@ -3,7 +3,7 @@ package cn.hacz.edu.modules.system.service;
 import cn.hacz.edu.modules.system.entity.UserEntity;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0

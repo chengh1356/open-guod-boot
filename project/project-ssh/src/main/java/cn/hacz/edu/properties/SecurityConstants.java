@@ -1,13 +1,13 @@
 package cn.hacz.edu.properties;
 
 /**
- * project -
+ * project - GitHub整理
  *
- * @author yanfa07
+ * @author guodd
  * @version 1.0
  * @date 日期:2018/12/13 时间:21:41
  * @JDK 1.8
- * @Description 功能模块：
+ * @Description 功能模块：常量
  */
 public interface SecurityConstants {
     /**

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

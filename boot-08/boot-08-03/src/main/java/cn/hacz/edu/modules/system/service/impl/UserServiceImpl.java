@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guod
  * @version 1.0

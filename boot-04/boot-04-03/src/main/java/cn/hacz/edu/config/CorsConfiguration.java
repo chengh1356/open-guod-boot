@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * project - ETC发票系统
+ * project - GitHub整理 ETC发票系统
  *
  * @author dong
  * @version 3.0

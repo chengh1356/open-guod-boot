@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * project - 中原金控后台管理服务
+ * project - GitHub整理 中原金控后台管理服务
  *
  * @author guod
  * @version 1.0

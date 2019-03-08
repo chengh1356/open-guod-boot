@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author Administrator
  * @version 1.0

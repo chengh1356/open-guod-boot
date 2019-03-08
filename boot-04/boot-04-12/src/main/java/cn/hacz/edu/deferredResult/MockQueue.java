@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 3.0

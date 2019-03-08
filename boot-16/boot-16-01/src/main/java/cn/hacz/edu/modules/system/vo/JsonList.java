@@ -6,7 +6,7 @@ package cn.hacz.edu.modules.system.vo;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author guod
  * @version 3.0

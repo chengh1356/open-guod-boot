@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

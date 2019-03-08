@@ -3,7 +3,7 @@ package cn.hacz.edu.modules.system.service;
 import cn.hacz.edu.modules.system.entity.Teacher;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

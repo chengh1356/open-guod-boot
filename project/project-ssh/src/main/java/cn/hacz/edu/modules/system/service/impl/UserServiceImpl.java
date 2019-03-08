@@ -1,5 +1,6 @@
 package cn.hacz.edu.modules.system.service.impl;
 
+import cn.hacz.edu.base.vo.ApiResult;
 import cn.hacz.edu.modules.system.dao.ResourceDaoI;
 import cn.hacz.edu.modules.system.dao.RoleDaoI;
 import cn.hacz.edu.modules.system.dao.UserDaoI;
@@ -7,9 +8,6 @@ import cn.hacz.edu.modules.system.entity.ResourceEntity;
 import cn.hacz.edu.modules.system.entity.RoleEntity;
 import cn.hacz.edu.modules.system.entity.UserEntity;
 import cn.hacz.edu.modules.system.service.UserServiceI;
-import cn.hacz.edu.util.TokenDetail;
-import cn.hacz.edu.util.TokenUtils;
-import cn.hacz.edu.base.vo.ApiResult;
 import cn.hacz.edu.modules.system.vo.resource.ResourceTreeRes;
 import cn.hacz.edu.modules.system.vo.role.RoleTreeRes;
 import cn.hacz.edu.modules.system.vo.user.UserAddReq;
@@ -22,10 +20,11 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author guodd
  * @version 1.0
@@ -41,8 +40,6 @@ public class UserServiceImpl implements UserServiceI {
     private RoleDaoI roleDaoI;
     @Autowired
     private ResourceDaoI resourceDaoI;
-    @Autowired
-    private TokenUtils tokenUtils;
 
     @Override
     public ApiResult addUser(UserAddReq userAddReq) {
@@ -134,7 +131,28 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
-    public String generateToken(TokenDetail tokenDetail) {
-        return tokenUtils.generateToken(tokenDetail);
+    public UserEntity hasUser(Long userId, Long systemId, String token) {
+        Optional<UserEntity> byId = userDaoI.findById(userId);
+        return byId.orElse(null);
+    }
+
+    @Override
+    public List<String> valid(Long userId, Long systemId) {
+        List<String> resourceList = new ArrayList<>();
+        Optional<UserEntity> byId = userDaoI.findById(userId);
+        Set<RoleEntity> roles = byId.map(UserEntity::getRoles).orElse(null);
+        if (roles != null && !roles.isEmpty()) {
+            for (RoleEntity role : roles) {
+                Set<ResourceEntity> resources = role.getResources();
+                if (resources != null && !resources.isEmpty()) {
+                    for (ResourceEntity r : resources) {
+                        if (r != null && StringUtils.hasText(r.getUrl())) {
+                            resourceList.add(r.getUrl());
+                        }
+                    }
+                }
+            }
+        }
+        return resourceList;
     }
 }

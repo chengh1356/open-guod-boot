@@ -1,13 +1,12 @@
 package cn.hacz.edu.base.vo;
 
-import com.github.pagehelper.PageInfo;
 import org.springframework.data.domain.Page;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * project - SSH项目
+ * project - GitHub整理 SSH项目
  *
  * @author guodd
  * @version 1.0
@@ -74,13 +73,6 @@ public class ApiResult extends HashMap<String, Object> {
         ApiResult apiResult = new ApiResult();
         apiResult.put("data", data);
         apiResult.put("total", page.getNumberOfElements());
-        return apiResult;
-    }
-
-    public static ApiResult okPageMyb(PageInfo pageInfo, Object data) {
-        ApiResult apiResult = new ApiResult();
-        apiResult.put("data", data);
-        apiResult.put("total", pageInfo.getTotal());
         return apiResult;
     }
 

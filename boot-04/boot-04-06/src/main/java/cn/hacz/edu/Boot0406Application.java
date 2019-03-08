@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
- * project - ETC发票系统
+ * project - GitHub整理 ETC发票系统
  *
  * @author dong
  * @version 3.0

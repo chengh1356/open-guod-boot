@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 
 /**
- * project - boot企业级开发
+ * project - GitHub整理 boot企业级开发
  *
  * @author dong
  * @version 3.0

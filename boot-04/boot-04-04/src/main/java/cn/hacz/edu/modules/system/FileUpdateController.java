@@ -1,7 +1,13 @@
 package cn.hacz.edu.modules.system;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +17,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.UUID;
 
 /**
@@ -147,5 +155,34 @@ public class FileUpdateController {
         outputStream.write(FileCopyUtils.copyToByteArray(file));
         outputStream.flush();
         outputStream.close();
+    }
+
+
+    /**
+     * 功能描述：直接返回文件流
+     *
+     * @param path
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/showFile")
+    public ResponseEntity<byte[]> showFile(@RequestParam("path") String path) throws Exception {
+        if (StringUtils.isEmpty(path)) {
+            return null;
+        }
+        String filepath = path;
+        System.out.println(filepath);
+        URL url = new URL(filepath);
+        ResponseEntity r;
+        try {
+            byte[] bytes1 = IOUtils.toByteArray(url.openConnection().getInputStream());
+            MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+            headers.add("Content-Disposition", "attachment;filename=" + URLEncoder.encode(org.springframework.util.StringUtils.getFilename(filepath), "utf-8"));
+            r = new ResponseEntity(bytes1, headers, HttpStatus.OK);
+            return r;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

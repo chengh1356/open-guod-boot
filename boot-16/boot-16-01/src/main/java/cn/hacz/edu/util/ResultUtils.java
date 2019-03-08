@@ -4,7 +4,7 @@ import cn.hacz.edu.modules.system.vo.Json;
 import cn.hacz.edu.modules.system.vo.JsonList;
 
 /**
- * project - Gitee开源系统
+ * project - GitHub整理 Gitee开源系统
  *
  * @author dong
  * @version 3.0

@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * project - Gitee开源项目（spring boot）
+ * project - GitHub整理 Gitee开源项目（spring boot）
  *
  * @author guod
  * @version 1.0

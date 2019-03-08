@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * project -
+ * project - GitHub整理
  *
  * @author dong
  * @version 1.0

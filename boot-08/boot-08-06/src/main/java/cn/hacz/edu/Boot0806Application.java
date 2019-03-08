@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
- * project - 中原金控后台管理服务
+ * project - GitHub整理 中原金控后台管理服务
  *
  * @author guod
  * @version 1.0
