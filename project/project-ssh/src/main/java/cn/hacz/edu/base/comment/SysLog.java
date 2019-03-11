@@ -31,5 +31,4 @@ public @interface SysLog {
      * 操作名称
      */
     String name() default "";
-
 }

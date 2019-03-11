@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,42 +35,48 @@ public class SecurityInterceptor implements HandlerInterceptor {
     private TokenUtils tokenUtils;
 
     private static List<String> excludeUrls = new ArrayList<>();
-    private static List<String> excUrls = new ArrayList<>();
+
 
     static {
-        excludeUrls.add("/user/login");
         excludeUrls.add("/init");
         excludeUrls.add("/doc.html");
-        excludeUrls.add("/error");
         excludeUrls.add("/swagger-resources");
-        excUrls.add("/user/adminModifyPwd");
-        excUrls.add("/user/adminGetUser");
+        excludeUrls.add("/error");
+        excludeUrls.add("/student/studentSave");
+        excludeUrls.add("/student/getInfo");
     }
 
-    @Override  //
+    @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object object) throws Exception {
-
         // 1 获取url
         String requestUri = request.getRequestURI();
         String contextPath = request.getContextPath();
         String url = requestUri.substring(contextPath.length());
 
-        // 2 是否为不需要验证的公共资源
-        if (url.contains("/static/") || excludeUrls.contains(url)) {// 如果要访问的资源是不需要验证的
+        // 2 是否为不需要验证的公共资源，如果要访问的资源是不需要验证的
+        if (url.contains("/static/") || excludeUrls.contains(url)) {
             return true;
         }
 
-        String method = request.getMethod();
         String token = getHeadersToken(request);
-        // 特殊处理OPTIONS
 
         // 4 解密token
         String authentication = tokenUtils.getAuthentication(token);
-        Long userId = Long.parseLong(authentication.split(",")[0]);
-        Long systemId = Long.parseLong(authentication.split(",")[1]);
+        if (StringUtils.isEmpty(authentication)) {
+            response.setStatus(400);
+            ApiResult r = ApiResult.error(400, "请携带token！");
+            response.setHeader("Content-type", "text/html;charset=UTF-8");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(objectMapper.writeValueAsString(r));
+            logger.warn("没有该用户或者token失效，请重新登陆！");
+            return false;
+        }
+
+        Integer userId = Integer.parseInt(authentication.split(",")[0]);
+        String userName = authentication.split(",")[1];
 
         // 5 判断是否有该用户，并且token是否一样
-        UserEntity hasUser = userServiceI.hasUser(userId, systemId, token);
+        UserEntity hasUser = userServiceI.hasUser(userId, userName, token);
         if (hasUser == null) {
             response.setStatus(403);
             ApiResult r = ApiResult.error(403, "没有该用户或者token失效，请重新登陆");
@@ -79,13 +86,11 @@ public class SecurityInterceptor implements HandlerInterceptor {
             logger.warn("没有该用户或者token失效，请重新登陆！");
             return false;
         }
-        if (excUrls.contains(url)) {
-            return true;
-        }
+
         // 判断该用户是否有资源
         // XXX 应该先从redis根据id取，取不出再从数据库查
 
-        List<String> resourceList = userServiceI.valid(userId, systemId);
+        List<String> resourceList = userServiceI.valid(userId, userName);
         boolean b = false;
         for (String string : resourceList) {
             if (url.startsWith(string)) {
@@ -107,7 +112,7 @@ public class SecurityInterceptor implements HandlerInterceptor {
     public static String getHeadersToken(HttpServletRequest request) {
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
-            String key = (String) headerNames.nextElement();
+            String key = headerNames.nextElement();
             String value = request.getHeader(key);
             if ("token".equals(key)) {
                 return value;

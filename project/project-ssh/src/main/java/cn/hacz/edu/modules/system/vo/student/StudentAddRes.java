@@ -1,5 +1,6 @@
 package cn.hacz.edu.modules.system.vo.student;
 
+import cn.hacz.edu.base.entity.EncryptField;
 import cn.hacz.edu.base.vo.BaseOperationRes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -52,5 +53,17 @@ public class StudentAddRes extends BaseOperationRes {
      */
     @JsonView(DetailInfo.class)
     private Integer age;
+
+    /**
+     * 银行卡号
+     */
+    @EncryptField
+    private String bankCardNo;
+
+    /**
+     * 身份证号
+     */
+    @EncryptField
+    private String idCard;
 
 }

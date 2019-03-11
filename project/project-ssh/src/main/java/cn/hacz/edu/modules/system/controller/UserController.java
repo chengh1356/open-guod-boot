@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system.controller;
 
 import cn.hacz.edu.base.vo.ApiResult;
-import cn.hacz.edu.base.vo.Data;
+import cn.hacz.edu.base.vo.MapData;
 import cn.hacz.edu.modules.system.dao.UserDaoI;
 import cn.hacz.edu.modules.system.service.UserServiceI;
 import cn.hacz.edu.modules.system.util.TokenUtils;
@@ -41,8 +41,8 @@ public class UserController {
      */
     @PostMapping(value = "/getToken")
     public ApiResult getToken(@RequestBody UserLoginReq userLoginReq) {
-        String s = tokenUtils.addAuthentication("aa", "bb");
-        return ApiResult.ok().data(new Data().addObj(tokenHeader, s));
+        String s = tokenUtils.addAuthentication(userLoginReq.getId().toString(), userLoginReq.getUserName());
+        return ApiResult.ok().data(new MapData().addObj(tokenHeader, s));
     }
 
 

@@ -1,6 +1,7 @@
 package cn.hacz.edu.modules.system.entity;
 
 import cn.hacz.edu.base.entity.BaseEntiy;
+import cn.hacz.edu.base.entity.EncryptField;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
@@ -44,5 +45,16 @@ public class StudentEntity extends BaseEntiy {
      */
     private LocalDate date;
 
+    /**
+     * 银行卡号
+     */
+    @EncryptField
+    private String bankCardNo;
+
+    /**
+     * 身份证号
+     */
+    @EncryptField
+    private String idCard;
 
 }

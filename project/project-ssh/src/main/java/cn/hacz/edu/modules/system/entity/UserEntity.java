@@ -28,4 +28,9 @@ public class UserEntity extends BaseEntiy {
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
     private Set<RoleEntity> roles = new HashSet<>(0);
+
+    /**
+     * 属性描述：token
+     */
+    private String token;
 }

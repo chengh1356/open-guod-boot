@@ -1,7 +1,7 @@
 package cn.hacz.edu.modules.system.controller;
 
+import cn.hacz.edu.base.entity.EncryptMethod;
 import cn.hacz.edu.base.vo.ApiResult;
-import cn.hacz.edu.base.vo.PageReq;
 import cn.hacz.edu.modules.system.dao.StudentDaoI;
 import cn.hacz.edu.modules.system.entity.StudentEntity;
 import cn.hacz.edu.modules.system.vo.student.StudentAddReq;
@@ -20,6 +20,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -38,6 +39,7 @@ import java.util.List;
 @RestController
 @Api(tags = "UserController-学生管理的增删改查")
 @Slf4j
+@RequestMapping(value = "/student")
 public class StudentController {
     @Autowired
     private StudentDaoI studentDaoI;
@@ -50,6 +52,7 @@ public class StudentController {
     @ApiResponses({
             @ApiResponse(code = 200, message = "非HTTP状态码，返回值JSON code字段值，描述：成功")
     })
+    @EncryptMethod
     public ApiResult studentSave(@RequestBody @Valid StudentAddReq studentAddReq) {
         StudentEntity studentEntity = new StudentEntity();
         BeanUtils.copyProperties(studentAddReq, studentEntity);
@@ -90,8 +93,8 @@ public class StudentController {
      */
     @PostMapping(value = "/getPage")
     @ApiOperation(value = "分页列表查询", notes = "分页列表查询01")
-    public ApiResult getPage(@RequestBody StudentAddReq studentAddReq, PageReq pageReq) {
-        Page<StudentEntity> inOrders = studentDaoI.findInOrders(PageRequest.of(0, 10));
+    public ApiResult getPage(@RequestBody StudentAddReq studentAddReq) {
+        Page<StudentEntity> inOrders = studentDaoI.findInOrders(PageRequest.of(studentAddReq.getPage() - 1, studentAddReq.getSize()));
         List<StudentAddRes> content = new ArrayList<>();
         for (StudentEntity inOrder : inOrders) {
             StudentAddRes studentAddRes = new StudentAddRes();
@@ -106,9 +109,10 @@ public class StudentController {
      */
     @PostMapping(value = "/getInfo")
     @ApiOperation(value = "分页列表查询", notes = "分页列表查询02")
+    @EncryptMethod
     public ApiResult getInfo(@RequestBody StudentAddReq studentAddReq) {
         Sort sort = new Sort(Sort.Direction.DESC, "dateTime");
-        Page<StudentEntity> all = studentDaoI.findAll(PageRequest.of(0, 10, sort));
+        Page<StudentEntity> all = studentDaoI.findAll(PageRequest.of(studentAddReq.getPage() - 1, studentAddReq.getSize(), sort));
         return ApiResult.ok(all.getContent(), all.getNumberOfElements());
     }
 }

@@ -87,7 +87,7 @@ public class ApiResult extends HashMap<String, Object> {
     }
 
     public ApiResult token(String token) {
-        this.put("X-Auth-Token", token);
+        this.put("token", token);
         return this;
     }
 }

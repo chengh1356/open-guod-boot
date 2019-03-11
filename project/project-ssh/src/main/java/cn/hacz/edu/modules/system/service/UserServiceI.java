@@ -24,7 +24,7 @@ public interface UserServiceI {
 
     ApiResult userResourceData();
 
-    UserEntity hasUser(Long userId, Long systemId, String token);
+    UserEntity hasUser(Integer userId, String userName, String token);
 
-    List<String> valid(Long userId, Long systemId);
+    List<String> valid(Integer userId, String userName);
 }

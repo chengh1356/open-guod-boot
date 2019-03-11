@@ -23,4 +23,13 @@ public class BaseOperationReq {
      * 功能描述：id
      */
     private Integer id;
+
+    /**
+     * 功能描述：page
+     */
+    private Integer page;
+    /**
+     * 功能描述：size
+     */
+    private Integer size;
 }

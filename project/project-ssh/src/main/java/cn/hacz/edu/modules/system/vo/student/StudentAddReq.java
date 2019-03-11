@@ -1,5 +1,6 @@
 package cn.hacz.edu.modules.system.vo.student;
 
+import cn.hacz.edu.base.entity.EncryptField;
 import cn.hacz.edu.base.vo.BaseOperationReq;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
@@ -70,4 +71,18 @@ public class StudentAddReq extends BaseOperationReq {
 
     @ApiModelProperty(value = "字段说明 ", name = "重写属性名字", dataType = "重写属性类型", required = false, example = "举例说明 ", hidden = false)
     private String note;
+
+    /**
+     * 银行卡号
+     */
+    @ApiModelProperty(value = "银行卡号", name = "bankCardNo", required = true, example = "23")
+    @EncryptField
+    private String bankCardNo;
+
+    /**
+     * 身份证号
+     */
+    @ApiModelProperty(value = "身份证号", name = "idCard", required = true, example = "23")
+    @EncryptField
+    private String idCard;
 }

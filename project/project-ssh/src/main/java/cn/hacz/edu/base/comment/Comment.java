@@ -7,6 +7,10 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Comment {
-
+    /**
+     * 字段注释名称
+     *
+     * @return
+     */
     String value() default "";
 }

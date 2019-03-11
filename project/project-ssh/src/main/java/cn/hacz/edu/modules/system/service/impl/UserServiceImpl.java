@@ -131,13 +131,13 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
-    public UserEntity hasUser(Long userId, Long systemId, String token) {
+    public UserEntity hasUser(Integer userId, String userName, String token) {
         Optional<UserEntity> byId = userDaoI.findById(userId);
         return byId.orElse(null);
     }
 
     @Override
-    public List<String> valid(Long userId, Long systemId) {
+    public List<String> valid(Integer userId, String userName) {
         List<String> resourceList = new ArrayList<>();
         Optional<UserEntity> byId = userDaoI.findById(userId);
         Set<RoleEntity> roles = byId.map(UserEntity::getRoles).orElse(null);

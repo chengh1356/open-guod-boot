@@ -16,7 +16,6 @@ public class CommentBinder {
         if (clazzToProcess.isAnnotationPresent(Comment.class)) {
             String tableComment = clazzToProcess.getAnnotation(Comment.class).value();
             persistentClass.getTable().setComment(tableComment);
-
         }
     }
 
@@ -28,7 +27,6 @@ public class CommentBinder {
                 for (Ejb3Column column : columns) {
                     column.getMappingColumn().setComment(comment);
                 }
-
             }
     }
 }
