@@ -7,6 +7,8 @@ import cn.hacz.edu.base.vo.ApiResult;
 import cn.hacz.edu.modules.system.dao.LogDaoI;
 import cn.hacz.edu.util.AseUtil;
 import cn.hutool.core.util.IdUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -30,6 +32,7 @@ import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -176,24 +179,13 @@ public class HttpAspect {
      * @return
      */
     @Around("annotationPointCutEncrypt()")
-    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-        Object result;
-        ApiResult j;
-        result = joinPoint.proceed();
-        j = (ApiResult) result;
-        //方法执行失败，则直接返回
-        System.out.println(j.get("success"));
-        System.out.println(j.get("data"));
-
+    public Object around(ProceedingJoinPoint joinPoint) {
         Object responseObj = null;
         try {
             Object requestObj = joinPoint.getArgs()[0];
             handleEncrypt(requestObj);
             responseObj = joinPoint.proceed();
             handleDecrypt(responseObj);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-            log.error("SecureFieldAop处理出现异常{}", e);
         } catch (Throwable throwable) {
             throwable.printStackTrace();
             log.error("SecureFieldAop处理出现异常{}", throwable);
@@ -232,15 +224,36 @@ public class HttpAspect {
             return null;
         }
         ApiResult apiResult = (ApiResult) responseObj;
-        Field[] fields = apiResult.get("data").getClass().getDeclaredFields();
-        for (Field field : fields) {
-            boolean hasSecureField = field.isAnnotationPresent(EncryptField.class);
-            if (hasSecureField) {
-                // 进行解密处理
-                field.setAccessible(true);
-                String encryptValue = (String) field.get(apiResult.get("data"));
-                String plaintextValue = AseUtil.decrypt(encryptValue, secretKey);
-                field.set(apiResult.get("data"), plaintextValue);
+        String data = JSON.toJSONString(apiResult.get("data"));
+        if (data.contains("},")) {
+            JSONArray dataArrays = JSON.parseArray(JSON.toJSONString(apiResult.get("data")));
+            for (Object dataArray : dataArrays) {
+                Map map = (Map) dataArray;
+                for (Object key : map.keySet()) {
+                    System.out.println(key + " = " + map.get(key));
+                }
+                Field[] fields = dataArray.getClass().getDeclaredFields();
+                for (Field field : fields) {
+                    boolean hasSecureField = field.isAnnotationPresent(EncryptField.class);
+                    if (hasSecureField) {
+                        field.setAccessible(true);
+                        String encryptValue = (String) field.get(dataArray);
+                        String plaintextValue = AseUtil.decrypt(encryptValue, secretKey);
+                        field.set(dataArray, plaintextValue);
+                    }
+                }
+            }
+        } else {
+            Field[] fields = apiResult.get("data").getClass().getDeclaredFields();
+            for (Field field : fields) {
+                boolean hasSecureField = field.isAnnotationPresent(EncryptField.class);
+                if (hasSecureField) {
+                    // 进行解密处理
+                    field.setAccessible(true);
+                    String encryptValue = (String) field.get(apiResult.get("data"));
+                    String plaintextValue = AseUtil.decrypt(encryptValue, secretKey);
+                    field.set(apiResult.get("data"), plaintextValue);
+                }
             }
         }
         return responseObj;

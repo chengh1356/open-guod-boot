@@ -54,5 +54,10 @@
             <artifactId>hutool-all</artifactId>
             <version>4.1.21</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.52</version>
+        </dependency>
     </dependencies>
 </project>

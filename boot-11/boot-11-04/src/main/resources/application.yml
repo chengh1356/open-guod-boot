@@ -1,0 +1,6 @@
+server:
+  port: 1104
+kafka:
+  bootstrap-servers: 192.168.162.239:9092
+  topic:
+    helloworld: testtopic

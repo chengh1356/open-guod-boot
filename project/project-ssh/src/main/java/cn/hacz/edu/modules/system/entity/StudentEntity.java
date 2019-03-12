@@ -2,7 +2,9 @@ package cn.hacz.edu.modules.system.entity;
 
 import cn.hacz.edu.base.entity.BaseEntiy;
 import cn.hacz.edu.base.entity.EncryptField;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -27,6 +29,8 @@ import java.time.LocalDateTime;
 @Table(name = "tb_student")
 @DynamicInsert
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
 public class StudentEntity extends BaseEntiy {
     /**
      * 属性描述：姓名
