@@ -25,9 +25,9 @@ public class KafkaProducer {
     /**
      * 功能描述：/sender.action
      */
-    @RequestMapping(value = "/sender.action")
+    @RequestMapping(value = "/send")
     public void sender(HttpServletResponse response, String data) throws IOException {
-        sender.send("test topic", data);
+        sender.send("myTopic", data);
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         response.getWriter().write("success");

@@ -21,7 +21,7 @@
         <module>boot-04-02</module>
         <!-- CORS跨域请求处理 -->
         <module>boot-04-03</module>
-        <!-- 文件上传下载 -->
+        <!-- 文件上传下载（zip） -->
         <module>boot-04-04</module>
         <!-- SpringMvc静态文件地址 -->
         <module>boot-04-05</module>
@@ -56,5 +56,6 @@
         <module>boot-04-21</module>
         <!-- 二维码生成 -->
         <module>boot-04-22</module>
+        <module>boot-04-23</module>
     </modules>
 </project>

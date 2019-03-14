@@ -185,4 +185,12 @@ public class FileUpdateController {
         }
         return null;
     }
+
+    /**
+     * 功能描述：zip
+     */
+    @RequestMapping(value = "zip")
+    public Object zip(@RequestBody Object object) {
+        return null;
+    }
 }
