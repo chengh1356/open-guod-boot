@@ -22,6 +22,6 @@ server:
 spring:
   profiles: prod
 logging:
-  config: classpath:logback-spring.xml
+  config: classpath:spring-logback.xml
   level:
     com.yuqiyu.chapter12.controller: 'off'

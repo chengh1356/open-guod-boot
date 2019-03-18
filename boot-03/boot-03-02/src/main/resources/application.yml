@@ -1,2 +1,2 @@
 logging:
-  config: classpath:log4j2-spring.yml
+  config: classpath:spring-log4j2-days.yml
