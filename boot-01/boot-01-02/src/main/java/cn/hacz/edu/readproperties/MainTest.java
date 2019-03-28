@@ -1,5 +1,6 @@
 package cn.hacz.edu.readproperties;
 
+import cn.hutool.setting.Setting;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
@@ -19,7 +20,7 @@ import java.util.Properties;
  */
 public class MainTest {
     public static void main(String[] args) throws IOException, ConfigurationException {
-    	// 方式01
+        // 方式01
         Configuration configuration = new PropertiesConfiguration("conf/pay.properties");
         String string = configuration.getString("pay.name");
         System.out.println(string);
@@ -27,5 +28,8 @@ public class MainTest {
         Properties properties = PropertiesLoaderUtils.loadAllProperties("conf/pay.properties");
         String property = properties.getProperty("pay.name");
         System.out.println(property);
+        // 方式03
+        Setting set = new Setting("conf/file.properties");
+        System.out.println(set.get("name"));
     }
 }
